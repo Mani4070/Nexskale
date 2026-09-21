@@ -4,7 +4,13 @@
   --page-muted: #555e75;
   --page-line: #e6e8f2;
   color: var(--page-ink);
+  background: #050713;
+}
+.interior-site main {
   background: #fbfbfe;
+}
+.interior-site .interior-banner {
+  background: #050713;
 }
 .interior-wrap {
   width: 100%;
@@ -864,6 +870,10 @@
   }
 }
 /* Interior pages follow the homepage's brand system with their own content. */
+.interior-site .site-header-spacer {
+  display: none;
+}
+
 .interior-banner {
   position: relative;
   isolation: isolate;
@@ -889,9 +899,10 @@
     ),
     linear-gradient(
       180deg,
-      rgba(4, 6, 17, 0.45),
-      transparent 35%,
-      rgba(4, 6, 17, 0.88)
+      rgba(4, 6, 17, 0.55) 0%,
+      transparent 22%,
+      transparent 75%,
+      rgba(4, 6, 17, 0.92) 100%
     );
 }
 .interior-banner::after {
@@ -907,11 +918,24 @@
   );
 }
 .interior-banner-body {
-  min-height: min(760px, calc(100svh - 94px));
+  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-block: clamp(55px, 7vw, 100px) 35px;
+  padding-top: calc(94px + clamp(25px, 4vh, 50px));
+  padding-bottom: 35px;
+  box-sizing: border-box;
+}
+@media (min-width: 1440px) {
+  .interior-banner-body {
+    padding-top: calc(104px + clamp(28px, 4.5vh, 55px));
+  }
+}
+@media (max-width: 1215px) {
+  .interior-banner-body {
+    padding-top: calc(77px + clamp(20px, 3.5vh, 40px));
+  }
 }
 .interior-banner-copy {
   max-width: 840px;
@@ -1160,16 +1184,17 @@
 }
 @media (max-width: 800px) {
   .interior-banner-body {
-    min-height: 600px;
-    padding-top: 65px;
+    min-height: 640px;
+    padding-top: calc(77px + 30px);
+    padding-bottom: 30px;
   }
   .interior-banner-copy {
-    padding-bottom: 45px;
+    padding-bottom: 40px;
   }
   .interior-banner-shade {
     background:
       linear-gradient(90deg, #040611f5, #0406119e),
-      linear-gradient(180deg, #04061140, transparent, #040611cc);
+      linear-gradient(180deg, rgba(4, 6, 17, 0.6) 0%, transparent 22%, #040611cc 100%);
   }
   .interior-banner-topics {
     gap: 15px;
@@ -1183,8 +1208,9 @@
 }
 @media (max-width: 550px) {
   .interior-banner-body {
-    min-height: 570px;
-    padding-block: 45px 25px;
+    min-height: 580px;
+    padding-top: calc(77px + 22px);
+    padding-bottom: 25px;
   }
   .interior-site .interior-banner h1 {
     font-size: clamp(34px, 9vw, 44px);

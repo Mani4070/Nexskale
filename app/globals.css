@@ -194,6 +194,11 @@ p {
   pointer-events: none;
 }
 
+.interior-site .site-header-spacer {
+  display: none !important;
+  height: 0 !important;
+}
+
 .site-header {
   height: 94px;
   display: flex;

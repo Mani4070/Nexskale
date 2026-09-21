@@ -14,13 +14,12 @@ export default function ContentPage({
 }) {
   return (
     <div className={"interior-site interior-" + currentPage}>
-      <div className="dark-top">
-        <Header
-          brandName={content.brand.name}
-          navigation={content.navigation}
-          currentPage={currentPage}
-        />
-      </div>
+      <Header
+        brandName={content.brand.name}
+        navigation={content.navigation}
+        currentPage={currentPage}
+        hideSpacer
+      />
       <main>{children}</main>
       <Footer content={content} />
     </div>

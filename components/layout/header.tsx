@@ -15,12 +15,14 @@ type HeaderProps = {
   brandName: string;
   navigation: readonly NavItem[] | NavItem[];
   currentPage?: string;
+  hideSpacer?: boolean;
 };
 
 export default function Header({
   brandName,
   navigation,
   currentPage,
+  hideSpacer = false,
 }: HeaderProps) {
   const [mobile, setMobile] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -117,7 +119,7 @@ export default function Header({
           </button>
         </div>
       </header>
-      <div className="site-header-spacer" aria-hidden="true" />
+      {!hideSpacer && <div className="site-header-spacer" aria-hidden="true" />}
     </>
   );
 }

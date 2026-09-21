@@ -156,7 +156,7 @@ function MarqueeRow({ items, reverse = false }: { items: TechItem[]; reverse?: b
 
 export default function TechStackSection() {
     return (
-        <section className="tech-stack-section">
+        <section className="tech-stack-section" aria-label="Technologies and frameworks we use">
             <MarqueeRow items={ROW1} reverse={false} />
             <MarqueeRow items={ROW2} reverse={true} />
         </section>

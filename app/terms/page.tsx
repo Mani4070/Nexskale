@@ -8,8 +8,24 @@ import PageIntro from "@/components/layout/page-intro";
 export async function generateMetadata(): Promise<Metadata> {
   const c = await getContent();
   return {
-    title: `Terms of service — ${c.brand.name}`,
-    description: "A clear foundation for working together.",
+    title: "Terms of Service",
+    description:
+      "Read the NexSkale terms of service. A clear legal foundation and expectations for working together.",
+    alternates: {
+      canonical: "/terms",
+    },
+    openGraph: {
+      title: `Terms of Service | ${c.brand.name}`,
+      description: "A clear foundation for working together.",
+      url: "/terms",
+      siteName: c.brand.name,
+      type: "website",
+    },
+    twitter: {
+      card: "summary",
+      title: `Terms of Service | ${c.brand.name}`,
+      description: "A clear foundation for working together.",
+    },
   };
 }
 

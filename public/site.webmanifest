@@ -1,0 +1,21 @@
+{
+  "name": "NexSkale — Ideas into Impactful Technology",
+  "short_name": "NexSkale",
+  "description": "Digital products built with purpose. Web development, AI automation, mobile apps and cloud solutions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0c",
+  "theme_color": "#0a0a0c",
+  "icons": [
+    {
+      "src": "/images/logo/mobile-logo.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "32x32 48x48",
+      "type": "image/png"
+    }
+  ]
+}

@@ -7,9 +7,35 @@ import InteriorBanner from "@/components/layout/interior-banner";
 export async function generateMetadata(): Promise<Metadata> {
   const c = await getContent();
   return {
-    title: "Services | " + c.brand.name,
+    title: "Services & Capabilities — Web, Mobile, AI & Cloud Engineering",
     description:
-      "Explore our capabilities, deliverables and ways to work together.",
+      "Explore NexSkale's digital capabilities: modern web development, iOS and Android mobile apps, AI automation, cloud architecture, and intuitive UI/UX design.",
+    alternates: {
+      canonical: "/services",
+    },
+    openGraph: {
+      title: `Services & Capabilities — Web, Mobile, AI & Cloud | ${c.brand.name}`,
+      description:
+        "From initial concept to systems that scale. Explore digital engineering and design capabilities tailored to your business.",
+      url: "/services",
+      siteName: c.brand.name,
+      type: "website",
+      images: [
+        {
+          url: "/images/pages/services.webp",
+          width: 1200,
+          height: 630,
+          alt: "NexSkale Capabilities & Engineering Spectrum",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `Services & Capabilities — Web, Mobile, AI & Cloud | ${c.brand.name}`,
+      description:
+        "From initial concept to systems that scale. Explore digital engineering and design capabilities tailored to your business.",
+      images: ["/images/pages/services.webp"],
+    },
   };
 }
 const outcomes: Record<string, string> = {
@@ -22,8 +48,52 @@ const outcomes: Record<string, string> = {
 };
 export default async function Page() {
   const c = await getContent();
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://nexskale.com";
+
+  const servicesJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: siteUrl,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Services",
+            item: `${siteUrl}/services`,
+          },
+        ],
+      },
+      {
+        "@type": "ItemList",
+        name: "NexSkale Capabilities and Services",
+        itemListElement: c.services.map((s, idx) => ({
+          "@type": "Service",
+          position: idx + 1,
+          name: s.title,
+          description: s.detail,
+          provider: {
+            "@type": "Organization",
+            name: c.brand.name,
+          },
+          url: `${siteUrl}/services#capability-${s.id}`,
+        })),
+      },
+    ],
+  };
+
   return (
     <ContentPage content={c} currentPage="services">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesJsonLd) }}
+      />
       <InteriorBanner
         eyebrow={"Expertise that moves you forward"}
         title={"Your ambition."}

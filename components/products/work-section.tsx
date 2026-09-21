@@ -38,8 +38,8 @@ export default function WorkSection({
                 : "Explore the products."}
             </h2>
           </div>
-          <Link className="text-link" href="/work">
-            View all work <ArrowRight size={15} />
+          <Link className="text-link" href="/services">
+            Explore capabilities <ArrowRight size={15} />
           </Link>
         </div>
         {showFilters && (
@@ -60,7 +60,13 @@ export default function WorkSection({
             <Link
               className="project-card"
               key={p.id}
-              href={`/products/${p.id}`}
+              href={`/contact?service=${encodeURIComponent(
+                p.category.toLowerCase().includes("saas")
+                  ? "saas"
+                  : p.category.toLowerCase().includes("mobile")
+                    ? "mobile"
+                    : "web",
+              )}`}
             >
               <Dashboard project={p} />
               <div className="project-copy">

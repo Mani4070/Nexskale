@@ -8,8 +8,24 @@ import PageIntro from "@/components/layout/page-intro";
 export async function generateMetadata(): Promise<Metadata> {
   const c = await getContent();
   return {
-    title: `Privacy policy — ${c.brand.name}`,
-    description: "How we handle the information you share with us.",
+    title: "Privacy Policy",
+    description:
+      "Read the NexSkale privacy policy. Learn how we collect, handle, and safeguard the information you share with us.",
+    alternates: {
+      canonical: "/privacy",
+    },
+    openGraph: {
+      title: `Privacy Policy | ${c.brand.name}`,
+      description: "How we handle the information you share with us.",
+      url: "/privacy",
+      siteName: c.brand.name,
+      type: "website",
+    },
+    twitter: {
+      card: "summary",
+      title: `Privacy Policy | ${c.brand.name}`,
+      description: "How we handle the information you share with us.",
+    },
   };
 }
 

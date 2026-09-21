@@ -6,15 +6,67 @@ import InteriorBanner from "@/components/layout/interior-banner";
 export async function generateMetadata(): Promise<Metadata> {
   const c = await getContent();
   return {
-    title: "Careers | " + c.brand.name,
+    title: "Careers — Build Meaningful Digital Products With Us",
     description:
-      "Explore the craft, curiosity and collaboration behind our work.",
+      "Explore career possibilities at NexSkale. Bring your curiosity and craft to engineering, product design, and thoughtful digital product development.",
+    alternates: {
+      canonical: "/careers",
+    },
+    openGraph: {
+      title: `Careers — Build Meaningful Digital Products | ${c.brand.name}`,
+      description:
+        "Bring your curiosity and your craft. Explore the people, disciplines and possibilities behind a career at NexSkale.",
+      url: "/careers",
+      siteName: c.brand.name,
+      type: "website",
+      images: [
+        {
+          url: "/images/pages/careers.webp",
+          width: 1200,
+          height: 630,
+          alt: "Careers at NexSkale — Design and Engineering Studio",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `Careers — Build Meaningful Digital Products | ${c.brand.name}`,
+      description:
+        "Bring your curiosity and your craft. Explore the people, disciplines and possibilities behind a career at NexSkale.",
+      images: ["/images/pages/careers.webp"],
+    },
   };
 }
+
 export default async function Page() {
   const c = await getContent();
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://nexskale.com";
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: siteUrl,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Careers",
+        item: `${siteUrl}/careers`,
+      },
+    ],
+  };
+
   return (
     <ContentPage content={c} currentPage="careers">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <InteriorBanner
         eyebrow={"Your talent. Our next chapter."}
         title={"Do meaningful work."}

@@ -16,6 +16,30 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: `${content.brand.name} — Ideas into Impactful Technology`,
     description: content.hero.description,
+    alternates: {
+      canonical: "/",
+    },
+    openGraph: {
+      title: `${content.brand.name} — Ideas into Impactful Technology`,
+      description: content.hero.description,
+      url: "/",
+      siteName: content.brand.name,
+      type: "website",
+      images: [
+        {
+          url: "/images/hero1.png",
+          width: 1200,
+          height: 630,
+          alt: `${content.brand.name} — Ideas into Impactful Technology`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${content.brand.name} — Ideas into Impactful Technology`,
+      description: content.hero.description,
+      images: ["/images/hero1.png"],
+    },
   };
 }
 

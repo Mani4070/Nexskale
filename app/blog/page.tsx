@@ -8,17 +8,88 @@ import InteriorBanner from "@/components/layout/interior-banner";
 export async function generateMetadata(): Promise<Metadata> {
   const c = await getContent();
   return {
-    title: "Blogs | " + c.brand.name,
+    title: "Tech & Product Blog — Perspectives on AI, Web & Cloud",
     description:
-      "Dispatches on technology, design and the decisions behind better digital products.",
+      "Dispatches, architectural guides, and perspectives on emerging technology, generative AI workflows, and thoughtful digital product engineering by NexSkale.",
+    alternates: {
+      canonical: "/blog",
+    },
+    openGraph: {
+      title: `Tech & Product Blog — Perspectives on AI, Web & Cloud | ${c.brand.name}`,
+      description:
+        "Explore the technology, design decisions and practical engineering thinking shaping next-generation digital products.",
+      url: "/blog",
+      siteName: c.brand.name,
+      type: "website",
+      images: [
+        {
+          url: "/images/pages/blog.webp",
+          width: 1200,
+          height: 630,
+          alt: "NexSkale Tech & Product Journal",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `Tech & Product Blog — Perspectives on AI, Web & Cloud | ${c.brand.name}`,
+      description:
+        "Explore the technology, design decisions and practical engineering thinking shaping next-generation digital products.",
+      images: ["/images/pages/blog.webp"],
+    },
   };
 }
+
 export default async function Page() {
   const c = await getContent();
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://nexskale.com";
   const [featured, ...posts] = c.posts;
   const categories = [...new Set(c.posts.map((p) => p.category))];
+
+  const blogListingJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: siteUrl,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Blog",
+            item: `${siteUrl}/blog`,
+          },
+        ],
+      },
+      {
+        "@type": "Blog",
+        name: `${c.brand.name} Journal & Engineering Perspectives`,
+        description:
+          "Practical architectures, generative AI insights, and modern engineering practices.",
+        url: `${siteUrl}/blog`,
+        blogPost: c.posts.map((p) => ({
+          "@type": "BlogPosting",
+          headline: p.title,
+          description: p.excerpt,
+          url: `${siteUrl}/blog/${p.id}`,
+          datePublished: p.date,
+          image: p.image,
+        })),
+      },
+    ],
+  };
+
   return (
     <ContentPage content={c} currentPage="blog">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogListingJsonLd) }}
+      />
       <InteriorBanner
         eyebrow={"Insights from the world of technology"}
         title={"Fresh perspectives."}

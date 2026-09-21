@@ -7,9 +7,35 @@ import InteriorBanner from "@/components/layout/interior-banner";
 export async function generateMetadata(): Promise<Metadata> {
   const c = await getContent();
   return {
-    title: "Contact | " + c.brand.name,
+    title: "Contact Us — Start Your Next Digital Project",
     description:
-      "Start a project conversation or find the right way to reach us.",
+      "Get in touch with NexSkale. Whether you are starting a new web or mobile project, exploring AI automation, or scaling cloud infrastructure, let's talk.",
+    alternates: {
+      canonical: "/contact",
+    },
+    openGraph: {
+      title: `Contact Us — Start Your Next Digital Project | ${c.brand.name}`,
+      description:
+        "A new product, a complex challenge or just an idea worth exploring. Tell us where you want to go, and we will find the next step together.",
+      url: "/contact",
+      siteName: c.brand.name,
+      type: "website",
+      images: [
+        {
+          url: "/images/pages/contact.webp",
+          width: 1200,
+          height: 630,
+          alt: "Contact NexSkale Team",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `Contact Us — Start Your Next Digital Project | ${c.brand.name}`,
+      description:
+        "A new product, a complex challenge or just an idea worth exploring. Tell us where you want to go, and we will find the next step together.",
+      images: ["/images/pages/contact.webp"],
+    },
   };
 }
 import ContactForm from "@/components/contact/contact-form";
@@ -19,12 +45,53 @@ export default async function Page({
   searchParams: Promise<{ service?: string | string[] }>;
 }) {
   const c = await getContent();
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://nexskale.com";
   const { service } = await searchParams;
   const selected =
     c.services.find((s) => s.id === service || s.title === service)?.title ??
     "";
+
+  const contactJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: siteUrl,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Contact",
+            item: `${siteUrl}/contact`,
+          },
+        ],
+      },
+      {
+        "@type": "ContactPage",
+        name: "Contact NexSkale",
+        description: "Start a project conversation or explore possibilities.",
+        url: `${siteUrl}/contact`,
+        mainEntity: {
+          "@type": "Organization",
+          name: c.brand.name,
+          email: c.brand.email,
+          url: siteUrl,
+        },
+      },
+    ],
+  };
+
   return (
     <ContentPage content={c} currentPage="contact">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }}
+      />
       <InteriorBanner
         eyebrow={"Great ideas start with a conversation"}
         title={"Tell us your vision."}

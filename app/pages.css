@@ -1411,6 +1411,7 @@
 
 .not-found h1 {
   font-size: clamp(35px, 5vw, 65px);
+  color: var(--ink);
 }
 
 .not-found p {
@@ -1494,11 +1495,46 @@
 
 @media (max-width: 950px) {
   .navigation {
-    gap: 15px;
+    display: none;
+  }
+
+  .navigation.is-open {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    position: absolute;
+    inset: 100% 0 auto;
+    width: 100%;
+    max-height: calc(100dvh - 77px);
+    overflow-y: auto;
+    padding: 16px 24px;
+    gap: 8px 16px;
+    background: rgba(5, 7, 19, 0.98);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   }
 
   .navigation a {
-    font-size: 11px;
+    justify-content: center;
+    min-height: 44px;
+    font-size: 14px;
+  }
+
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    padding: 10px;
+    border: 0;
+    background: none;
+    color: #fff;
+  }
+
+  .header-cta {
+    margin-left: auto;
+    margin-right: 8px;
+    min-height: 44px;
   }
 
   .detail-grid,
@@ -1521,16 +1557,74 @@
   }
 
   .article-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 30px;
   }
 
   .article-sidebar {
     position: static;
   }
+
+  .contact-form label,
+  .form-row > * {
+    min-width: 0;
+  }
 }
 
 @media (max-width: 700px) {
+  .section-heading.compact h2 {
+    max-width: none;
+    font-size: clamp(28px, 7.5vw, 34px);
+  }
+
+  .banner-actions,
+  .article-meta-ribbon {
+    flex-wrap: wrap;
+  }
+
+  .footer-bottom a,
+  .footer-bottom span,
+  .footer-bottom button {
+    font-size: 13px;
+  }
+
+  .footer-bottom > span:last-child {
+    margin-left: 0;
+  }
+
+  .footer-bottom > div {
+    gap: 12px 20px;
+  }
+
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea,
+  .subscribe input {
+    min-width: 0;
+    font-size: 16px;
+  }
+
+  .contact-form label,
+  .form-row > *,
+  .article-layout > *,
+  .footer-grid > * {
+    min-width: 0;
+  }
+
+  .article-cta-box {
+    padding: 22px 18px;
+  }
+
+  .article-takeaway,
+  .article-pullquote {
+    padding: 20px 18px;
+  }
+
+  .legal-page,
+  .article-content {
+    overflow-wrap: anywhere;
+  }
+
   .page-intro {
     padding: 24px 0 38px;
   }

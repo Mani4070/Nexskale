@@ -14,8 +14,15 @@
 }
 .interior-wrap {
   width: 100%;
-  padding-inline: clamp(20px, 3.5vw, 54px);
+  padding-inline: var(--site-gutter);
   margin-inline: auto;
+}
+
+.interior-wrap > *,
+.capability-row > *,
+.journal-cover-link > *,
+.journal-entry > * {
+  min-width: 0;
 }
 .interior-site h1,
 .interior-site h2,
@@ -763,11 +770,39 @@
   .career-notes > div,
   .engagement-grid {
     gap: 25px;
+    grid-template-columns: 1fr;
   }
   .journal-intro {
     align-items: start;
     flex-direction: column;
     gap: 8px;
+  }
+}
+@media (max-width: 700px) {
+  .career-letter {
+    padding: 28px 22px;
+  }
+
+  .enquiry-card {
+    padding: 24px 18px;
+  }
+
+  .enquiry-card .form-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .enquiry-card .contact-form input,
+  .enquiry-card .contact-form select,
+  .enquiry-card .contact-form textarea {
+    font-size: 16px;
+    min-width: 0;
+  }
+
+  .contact-channel a,
+  .interior-site main h1,
+  .interior-site main h2,
+  .interior-site main h3 {
+    overflow-wrap: anywhere;
   }
 }
 @media (max-width: 550px) {
@@ -829,7 +864,7 @@
     height: 260px;
   }
   .enquiry-card {
-    padding: 23px;
+    padding: 24px 18px;
   }
   .enquiry-card .form-row {
     grid-template-columns: 1fr;
@@ -1070,7 +1105,7 @@
   color: #6366f1;
 }
 .career-letter {
-  width: calc(100% - clamp(40px, 7vw, 108px));
+  width: calc(100% - 2 * var(--site-gutter));
   padding: clamp(30px, 5vw, 70px);
   background:
     radial-gradient(ellipse at 90% 15%, #7c3aed33, transparent 65%), #080c14;
@@ -1201,9 +1236,6 @@
   }
   .interior-banner-scroll {
     display: none;
-  }
-  .career-letter {
-    width: calc(100% - 40px);
   }
 }
 @media (max-width: 550px) {

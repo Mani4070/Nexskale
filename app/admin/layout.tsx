@@ -8,8 +8,8 @@ import "./admin.css";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Admin Panel — NexusKale CMS",
-  description: "Dynamic content management system for NexusKale.",
+  title: "Admin Panel — NexSkale CMS",
+  description: "Dynamic content management system for NexSkale.",
   robots: { index: false, follow: false },
   icons: {
     icon: [

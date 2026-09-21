@@ -41,7 +41,7 @@ export default function ContactForm({
         <h2>Great ideas start here.</h2>
         <p>
           Your enquiry has been saved. Thank you for sharing your project with
-          NexusKale.
+          NexSkale.
         </p>
         <Link href="/" className="button primary">
           Back to exploring <ArrowRight size={16} />

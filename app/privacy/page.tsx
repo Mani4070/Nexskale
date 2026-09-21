@@ -26,7 +26,7 @@ export default async function PrivacyPage() {
           currentPage="privacy"
         />
         <PageIntro
-          eyebrow="NexusKale"
+          eyebrow="NexSkale"
           title="Privacy policy"
           description="How we handle the information you share with us."
           variant="legal"

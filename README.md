@@ -1,4 +1,4 @@
-# NexusKale
+# NexSkale
 
 A responsive technology agency website inspired by the supplied reference. Built with Next.js App Router, React, TypeScript and a Node.js backend using local JSON storage.
 

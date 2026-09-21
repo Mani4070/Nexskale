@@ -8,7 +8,7 @@ type AboutProcessProps = {
 
 export default function AboutProcess({ steps }: AboutProcessProps) {
   return (
-    <section className="section process-section">
+    <section className="section process-section" id="approach">
       <div className="container">
         <div className="section-heading">
           <div>

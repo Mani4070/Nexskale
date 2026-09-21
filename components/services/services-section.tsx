@@ -179,7 +179,7 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
           </div>
 
           <div className="services-link-col">
-            <Link className="services-explore-link" href="/#contact">
+            <Link className="services-explore-link" href="/services">
               <span>Explore our services</span>
               <ArrowRight size={16} className="link-arrow-icon" />
             </Link>
@@ -254,7 +254,7 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
                 <div className="panel-cta-wrap">
                   <Link
                     className="panel-primary-btn"
-                    href={`/#contact?service=${activeId}`}
+                    href={`/contact?service=${encodeURIComponent(activeId)}`}
                   >
                     <span>Get Started</span>
                     <ArrowRight size={16} />

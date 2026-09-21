@@ -1,12 +1,12 @@
 import { createHash } from "node:crypto";
 import { cookies } from "next/headers";
 
-const ADMIN_COOKIE_NAME = "nexuskale_admin_session";
+const ADMIN_COOKIE_NAME = "nexskale_admin_session";
 const DEFAULT_SECRET = "admin123";
 
 function getExpectedToken(): string {
   const secret = process.env.ADMIN_SECRET || DEFAULT_SECRET;
-  return createHash("sha256").update(`nexuskale-admin:${secret}`).digest("hex");
+  return createHash("sha256").update(`nexskale-admin:${secret}`).digest("hex");
 }
 
 export function isValidSecret(inputSecret: string): boolean {

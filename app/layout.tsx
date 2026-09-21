@@ -3,9 +3,9 @@ import Preloader from "@/components/ui/preloader";
 import "./globals.css";
 import "./pages.css";
 export const metadata: Metadata = {
-  title: "NexusKale — Ideas into Impactful Technology",
+  title: "NexSkale — Ideas into Impactful Technology",
   description:
-    "Digital products built with purpose. Web development, AI automation, mobile apps and cloud solutions by NexusKale.",
+    "Digital products built with purpose. Web development, AI automation, mobile apps and cloud solutions by NexSkale.",
   icons: {
     icon: [
       { url: "/images/logo/mobile-logo.png", sizes: "any" },

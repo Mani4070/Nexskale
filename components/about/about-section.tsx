@@ -89,7 +89,7 @@ type AboutSectionProps = {
   isHome?: boolean;
 };
 
-export default function AboutSection({ about }: AboutSectionProps) {
+export default function AboutSection({ about, isHome = false }: AboutSectionProps) {
   const renderHeadline = (text: string) => {
     const target = "understands";
     const index = text.toLowerCase().indexOf(target);
@@ -129,7 +129,7 @@ export default function AboutSection({ about }: AboutSectionProps) {
             </p>
 
             <div className="about-action-row">
-              <Link className="about-approach-btn" href="/about">
+              <Link className="about-approach-btn" href={isHome ? "/about" : "#approach"}>
                 <span>Our approach</span>
                 <ArrowRight size={17} className="about-btn-arrow" />
               </Link>

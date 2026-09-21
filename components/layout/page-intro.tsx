@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 
 export type PageIntroVariant =
+  | "careers"
   | "services"
   | "blog"
   | "blog-detail"
@@ -51,6 +52,23 @@ export default function PageIntro({
         </div>
 
         <div className="page-intro-visual" aria-hidden="true">
+          {variant === "careers" && (
+            <div className="intro-glass-card">
+              <div className="glass-card-header">
+                <Code2 size={16} className="sparkle-accent" />
+                <span>Build with purpose</span>
+              </div>
+              <div className="glass-topics-row">
+                <span className="topic-chip">Engineering</span>
+                <span className="topic-chip">Design</span>
+                <span className="topic-chip">Collaboration</span>
+              </div>
+              <div className="glass-card-footer">
+                <Sparkles size={13} />
+                <span>Bring your curiosity and craft</span>
+              </div>
+            </div>
+          )}
           {variant === "services" && (
             <div className="intro-glass-card">
               <div className="glass-card-header">
@@ -124,7 +142,7 @@ export default function PageIntro({
               </div>
               <div className="glass-card-footer">
                 <span className="pulse-dot" />
-                <span>NexusKale Engineering & AI</span>
+                <span>NexSkale Engineering & AI</span>
               </div>
             </div>
           )}
@@ -205,7 +223,7 @@ export default function PageIntro({
               </div>
               <div className="glass-card-footer">
                 <Mail size={13} />
-                <span>hello@nexuskale.com</span>
+                <span>hello@nexskale.com</span>
               </div>
             </div>
           )}

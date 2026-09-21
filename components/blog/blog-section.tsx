@@ -134,7 +134,7 @@ export default function BlogSection({
                   <div className="author-micro-badge">
                     <span className="avatar-chip">N</span>
                     <div>
-                      <strong>NexusKale Editorial</strong>
+                      <strong>NexSkale Editorial</strong>
                       <span>AI & Engineering</span>
                     </div>
                   </div>
@@ -165,7 +165,7 @@ export default function BlogSection({
                 <h3>{p.title}</h3>
                 <p className="blog-card-excerpt">{p.excerpt}</p>
                 <div className="blog-card-footer">
-                  <span className="card-author">NexusKale</span>
+                  <span className="card-author">NexSkale</span>
                   <span className="read-more">
                     Read article <ArrowRight size={14} />
                   </span>
@@ -178,7 +178,7 @@ export default function BlogSection({
         {!isHome && (
           <div className="blog-newsletter-banner">
             <div className="newsletter-copy">
-              <div className="eyebrow purple">NexusKale Dispatch</div>
+              <div className="eyebrow purple">NexSkale Dispatch</div>
               <h3>Stay ahead with our latest perspectives</h3>
               <p>
                 A monthly technical breakdown of AI workflows, web

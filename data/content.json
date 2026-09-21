@@ -1,8 +1,8 @@
 {
   "brand": {
-    "name": "NexusKale",
+    "name": "NexSkale",
     "tagline": "Building digital products that make businesses faster, smarter and more human.",
-    "email": "hello@nexuskale.com",
+    "email": "hello@nexskale.com",
     "social": {
       "linkedin": "https://linkedin.com",
       "twitter": "https://x.com",
@@ -18,19 +18,23 @@
     },
     {
       "label": "About",
-      "href": "/#about"
+      "href": "/about"
     },
     {
       "label": "Services",
-      "href": "/#services"
+      "href": "/services"
     },
     {
-      "label": "Insights",
-      "href": "/#blog"
+      "label": "Blogs",
+      "href": "/blog"
     },
     {
       "label": "Careers",
-      "href": "/#careers"
+      "href": "/careers"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact"
     }
   ],
   "hero": {
@@ -155,7 +159,7 @@
   ],
   "about": {
     "image": "/images/nexuskale-reception.png",
-    "imageAlt": "NexusKale modern reception lobby with 3D illuminated logo and workspace",
+    "imageAlt": "NexSkale modern reception lobby with 3D illuminated logo and workspace",
     "title": "A technology partner that truly understands your business.",
     "description": "We combine domain understanding, modern technology and a product mindset to deliver solutions that create long-term value.",
     "principles": [

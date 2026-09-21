@@ -55,6 +55,9 @@ export default function Header({
   }, [pathname]);
 
   function isLinkActive(href: string) {
+    if (!href.includes("#")) {
+      return href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(href + "/");
+    }
     if (pathname === "/") {
       if (href === "/" || href === "/#home") return activeSection === "home";
       const cleanHref = href.replace(/^\/#?/, "");

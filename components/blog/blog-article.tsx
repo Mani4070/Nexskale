@@ -30,7 +30,7 @@ export default function BlogArticle({ post, allPosts }: BlogArticleProps) {
         <div className="article-media-hero">
           <img className="article-hero-img" src={post.image} alt={post.title} />
           <div className="article-hero-badge">
-            <Sparkles size={13} /> NexusKale Research & Engineering
+            <Sparkles size={13} /> NexSkale Research & Engineering
           </div>
         </div>
 
@@ -39,7 +39,7 @@ export default function BlogArticle({ post, allPosts }: BlogArticleProps) {
             <div className="author-card">
               <div className="author-avatar-badge">N</div>
               <div>
-                <h4 className="author-name">NexusKale Editorial</h4>
+                <h4 className="author-name">NexSkale Editorial</h4>
                 <p className="author-subtitle">Engineering & AI Systems</p>
               </div>
             </div>

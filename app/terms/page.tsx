@@ -26,7 +26,7 @@ export default async function TermsPage() {
           currentPage="terms"
         />
         <PageIntro
-          eyebrow="NexusKale"
+          eyebrow="NexSkale"
           title="Terms of service"
           description="A clear foundation for working together."
           variant="legal"
@@ -36,7 +36,7 @@ export default async function TermsPage() {
         <section className="container section legal-page article-body">
           <h2>Using this website</h2>
           <p>
-            This website introduces NexusKale’s services and illustrative
+            This website introduces NexSkale’s services and illustrative
             product concepts. Content is provided for general information.
           </p>
           <h2>Working together</h2>

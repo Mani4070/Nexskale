@@ -8,7 +8,7 @@ const STATUS_MESSAGES = [
   "Loading brand assets...",
   "Synthesizing visual environment...",
   "Powering digital experiences...",
-  "Welcome to NexusKale",
+  "Welcome to NexSkale",
 ];
 
 export default function Preloader() {
@@ -94,7 +94,7 @@ export default function Preloader() {
       className={`preloader-overlay ${isExiting ? "preloader-exit" : ""}`}
       aria-live="polite"
       role="status"
-      aria-label="Loading NexusKale"
+      aria-label="Loading NexSkale"
     >
       {/* Cinematic Curtain Panels */}
       <div className="preloader-curtain preloader-curtain-top" />
@@ -174,7 +174,7 @@ export default function Preloader() {
           <div className="preloader-logo-frame">
             <Image
               src="/images/logo/mobile-logo.png"
-              alt="NexusKale Emblem"
+              alt="NexSkale Emblem"
               width={70}
               height={48}
               priority
@@ -186,8 +186,8 @@ export default function Preloader() {
         {/* Brand Name & Tagline */}
         <div className="preloader-brand-block">
           <div className="preloader-brand-title">
-            <span className="preloader-brand-text">Nexus</span>
-            <span className="preloader-brand-gradient">Kale</span>
+            <span className="preloader-brand-text">Nex</span>
+            <span className="preloader-brand-gradient">Skale</span>
           </div>
           <div className="preloader-brand-tagline">
             Ideas into Impactful Technology

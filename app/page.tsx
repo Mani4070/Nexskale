@@ -4,7 +4,7 @@ import SiteMotion from "@/components/site-motion";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import HeroSection from "@/components/home/hero-section";
-import PartnersSection from "@/components/home/partners-section";
+import TechStackSection from "@/components/home/tech-stack-section";
 import ServicesSection from "@/components/services/services-section";
 import AboutSection from "@/components/about/about-section";
 import WorkSection from "@/components/products/work-section";
@@ -35,7 +35,7 @@ export default async function Home() {
           <HeroSection hero={content.hero} stats={content.stats} />
         </div>
       </div>
-      <PartnersSection partners={content.partners} />
+      <TechStackSection />
       <main>
         <ServicesSection services={content.services} isHome />
         <AboutSection about={content.about} isHome />

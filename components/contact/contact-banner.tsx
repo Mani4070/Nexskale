@@ -4,7 +4,10 @@ import { ArrowRight, Calendar } from "lucide-react";
 export function ContactBanner() {
   return (
     <section className="contact-banner" aria-label="Contact Callout">
-      <div className="banner-wave" aria-hidden="true" />
+      {/* Background image */}
+      <div className="banner-bg-image" aria-hidden="true" />
+      {/* Gradient overlay for readability */}
+      <div className="banner-overlay" aria-hidden="true" />
       <div className="container banner-content">
         <div>
           <div className="eyebrow">Start a conversation</div>

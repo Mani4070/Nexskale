@@ -659,7 +659,7 @@ h1 {
 .stats .hero-stat-item strong {
   display: block;
   font-family: "Manrope", Arial, sans-serif;
-  font-size: clamp(36px, 3.6vw, 46px) !important;
+  font-size: clamp(24px, 2.2vw, 32px) !important;
   font-weight: 800;
   letter-spacing: -0.025em;
   line-height: 1.05;
@@ -669,7 +669,7 @@ h1 {
 .hero-stat-label,
 .stats .hero-stat-item > .hero-stat-label {
   display: block;
-  font-size: 15px !important;
+  font-size: 13px !important;
   font-weight: 500;
   color: #94a3b8;
   white-space: nowrap;
@@ -3655,7 +3655,7 @@ h1 {
   }
 
   .hero .stats .hero-stat-item strong {
-    font-size: 32px !important;
+    font-size: 24px !important;
   }
 
   .hero .stats .hero-stat-item > .hero-stat-label {

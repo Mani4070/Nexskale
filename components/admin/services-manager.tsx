@@ -19,6 +19,7 @@ export default function ServicesManager({ initialContent }: { initialContent: Co
       icon: "monitor",
       title: "New Service",
       description: "Brief summary of the service offerings.",
+      image: "/images/services/web-development.jpg",
       detail: "In-depth description of the service capabilities.",
       features: ["Custom feature 1", "Custom feature 2"],
     };

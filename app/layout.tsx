@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Preloader from "@/components/ui/preloader";
 import "./globals.css";
 import "./pages.css";
 export const metadata: Metadata = {
@@ -20,7 +21,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" data-scroll-behavior="smooth">
-      <body>{children}</body>
+      <body>
+        <Preloader />
+        {children}
+      </body>
     </html>
   );
 }

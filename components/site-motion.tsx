@@ -16,7 +16,7 @@ export default function SiteMotion({ revision }: { revision: string }) {
       if (preference.matches) return;
       const cleanups: (() => void)[] = [];
       const targets = document.querySelectorAll<HTMLElement>(
-        ".site-header, .hero-content > *, .page-intro > :not(.intro-orbit), .detail-copy, .expertise-panel, .product-showcase, .process-card, .contact-context, .contact-form-panel, .article-layout, .related-section, .detail-cta, .stats > div, .partners .eyebrow, .partner, .section-heading, .service-card, .about-copy > :not(.principles), .principles > div, .office-image, .project-card, .banner-content > div, .blog-card, .footer-grid > div, .footer-bottom",
+        ".hero-content > *, .page-intro > :not(.intro-orbit), .detail-copy, .expertise-panel, .product-showcase, .process-card, .contact-context, .contact-form-panel, .article-layout, .related-section, .detail-cta, .stats > div, .partners .eyebrow, .partner, .section-heading, .service-card, .about-copy > :not(.principles), .principles > div, .office-image, .project-card, .banner-content > div, .blog-card, .footer-grid > div, .footer-bottom",
       );
       cleanups.push(
         inView(

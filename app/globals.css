@@ -29,7 +29,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 28px;
+  scroll-padding-top: 90px;
   overflow-x: hidden;
 }
 
@@ -164,6 +164,36 @@ p {
   flex-direction: column;
 }
 
+.site-header-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              backdrop-filter 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.site-header-wrapper.is-scrolled {
+  background: rgba(5, 7, 19, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+}
+
+.site-header-spacer {
+  height: 94px;
+  width: 100%;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
 .site-header {
   height: 94px;
   display: flex;
@@ -172,6 +202,11 @@ p {
   position: relative;
   z-index: 20;
   background: transparent;
+  transition: height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.site-header-wrapper.is-scrolled .site-header {
+  height: 72px;
 }
 
 .logo {
@@ -3166,6 +3201,14 @@ h1 {
   .site-header {
     height: 104px;
   }
+
+  .site-header-spacer {
+    height: 104px;
+  }
+
+  .site-header-wrapper.is-scrolled .site-header {
+    height: 76px;
+  }
 }
 
 @media (max-width: 1215px) {
@@ -3426,6 +3469,14 @@ h1 {
     height: 77px;
   }
 
+  .site-header-spacer {
+    height: 77px;
+  }
+
+  .site-header-wrapper.is-scrolled .site-header {
+    height: 64px;
+  }
+
   .header-cta {
     margin-left: auto;
     margin-right: 17px;
@@ -3457,15 +3508,19 @@ h1 {
   .navigation.is-open {
     display: flex;
     position: absolute;
-    left: -20px;
-    right: -20px;
-    top: 77px;
-    background: #101321;
-    padding: 23px 25px;
+    left: 0;
+    right: 0;
+    top: 100%;
+    width: 100%;
+    background: rgba(10, 13, 26, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 22px 25px;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 25px;
-    border-bottom: 1px solid #ffffff16;
+    gap: 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
   }
 
   .hero {

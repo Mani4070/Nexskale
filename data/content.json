@@ -1,0 +1,316 @@
+{
+  "brand": {
+    "name": "NexusKale",
+    "tagline": "Building digital products that make businesses faster, smarter and more human.",
+    "email": "hello@nexuskale.com",
+    "social": {
+      "linkedin": "https://linkedin.com",
+      "twitter": "https://x.com",
+      "github": "https://github.com",
+      "instagram": "https://instagram.com",
+      "youtube": "https://youtube.com"
+    }
+  },
+  "navigation": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "About",
+      "href": "/#about"
+    },
+    {
+      "label": "Services",
+      "href": "/#services"
+    },
+    {
+      "label": "Insights",
+      "href": "/#blog"
+    },
+    {
+      "label": "Careers",
+      "href": "/#careers"
+    }
+  ],
+  "hero": {
+    "eyebrow": "Technology for a brighter tomorrow",
+    "title": "Ideas into",
+    "secondLine": "Impactful",
+    "highlight": "Technology.",
+    "description": "We design, develop and scale digital products with modern technology, AI and automation — helping businesses move faster and achieve more."
+  },
+  "stats": [
+    {
+      "value": "50+",
+      "label": "Projects delivered"
+    },
+    {
+      "value": "30+",
+      "label": "Happy clients"
+    },
+    {
+      "value": "5+",
+      "label": "Countries"
+    },
+    {
+      "value": "99%",
+      "label": "Client satisfaction"
+    }
+  ],
+  "partners": [
+    "stripe",
+    "aws",
+    "Google Cloud",
+    "OpenAI",
+    "Vercel",
+    "supabase",
+    "MongoDB"
+  ],
+  "services": [
+    {
+      "id": "web",
+      "icon": "monitor",
+      "title": "Web Development",
+      "description": "Modern, high-performance web applications.",
+      "image": "/images/services/web-development.jpg",
+      "detail": "Fast, accessible websites and web applications designed around your business. We take your product from discovery and wireframes through development, testing and launch.",
+      "features": [
+        "Next.js and React applications",
+        "Custom APIs and integrations",
+        "Responsive, accessible interfaces",
+        "Performance and search optimization"
+      ]
+    },
+    {
+      "id": "mobile",
+      "icon": "phone",
+      "title": "Mobile Applications",
+      "description": "Scalable Android & iOS apps.",
+      "image": "/images/services/mobile-applications.jpg",
+      "detail": "Thoughtful mobile experiences that keep your customers connected. We build cross-platform applications with intuitive interfaces and dependable foundations.",
+      "features": [
+        "iOS and Android development",
+        "Cross-platform architecture",
+        "Push notifications and integrations",
+        "App store launch support"
+      ]
+    },
+    {
+      "id": "ai",
+      "icon": "sparkles",
+      "title": "AI & Automation",
+      "description": "AI chatbots, RAG, agents and workflow automation.",
+      "image": "/images/services/ai-automation.jpg",
+      "detail": "Put AI to work on the problems that matter. We connect intelligent tools to your existing systems, with human oversight and measurable outcomes.",
+      "features": [
+        "Knowledge-based AI assistants",
+        "Workflow automation",
+        "Intelligent document processing",
+        "Custom AI integrations"
+      ]
+    },
+    {
+      "id": "saas",
+      "icon": "box",
+      "title": "SaaS Product Development",
+      "description": "End-to-end product engineering.",
+      "image": "/images/services/saas-development.jpg",
+      "detail": "Turn a promising idea into a product your customers love. We help you validate your concept, launch an MVP and evolve a scalable subscription platform.",
+      "features": [
+        "Product discovery and MVPs",
+        "Multi-tenant architecture",
+        "Subscriptions and billing",
+        "Product analytics"
+      ]
+    },
+    {
+      "id": "cloud",
+      "icon": "cloud",
+      "title": "Cloud & DevOps",
+      "description": "Deploy, scale and manage with confidence.",
+      "image": "/images/services/cloud-devops.jpg",
+      "detail": "Reliable infrastructure that grows with your product. We streamline your delivery process and help your team ship confidently.",
+      "features": [
+        "Cloud architecture",
+        "CI/CD pipelines",
+        "Monitoring and observability",
+        "Infrastructure optimization"
+      ]
+    },
+    {
+      "id": "design",
+      "icon": "palette",
+      "title": "UI/UX Design",
+      "description": "Beautiful, user-centric designs.",
+      "image": "/images/services/uiux-design.jpg",
+      "detail": "Bring clarity to complex experiences. Our design process connects user needs to business goals through research, prototyping and carefully crafted interfaces.",
+      "features": [
+        "User research and journeys",
+        "Interactive prototypes",
+        "Design systems",
+        "Usability testing"
+      ]
+    }
+  ],
+  "about": {
+    "image": "/images/nexuskale-reception.png",
+    "imageAlt": "NexusKale modern reception lobby with 3D illuminated logo and workspace",
+    "title": "A technology partner that truly understands your business.",
+    "description": "We combine domain understanding, modern technology and a product mindset to deliver solutions that create long-term value.",
+    "principles": [
+      {
+        "title": "Strategy first",
+        "description": "Business-driven solutions",
+        "icon": "rocket"
+      },
+      {
+        "title": "Transparent process",
+        "description": "Clear communication",
+        "icon": "shield"
+      },
+      {
+        "title": "Long-term partnership",
+        "description": "We grow with you",
+        "icon": "users"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Discover & align",
+        "description": "We understand your business, your users and what success looks like."
+      },
+      {
+        "title": "Design & validate",
+        "description": "We turn ideas into interactive prototypes and validate the experience together."
+      },
+      {
+        "title": "Build & iterate",
+        "description": "Short development cycles, regular demos and a transparent feedback loop."
+      },
+      {
+        "title": "Launch & grow",
+        "description": "A carefully tested launch, ongoing support and a roadmap for what comes next."
+      }
+    ]
+  },
+  "projects": [
+    {
+      "id": "support",
+      "title": "AI Customer Support Platform",
+      "category": "SaaS",
+      "description": "An AI-powered support system to automate customer interactions.",
+      "theme": "purple",
+      "product": "Assistly",
+      "detail": "A concept for a unified customer support workspace that brings conversations, knowledge and AI assistance into one place.",
+      "features": [
+        "Unified conversation inbox",
+        "Knowledge-based AI responses",
+        "Team performance dashboard"
+      ],
+      "stack": [
+        "Next.js",
+        "Node.js",
+        "AI"
+      ]
+    },
+    {
+      "id": "commerce",
+      "title": "E-commerce Platform",
+      "category": "Web App",
+      "description": "A full-stack e-commerce solution with payments, logistics and analytics.",
+      "theme": "light",
+      "product": "commerce",
+      "detail": "A commerce platform concept that helps teams manage their catalog, track orders and understand store performance from one clear dashboard.",
+      "features": [
+        "Product and inventory management",
+        "Order tracking",
+        "Sales reporting"
+      ],
+      "stack": [
+        "React",
+        "Node.js",
+        "Payments"
+      ]
+    },
+    {
+      "id": "fitness",
+      "title": "Fitness Tracking App",
+      "category": "Mobile App",
+      "description": "A modern fitness app with personalized workout plans.",
+      "theme": "blue",
+      "product": "Formly",
+      "detail": "A fitness companion concept that helps people build consistent routines with clear progress tracking and personalized training plans.",
+      "features": [
+        "Personalized workout plans",
+        "Activity and progress tracking",
+        "Weekly training overview"
+      ],
+      "stack": [
+        "React Native",
+        "Node.js",
+        "Analytics"
+      ]
+    },
+    {
+      "id": "workflow",
+      "title": "Intelligent Workflow Studio",
+      "category": "SaaS",
+      "description": "Connected workflows that give your team more time for meaningful work.",
+      "theme": "purple",
+      "product": "Flowstate",
+      "detail": "A workflow automation concept for connecting business tools and reducing repetitive operational tasks.",
+      "features": [
+        "Visual workflow builder",
+        "Connected applications",
+        "Execution monitoring"
+      ],
+      "stack": [
+        "Next.js",
+        "Node.js",
+        "Automation"
+      ]
+    }
+  ],
+  "posts": [
+    {
+      "id": "generative-ai",
+      "title": "How Generative AI is Changing Business Operations",
+      "category": "AI",
+      "date": "Sep 10, 2026",
+      "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=85",
+      "excerpt": "From repetitive tasks to better customer experiences, explore where AI can make a practical difference.",
+      "body": [
+        "The most useful AI projects begin with a clear business problem. Look for repetitive work where your team spends time searching, summarizing or drafting information, and define what a better outcome would look like.",
+        "A knowledge assistant can help a support team find the right answer faster. A document workflow can turn incoming information into structured drafts for review. In both cases, the aim is to give people more time for judgment and meaningful work.",
+        "Start with a focused pilot and measure quality, time saved and user feedback. Keep sensitive data protected, review generated outputs and make it easy for a person to take over when the system is uncertain."
+      ]
+    },
+    {
+      "id": "scalable-web",
+      "title": "10 Best Practices for Scalable Web Applications",
+      "category": "Development",
+      "date": "Aug 28, 2026",
+      "image": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=800&q=85",
+      "excerpt": "A practical foundation for web products that grow alongside your business.",
+      "body": [
+        "Scalability starts with clear boundaries. Separate presentation, business logic and persistence so each part can evolve independently. Define your API contracts and validate data at the edges.",
+        "Ten habits make a useful foundation: measure performance, define service boundaries, paginate large lists, index frequent queries, cache deliberately, move long tasks to a queue, validate inputs, automate critical tests, monitor errors and document operational procedures.",
+        "Avoid designing for hypothetical traffic before you understand real usage. Establish a baseline, find the bottleneck and improve the part of the system that is actually limiting your users."
+      ]
+    },
+    {
+      "id": "cloud-deployment",
+      "title": "A Complete Guide to Deploying on Google Cloud",
+      "category": "Cloud",
+      "date": "Aug 16, 2026",
+      "image": "https://images.unsplash.com/photo-1501630834273-4b5604d2ee31?auto=format&fit=crop&w=800&q=85",
+      "excerpt": "The key decisions behind a reliable cloud deployment, from configuration to monitoring.",
+      "body": [
+        "Begin by identifying your application's runtime, storage needs and expected traffic. A containerized application is a portable starting point, but persistent data should live in storage that survives a deployment.",
+        "Keep configuration separate from application code. Store credentials in a secret manager, give each service only the access it needs, and use separate environments to validate changes before production.",
+        "A launch is only the beginning. Add health checks, centralized logs, error monitoring and a rollback process. Test how your application recovers from failure and make sure someone can understand the system when it needs attention."
+      ]
+    }
+  ]
+}

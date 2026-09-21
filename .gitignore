@@ -1,0 +1,8 @@
+node_modules/
+.next/
+.next-test/
+.env*
+*.tsbuildinfo
+data/enquiries.json
+data/subscribers.json
+test-results/

@@ -76,10 +76,10 @@ export default function Header({
   return (
     <>
       <header
-        className={`site-header-wrapper ${isScrolled ? "is-scrolled" : ""}`}
+        className={`site-header-wrapper ${isScrolled ? "is-scrolled" : ""} ${!isScrolled && pathname === "/" ? "is-hero-visible" : ""}`}
       >
         <div className="site-header container">
-          <Logo name={brandName} height={40} />
+          <Logo name={brandName} height={40} variant={!isScrolled && pathname === "/" ? "dark" : "light"} />
           <nav
             aria-label="Main navigation"
             className={mobile ? "navigation is-open" : "navigation"}

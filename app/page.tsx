@@ -10,6 +10,7 @@ import AboutSection from "@/components/about/about-section";
 import WorkSection from "@/components/products/work-section";
 import ContactBanner from "@/components/contact/contact-banner";
 import BlogSection from "@/components/blog/blog-section";
+import HeroVideo from "@/components/home/hero-video";
 
 export async function generateMetadata(): Promise<Metadata> {
   const content = await getContent();
@@ -50,6 +51,7 @@ export default async function Home() {
     <>
       <SiteMotion revision="home" />
       <div className="dark-top home-dark-top" id="home">
+        <HeroVideo />
         <Header
           brandName={content.brand.name}
           navigation={content.navigation}

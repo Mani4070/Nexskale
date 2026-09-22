@@ -6,7 +6,7 @@
   --admin-border: rgba(255, 255, 255, 0.08);
   --admin-text: #e2e8f0;
   --admin-muted: #94a3b8;
-  --admin-accent: #7c3aed;
+  --admin-accent: var(--brand-violet);
   --admin-accent-hover: #6d28d9;
 }
 
@@ -174,7 +174,7 @@
 }
 
 .ui-btn-primary {
-  background: #7c3aed;
+  background: var(--brand-violet);
   color: #fff;
   box-shadow: 0 2px 10px rgba(124, 58, 237, 0.35);
 }
@@ -203,13 +203,13 @@
 }
 
 .ui-btn-danger {
-  background: rgba(239, 68, 68, 0.15);
-  color: #f87171;
-  border: 1px solid rgba(239, 68, 68, 0.2);
+  background: rgba(124, 58, 237, 0.15);
+  color: var(--brand-lilac);
+  border: 1px solid rgba(124, 58, 237, 0.2);
 }
 
 .ui-btn-danger:hover {
-  background: rgba(239, 68, 68, 0.25);
+  background: rgba(124, 58, 237, 0.25);
 }
 
 .ui-btn-white {
@@ -249,8 +249,8 @@
 }
 
 .ui-badge-success {
-  background: rgba(16, 185, 129, 0.15);
-  color: #34d399;
+  background: rgba(6, 182, 212, 0.15);
+  color: var(--brand-cyan-light);
 }
 
 .ui-field-group {
@@ -283,7 +283,7 @@
 
 .ui-input:focus,
 .ui-textarea:focus {
-  border-color: #7c3aed;
+  border-color: var(--brand-violet);
   box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.2);
 }
 
@@ -363,7 +363,7 @@
   position: fixed;
   bottom: 24px;
   right: 24px;
-  background: #10b981;
+  background: var(--brand-cyan);
   color: white;
   padding: 12px 20px;
   border-radius: 8px;
@@ -378,7 +378,7 @@
 }
 
 .admin-toast.error {
-  background: #ef4444;
+  background: var(--brand-violet);
 }
 
 @keyframes adminSlideUp {

@@ -64,5 +64,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...coreRoutes, ...blogRoutes];
+  const serviceRoutes: MetadataRoute.Sitemap = content.services.map(
+    (service) => ({
+      url: `${baseUrl}/services/${service.id}`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    }),
+  );
+  return [...coreRoutes, ...serviceRoutes, ...blogRoutes];
 }

@@ -97,13 +97,13 @@ export default function AdminLogin({ brandName }: { brandName: string }) {
                 display: "flex",
                 alignItems: "center",
                 gap: "8px",
-                color: "#f87171",
+                color: "var(--brand-lilac)",
                 fontSize: "12px",
                 marginBottom: "16px",
-                background: "rgba(239, 68, 68, 0.1)",
+                background: "rgba(124, 58, 237, 0.1)",
                 padding: "8px 12px",
                 borderRadius: "6px",
-                border: "1px solid rgba(239, 68, 68, 0.2)",
+                border: "1px solid rgba(124, 58, 237, 0.2)",
               }}
             >
               <AlertCircle size={15} />
@@ -132,7 +132,7 @@ export default function AdminLogin({ brandName }: { brandName: string }) {
               fontSize: "11px",
             }}
           >
-            <ShieldCheck size={13} color="#10b981" />
+            <ShieldCheck size={13} color="var(--brand-cyan)" />
             <span>Encrypted Session · Configurable via ADMIN_SECRET</span>
           </div>
         </form>

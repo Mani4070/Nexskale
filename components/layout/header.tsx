@@ -26,8 +26,13 @@ export default function Header({
 }: HeaderProps) {
   const [mobile, setMobile] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState<string>(currentPage || "home");
+  const [activeSection, setActiveSection] = useState<string>(
+    currentPage || "home",
+  );
   const pathname = usePathname();
+  const lightInterior =
+    ["/about", "/blog", "/services", "/contact"].includes(pathname) ||
+    pathname.startsWith("/services/");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,7 +63,9 @@ export default function Header({
 
   function isLinkActive(href: string) {
     if (!href.includes("#")) {
-      return href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(href + "/");
+      return href === "/"
+        ? pathname === "/"
+        : pathname === href || pathname.startsWith(href + "/");
     }
     if (pathname === "/") {
       if (href === "/" || href === "/#home") return activeSection === "home";
@@ -76,10 +83,18 @@ export default function Header({
   return (
     <>
       <header
-        className={`site-header-wrapper ${isScrolled ? "is-scrolled" : ""} ${!isScrolled && pathname === "/" ? "is-hero-visible" : ""}`}
+        className={`site-header-wrapper ${lightInterior ? "has-light-hero" : ""} ${mobile ? "menu-is-open" : ""} ${isScrolled ? "is-scrolled" : ""} ${!isScrolled && pathname === "/" ? "is-hero-visible" : ""}`}
       >
         <div className="site-header container">
-          <Logo name={brandName} height={40} variant={!isScrolled && pathname === "/" ? "dark" : "light"} />
+          <Logo
+            name={brandName}
+            height={40}
+            variant={
+              isScrolled || mobile || lightInterior || pathname === "/"
+                ? "dark"
+                : "light"
+            }
+          />
           <nav
             aria-label="Main navigation"
             className={mobile ? "navigation is-open" : "navigation"}

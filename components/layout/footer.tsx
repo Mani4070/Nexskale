@@ -147,7 +147,7 @@ export default function Footer({ content: c }: FooterProps) {
             <h4>Our expertise</h4>
             <div className="footer-links">
               {c.services.map((s) => (
-                <Link key={s.id} href="/services">
+                <Link key={s.id} href={`/services/${s.id}`}>
                   {s.title}
                 </Link>
               ))}

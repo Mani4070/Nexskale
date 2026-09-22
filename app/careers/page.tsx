@@ -1,39 +1,43 @@
 import type { Metadata } from "next";
-import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import { ArrowRight, Briefcase, TrendingUp, Heart, Users } from "lucide-react";
 import { getContent } from "@/lib/content";
 import ContentPage from "@/components/layout/content-page";
-import InteriorBanner from "@/components/layout/interior-banner";
+import PageHero from "@/components/layout/page-hero";
+import CareersPositions from "@/components/careers/careers-positions";
+
 export async function generateMetadata(): Promise<Metadata> {
   const c = await getContent();
   return {
-    title: "Careers — Build Meaningful Digital Products With Us",
+    title: "Careers — Build Your Career. Build What's Next",
     description:
-      "Explore career possibilities at NexSkale. Bring your curiosity and craft to engineering, product design, and thoughtful digital product development.",
+      "Join a team of builders, thinkers and doers who are creating technology for a brighter tomorrow at NexSkale. Explore open positions.",
     alternates: {
       canonical: "/careers",
     },
     openGraph: {
-      title: `Careers — Build Meaningful Digital Products | ${c.brand.name}`,
+      title: `Careers — Build What's Next | ${c.brand.name}`,
       description:
-        "Bring your curiosity and your craft. Explore the people, disciplines and possibilities behind a career at NexSkale.",
+        "Join a team of builders, thinkers and doers who are creating technology for a brighter tomorrow.",
       url: "/careers",
       siteName: c.brand.name,
       type: "website",
       images: [
         {
-          url: "/images/pages/careers.webp",
+          url: "/images/reference/careers-hero.webp",
           width: 1200,
           height: 630,
-          alt: "Careers at NexSkale — Design and Engineering Studio",
+          alt: "Careers at NexSkale",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: `Careers — Build Meaningful Digital Products | ${c.brand.name}`,
+      title: `Careers — Build What's Next | ${c.brand.name}`,
       description:
-        "Bring your curiosity and your craft. Explore the people, disciplines and possibilities behind a career at NexSkale.",
-      images: ["/images/pages/careers.webp"],
+        "Join a team of builders, thinkers and doers who are creating technology for a brighter tomorrow.",
+      images: ["/images/reference/careers-hero.webp"],
     },
   };
 }
@@ -67,102 +71,97 @@ export default async function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <InteriorBanner
-        eyebrow={"Your talent. Our next chapter."}
-        title={"Do meaningful work."}
-        highlight={"Build what comes next."}
-        description={
-          "Bring your curiosity and your craft. Explore the people, disciplines and possibilities behind a career at NexSkale."
-        }
-        image={"/images/pages/careers.webp"}
-        imageAlt={"Designers and engineers sharing ideas around a studio table"}
-        action={"Explore opportunities"}
-        href={"#career-conversation"}
-        index={"#career-craft"}
-        topics={["Engineering", "Product & design", "Collaboration"]}
-      />
-      <section className="interior-wrap career-craft" id="career-craft">
-        <div>
-          <span className="interior-kicker">Find your kind of work</span>
-          <h2>
-            Many disciplines.
+
+      {/* Hero Section matching Mockup Column 5 */}
+      <PageHero
+        badge="CAREERS"
+        title={
+          <>
+            Build your career.
             <br />
-            One shared curiosity.
-          </h2>
-          <p>
-            These are the kinds of challenges at the heart of our studio. Tell
-            us where you would like to contribute.
-          </p>
+            Build what's <span className="gradient-text">next.</span>
+          </>
+        }
+        description="Join a team of builders, thinkers and doers who are creating technology for a brighter tomorrow."
+        imageSrc="/images/reference/careers-hero.webp"
+        imageAlt="Modern tech studio with Great People Build Great Products wall art"
+      >
+        <div className="mockup-hero-actions">
+          <Link href="#open-roles" className="mockup-btn-primary">
+            View open roles <ArrowRight size={16} />
+          </Link>
         </div>
-        <div className="career-disciplines">
-          {[
-            [
-              "Engineering",
-              "Build dependable systems and thoughtful interactions.",
-            ],
-            [
-              "Product & design",
-              "Turn complex problems into clear, useful experiences.",
-            ],
-            [
-              "Delivery & collaboration",
-              "Help good ideas move forward with focus and care.",
-            ],
-          ].map(([t, d], i) => (
-            <article key={t}>
-              <span>0{i + 1}</span>
-              <div>
-                <h3>{t}</h3>
-                <p>{d}</p>
+      </PageHero>
+
+      {/* Why join NexSkale Section */}
+      <section className="careers-why-section">
+        <div className="interior-wrap">
+          <div className="section-header-center">
+            <span className="section-kicker">Life at NexSkale</span>
+            <h2>Why join NexSkale?</h2>
+            <p>Empowering people to do the best work of their lives.</p>
+          </div>
+
+          <div className="careers-benefits-grid">
+            <div className="careers-benefit-card">
+              <div className="careers-benefit-icon">
+                <Briefcase size={22} />
               </div>
-              <ArrowUpRight aria-hidden="true" />
-            </article>
-          ))}
+              <h3>Meaningful Work</h3>
+              <p>Work on real products with real impact.</p>
+            </div>
+            <div className="careers-benefit-card">
+              <div className="careers-benefit-icon">
+                <TrendingUp size={22} />
+              </div>
+              <h3>Growth Opportunities</h3>
+              <p>Learn, build and advance your career.</p>
+            </div>
+            <div className="careers-benefit-card">
+              <div className="careers-benefit-icon">
+                <Heart size={22} />
+              </div>
+              <h3>Flexible Culture</h3>
+              <p>
+                Work-life balance that truly works, with hybrid flexibility and
+                trust-first values.
+              </p>
+            </div>
+            <div className="careers-benefit-card">
+              <div className="careers-benefit-icon">
+                <Users size={22} />
+              </div>
+              <h3>Great Team</h3>
+              <p>
+                Collaborate with passionate, supportive peers who care about
+                craft and each other.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
-      <section className="career-letter interior-wrap" id="career-conversation">
-        <div className="career-letter-tag">An open conversation</div>
-        <h2>
-          Your next role could start
-          <br />
-          with a simple hello.
-        </h2>
-        <p>
-          We don't have specific vacancies listed here right now. For current
-          opportunities, send a short introduction, the kind of work you want to
-          do, and a portfolio or examples you are proud of.
-        </p>
-        <a
-          className="interior-button"
-          href={"mailto:" + c.brand.email + "?subject=Career%20enquiry"}
-        >
-          Introduce yourself <ArrowUpRight size={18} />
-        </a>
-        <small>Career enquiries ? {c.brand.email}</small>
-      </section>
-      <section className="interior-wrap career-notes">
-        <h2>A useful introduction</h2>
-        <div>
-          <article>
-            <b>01 / Your story</b>
-            <p>
-              What have you been working on, and what would you like to learn
-              next?
-            </p>
-          </article>
-          <article>
-            <b>02 / Your craft</b>
-            <p>Share a project and the decisions that made it meaningful.</p>
-          </article>
-          <article>
-            <b>03 / Your direction</b>
-            <p>
-              Tell us about the work, location and availability you have in
-              mind.
-            </p>
-          </article>
+
+      {/* Culture Split Banner */}
+      <section className="careers-culture-section">
+        <div className="interior-wrap">
+          <div className="careers-culture-banner">
+            <div className="careers-culture-photo">
+              <Image
+                src="/images/reference/team-meeting.webp"
+                alt="NexSkale team members laughing and brainstorming together"
+                width={600}
+                height={450}
+              />
+            </div>
+            <div className="careers-culture-copy">
+              <h2>A culture of curiosity, collaboration and impact.</h2>
+            </div>
+          </div>
         </div>
       </section>
+
+      {/* Open Positions List with Department Filters & Resume CTA */}
+      <CareersPositions brandEmail={c.brand.email} />
     </ContentPage>
   );
 }

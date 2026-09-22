@@ -1,0 +1,1277 @@
+/* Reference styling is limited to the five marketing pages. */
+.reference-pages {
+  --reference-gutter: clamp(18px, 3.3vw, 52px);
+  --page-ink: #080d3a;
+  --page-muted: #515c80;
+}
+.reference-pages main {
+  background: linear-gradient(120deg, #fff 20%, #f6f7ff 100%);
+}
+.reference-pages .interior-wrap {
+  max-width: none;
+  padding-inline: var(--reference-gutter);
+}
+.reference-pages .site-header-wrapper {
+  background: #fff;
+  border-bottom: 1px solid #ebedf8;
+}
+.reference-pages .site-header {
+  max-width: none;
+  height: 82px;
+  margin: auto;
+}
+.reference-pages .site-header-wrapper.is-scrolled .site-header {
+  height: 72px;
+}
+.reference-pages .navigation a,
+.reference-pages .menu-toggle {
+  color: #18234d;
+}
+.reference-pages .navigation a.is-active {
+  color: var(--brand-violet);
+}
+.reference-pages .header-cta {
+  background: linear-gradient(110deg, #7440ff, #414fff, var(--brand-cyan));
+  color: white;
+  border: 0;
+  border-radius: 30px;
+}
+.reference-pages.interior-services .site-header-wrapper {
+  background: #040b1b;
+  border-color: #18203c;
+}
+.reference-pages.interior-services .navigation a,
+.reference-pages.interior-services .menu-toggle {
+  color: white;
+}
+.reference-pages main h2 {
+  font-size: clamp(25px, 2.7vw, 36px);
+  letter-spacing: -0.045em;
+  font-weight: 700;
+}
+.reference-pages main h3 {
+  font-size: 20px;
+}
+.reference-pages main p {
+  font-size: 15px;
+  line-height: 1.65;
+}
+.reference-pages .mockup-btn-primary {
+  border: 0;
+  border-radius: 30px;
+  background: linear-gradient(110deg, #7540ff, #414fff, var(--brand-cyan));
+  padding: 13px 24px;
+  cursor: pointer;
+}
+.reference-pages :is(button, a, input, textarea):focus-visible {
+  outline: 3px solid #8065ff;
+  outline-offset: 4px;
+}
+.reference-pages button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+.reference-pages .mockup-hero-wrapper {
+  padding: 82px 0 0;
+  border: 0;
+  background: #04091c;
+}
+.reference-pages .mockup-hero-wrapper::before {
+  display: none;
+}
+.reference-pages .mockup-hero-wrapper > .interior-wrap {
+  max-width: none;
+}
+.reference-pages .mockup-hero-grid {
+  min-height: 510px;
+  gap: 0;
+  grid-template-columns: 1fr 1fr;
+}
+.reference-pages .mockup-hero-copy {
+  position: relative;
+  z-index: 2;
+  padding: 65px 0;
+}
+.reference-pages main .mockup-hero-title {
+  font-size: clamp(38px, 4.5vw, 64px);
+  line-height: 1.08;
+  letter-spacing: -0.055em;
+  margin: 18px 0 24px;
+  max-width: 620px;
+  font-weight: 700;
+}
+.reference-pages .mockup-hero-badge {
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  background: transparent;
+  color: #c7b3ff;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+}
+.reference-pages main .mockup-hero-desc {
+  color: #c9d0e5;
+  max-width: 460px;
+  margin-bottom: 28px;
+}
+.reference-pages .mockup-hero-title .gradient-text {
+  background: linear-gradient(100deg, #a08aff, var(--brand-cyan));
+  background-clip: text;
+}
+.reference-pages .mockup-hero-visual {
+  align-self: stretch;
+  position: relative;
+  min-width: 0;
+}
+.reference-pages .mockup-hero-image-wrap {
+  position: absolute;
+  inset: 0 -40px 0 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  aspect-ratio: auto;
+  background: transparent;
+}
+.reference-pages .mockup-hero-image-wrap img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.reference-pages.interior-services .mockup-hero-image-wrap {
+  mask-image: linear-gradient(90deg, transparent, black 20%);
+}
+.reference-pages:is(.interior-about, .interior-blog) .mockup-hero-wrapper {
+  background: #f0f2fc;
+}
+.reference-pages:is(.interior-about, .interior-blog) .mockup-hero-badge {
+  color: var(--brand-violet);
+}
+.reference-pages:is(.interior-about, .interior-blog) .mockup-hero-title {
+  color: #080d3a;
+}
+.reference-pages:is(.interior-about, .interior-blog)
+  .mockup-hero-title
+  .gradient-text {
+  background: none;
+  -webkit-text-fill-color: currentColor;
+}
+.reference-pages:is(.interior-about, .interior-blog) .mockup-hero-desc {
+  color: #515c80;
+}
+.reference-pages:is(.interior-about, .interior-blog) .mockup-hero-image-wrap {
+  left: -110px;
+  mask-image: linear-gradient(90deg, transparent, black 42%);
+}
+.reference-pages .hero-stats-row {
+  border-top: 1px solid #dfe3f3;
+  gap: 16px;
+  margin-top: 32px;
+  padding-top: 24px;
+  grid-template-columns: repeat(4, 1fr);
+}
+.reference-pages .hero-stat-item .stat-num {
+  color: #643cff;
+  font-size: 27px;
+}
+.reference-pages .hero-stat-item .stat-label {
+  color: #515c80;
+  font-size: 11px;
+}
+.reference-pages:is(.interior-careers, .interior-contact) .mockup-hero-grid {
+  position: static;
+}
+.reference-pages:is(.interior-careers, .interior-contact) .mockup-hero-visual {
+  position: absolute;
+  inset: 82px 0 0;
+}
+.reference-pages:is(.interior-careers, .interior-contact)
+  .mockup-hero-image-wrap {
+  inset: 0;
+}
+.reference-pages:is(.interior-careers, .interior-contact)
+  .mockup-hero-image-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    #020a19ed 5%,
+    #020a19b0 44%,
+    #020a1910 100%
+  );
+}
+.reference-pages.interior-careers .mockup-hero-grid {
+  min-height: 570px;
+}
+.reference-pages .mockup-hero-search {
+  background: white;
+  border: 1px solid #e4e8f9;
+  box-shadow: 0 8px 22px #1e358410;
+  border-radius: 30px;
+}
+.reference-pages .mockup-hero-search input {
+  color: #18234d;
+}
+.reference-pages .mockup-hero-search button {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 8px;
+}
+.reference-pages .mockup-filter-bar {
+  gap: 10px;
+  padding: 28px 0;
+}
+.reference-pages .mockup-filter-pill {
+  background: white;
+  border: 1px solid #e0e5fa;
+  color: #25315b;
+  font-size: 12px;
+  padding: 8px 18px;
+}
+.reference-pages .mockup-filter-pill.active {
+  background: linear-gradient(115deg, #7540ff, #267aff);
+  color: white;
+  border-color: transparent;
+}
+.reference-pages
+  :is(
+    .about-story-section,
+    .about-team-section,
+    .about-values-section,
+    .careers-why-section
+  ) {
+  padding: 56px 0;
+}
+.reference-pages .about-story-grid {
+  gap: 48px;
+}
+.reference-pages .about-story-copy h2 {
+  font-size: 26px;
+}
+.reference-pages .about-story-image-wrap {
+  border-radius: 10px;
+  box-shadow: none;
+}
+.reference-pages .about-mv-section {
+  padding: 40px 0;
+  background: #f7f8ff;
+}
+.reference-pages .about-mv-grid {
+  gap: 24px;
+}
+.reference-pages .about-mv-card {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 20px;
+  box-shadow: none;
+}
+.reference-pages
+  :is(
+    .about-mv-icon,
+    .about-pillar-icon,
+    .about-value-icon,
+    .careers-benefit-icon
+  ) {
+  color: #6344ff;
+  background: #f0edff;
+}
+.reference-pages .about-pillars-grid {
+  gap: 0;
+  margin-top: 20px;
+}
+.reference-pages .about-pillar-card {
+  padding: 24px;
+  border-right: 1px solid #e3e7f7;
+}
+.reference-pages .about-pillar-card:last-child {
+  border: 0;
+}
+.reference-pages .section-header-center {
+  text-align: left;
+  margin: 0 0 26px;
+  max-width: none;
+}
+.reference-pages .section-header-center .section-kicker {
+  display: none;
+}
+.reference-pages .about-team-grid,
+.reference-pages .about-values-grid {
+  gap: 18px;
+}
+.reference-pages .about-team-card {
+  border-radius: 9px;
+  box-shadow: none;
+  background: transparent;
+  border: 0;
+}
+.reference-pages .about-team-photo {
+  aspect-ratio: 4 / 5;
+  border-radius: 9px;
+}
+.reference-pages .about-team-info {
+  text-align: left;
+  padding: 14px 0;
+}
+.reference-pages .about-team-role {
+  color: #101642;
+}
+.reference-pages .about-team-name {
+  font-size: 14px;
+  color: #667091;
+}
+.reference-pages .about-value-card {
+  border: 1px solid #e7eafa;
+  border-radius: 9px;
+  padding: 24px 12px;
+  box-shadow: 0 4px 16px #373d8c04;
+}
+.reference-pages .services-list-container {
+  gap: 20px;
+  padding: 0 0 40px;
+}
+.reference-pages .service-mockup-card {
+  grid-template-columns: 1.4fr 1fr;
+  padding: 0;
+  gap: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid #e3e7f7;
+  box-shadow: 0 5px 16px #27285c06;
+  background: white;
+}
+.reference-pages .service-card-info {
+  padding: 30px;
+}
+.reference-pages .service-card-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+.reference-pages .service-card-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 52px;
+  height: 52px;
+  border-radius: 14px;
+  color: white;
+  background: linear-gradient(145deg, #ac83ff, #623dff 60%, #246aff);
+  box-shadow: 0 6px 18px #6544ff25;
+}
+.reference-pages .service-card-heading h3 {
+  margin: 0 0 6px;
+  color: #101642;
+  font-size: 21px;
+}
+.reference-pages .service-card-heading p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.reference-pages .service-tech-tags {
+  margin-bottom: 18px;
+  gap: 6px;
+}
+.reference-pages .service-tech-tag {
+  border: 0;
+  border-radius: 20px;
+  background: #f0f2fc;
+  font-size: 11px;
+  padding: 5px 10px;
+}
+.reference-pages .service-card-link {
+  font-size: 12px;
+  color: #6344ff;
+}
+.reference-pages .service-card-visual {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  aspect-ratio: auto;
+  height: 100%;
+  min-height: 240px;
+  mask-image: linear-gradient(90deg, transparent, black 18%);
+}
+.reference-pages .service-card-visual img {
+  height: 100%;
+  object-fit: cover;
+}
+.reference-pages .mockup-cta-banner {
+  border-radius: 12px;
+  gap: 30px;
+  padding: 40px;
+  background: #030c20;
+}
+.reference-pages .mockup-cta-copy h2 {
+  color: white;
+}
+.reference-pages .mockup-cta-copy p {
+  color: #c9d0e5;
+}
+.reference-pages .mockup-cta-image {
+  box-shadow: none;
+  border: 0;
+}
+.reference-pages:is(.interior-services, .interior-careers) .mockup-cta-banner {
+  display: block;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 85% 0%, #dfe7ff, transparent 60%), #f3f4ff;
+  border: 1px solid #e9ebff;
+}
+.reference-pages:is(.interior-services, .interior-careers) .mockup-cta-copy h2 {
+  color: #101642;
+}
+.reference-pages:is(.interior-services, .interior-careers) .mockup-cta-copy p {
+  color: #515c80;
+  margin-inline: auto;
+}
+.reference-pages:is(.interior-services, .interior-careers) .mockup-cta-image {
+  display: none;
+}
+.reference-pages .blog-featured-card {
+  background: linear-gradient(120deg, #e9e7ff, #f3f5ff);
+  border: 1px solid #e3e5fb;
+  border-radius: 12px;
+  margin: 0 0 42px;
+}
+.reference-pages .blog-featured-content {
+  padding: 36px;
+}
+.reference-pages .blog-featured-content h2 {
+  font-size: 30px;
+}
+.reference-pages .blog-featured-image {
+  min-height: 340px;
+}
+.reference-pages .blog-badge {
+  color: var(--brand-violet);
+  background: #ecebff;
+  border-radius: 20px;
+}
+.reference-pages .blog-article-card {
+  border-radius: 10px;
+  border-color: #e6e9f7;
+}
+.reference-pages .blog-article-body {
+  padding: 22px;
+}
+.reference-pages .blog-article-body h3 {
+  font-size: 22px;
+}
+.reference-pages .blog-articles-grid {
+  gap: 24px;
+}
+.reference-pages .blog-newsletter-card {
+  border-radius: 12px;
+  background: linear-gradient(120deg, #f0eeff, #eaf2ff);
+  margin-bottom: 50px;
+  padding: 36px;
+}
+.reference-pages .careers-benefits-grid {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.reference-pages .careers-benefit-card {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  column-gap: 18px;
+  padding: 26px;
+  text-align: left;
+  border-radius: 10px;
+}
+.reference-pages .careers-benefit-icon {
+  grid-row: span 2;
+  margin: 0;
+  width: 48px;
+  height: 48px;
+}
+.reference-pages .careers-benefit-card h3 {
+  margin: 0 0 8px;
+}
+.reference-pages .careers-benefit-card p {
+  margin: 0;
+}
+.reference-pages .careers-culture-banner {
+  padding: 0;
+  gap: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f0f2f8;
+}
+.reference-pages .careers-culture-photo {
+  border: 0;
+  border-radius: 0;
+}
+.reference-pages .careers-culture-copy {
+  padding: 36px;
+}
+.reference-pages .careers-job-row {
+  padding: 20px 24px;
+  border-radius: 9px;
+}
+.reference-pages .contact-quick-actions {
+  background: #040a1d;
+  padding: 0 0 30px;
+}
+.reference-pages .contact-quick-actions .mockup-hero-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+.reference-pages .contact-quick-actions button {
+  border: 0;
+  border-right: 1px solid #ffffff20;
+  border-radius: 0;
+  background: transparent;
+  justify-content: center;
+  flex-direction: column;
+  color: #e8e9ff;
+  padding: 20px;
+}
+.reference-pages .contact-quick-actions button:last-child {
+  border: 0;
+}
+.reference-pages .contact-quick-actions button svg {
+  background: #35226d;
+  box-sizing: content-box;
+  padding: 12px;
+  border-radius: 16px;
+  color: #d6c9ff;
+}
+.reference-pages .contact-quick-actions button.active svg {
+  background: #6544ff;
+  color: white;
+  box-shadow: 0 0 28px #704bff60;
+}
+.reference-pages .contact-main-section {
+  padding: 48px 0;
+}
+.reference-pages .contact-layout-grid {
+  grid-template-columns: 1.3fr 1fr;
+  gap: 40px;
+}
+.reference-pages :is(.contact-form-card, .contact-info-card) {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.reference-pages .contact-form-card {
+  padding-right: 40px;
+  border-right: 1px solid #e4e8f6;
+}
+.reference-pages .contact-form-card h2 {
+  font-size: 27px;
+}
+.reference-pages .contact-form-card input,
+.reference-pages .contact-form-card textarea {
+  background: #f7f8fe;
+  color: #172044;
+  border-color: #e0e5f6 !important;
+}
+.reference-pages .contact-map-card {
+  border-radius: 10px;
+}
+.reference-pages .contact-detail-item {
+  margin-bottom: 26px;
+}
+.reference-pages .contact-detail-value {
+  overflow-wrap: anywhere;
+}
+.reference-pages .contact-detail-icon {
+  box-sizing: content-box;
+  padding: 10px;
+  border-radius: 12px;
+  background: #eeedff;
+  color: #6245ff;
+  flex-shrink: 0;
+}
+.reference-pages .contact-faq-section {
+  padding: 24px 0 0;
+}
+.reference-pages .faq-item {
+  border-radius: 9px;
+  border-color: #e5e8f6;
+}
+.reference-pages .faq-item summary {
+  font-size: 15px;
+  font-weight: 500;
+  padding: 18px 22px;
+}
+.reference-pages .faq-item[open] summary svg {
+  transform: rotate(180deg);
+}
+.reference-pages [id] {
+  scroll-margin-top: 105px;
+}
+@media (max-width: 1024px) {
+  .reference-pages .interior-wrap {
+    padding-inline: 28px;
+  }
+  .reference-pages .mockup-hero-grid {
+    grid-template-columns: 1.15fr 1fr;
+    min-height: 470px;
+  }
+  .reference-pages .mockup-hero-image-wrap {
+    right: -28px;
+  }
+  .reference-pages .about-story-grid,
+  .reference-pages .blog-featured-card,
+  .reference-pages .careers-culture-banner {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .reference-pages .about-pillars-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .reference-pages .about-team-grid,
+  .reference-pages .about-values-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .reference-pages .mockup-cta-banner {
+    grid-template-columns: 1fr 1fr;
+  }
+  .reference-pages .service-card-info {
+    padding: 24px;
+  }
+  .reference-pages .careers-job-meta {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 700px) {
+  .reference-pages .interior-wrap {
+    padding-inline: 20px;
+  }
+  .reference-pages .site-header,
+  .reference-pages .site-header-wrapper.is-scrolled .site-header {
+    height: 72px;
+  }
+  .reference-pages .navigation.is-open {
+    background: white;
+  }
+  .reference-pages.interior-services .navigation.is-open {
+    background: #040b1b;
+  }
+  .reference-pages .mockup-hero-wrapper {
+    padding-top: 72px;
+  }
+  .reference-pages .mockup-hero-grid {
+    grid-template-columns: 1fr;
+    min-height: 460px;
+    position: relative;
+  }
+  .reference-pages .mockup-hero-copy {
+    padding: 48px 0;
+  }
+  .reference-pages main .mockup-hero-title {
+    font-size: clamp(36px, 9vw, 52px);
+    max-width: 460px;
+  }
+  .reference-pages .mockup-hero-desc {
+    max-width: 330px;
+  }
+  .reference-pages .mockup-hero-visual {
+    position: absolute;
+    inset: 0 -20px;
+    opacity: 0.24;
+  }
+  .reference-pages .mockup-hero-image-wrap {
+    inset: 0;
+  }
+  .reference-pages:is(.interior-about, .interior-blog) .mockup-hero-image-wrap {
+    left: 0;
+  }
+  .reference-pages:is(.interior-careers, .interior-contact)
+    .mockup-hero-visual {
+    inset: 72px 0 0;
+    opacity: 1;
+  }
+  .reference-pages:is(.interior-careers, .interior-contact)
+    .mockup-hero-image-wrap::after {
+    background: linear-gradient(90deg, #020a19e8, #020a1980);
+  }
+  .reference-pages.interior-careers .mockup-hero-grid {
+    min-height: 490px;
+  }
+  .reference-pages .hero-stats-row {
+    gap: 10px;
+  }
+  .reference-pages .hero-stat-item .stat-num {
+    font-size: 24px;
+  }
+  .reference-pages .hero-stat-item .stat-label {
+    font-size: 10px;
+  }
+  .reference-pages .about-story-grid,
+  .reference-pages .blog-featured-card,
+  .reference-pages .careers-culture-banner,
+  .reference-pages .contact-layout-grid {
+    grid-template-columns: 1fr;
+  }
+  .reference-pages .about-mv-grid,
+  .reference-pages .about-team-grid,
+  .reference-pages .about-values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .reference-pages .about-pillars-grid {
+    grid-template-columns: 1fr;
+  }
+  .reference-pages .about-pillar-card {
+    border-right: 0;
+    border-bottom: 1px solid #e3e7f7;
+  }
+  .reference-pages .service-mockup-card {
+    grid-template-columns: 1fr;
+  }
+  .reference-pages .service-card-visual {
+    height: 190px;
+    min-height: 0;
+    mask-image: none;
+  }
+  .reference-pages .service-card-heading h3 {
+    font-size: 19px;
+  }
+  .reference-pages .mockup-cta-banner {
+    grid-template-columns: 1fr;
+    padding: 28px;
+  }
+  .reference-pages .blog-featured-content {
+    padding: 26px;
+  }
+  .reference-pages .blog-featured-image {
+    min-height: 240px;
+  }
+  .reference-pages .blog-articles-grid,
+  .reference-pages .careers-benefits-grid {
+    grid-template-columns: 1fr;
+  }
+  .reference-pages .blog-newsletter-card {
+    padding: 26px;
+  }
+  .reference-pages .blog-newsletter-visual {
+    display: none;
+  }
+  .reference-pages .careers-culture-copy {
+    padding: 26px;
+  }
+  .reference-pages .careers-job-meta {
+    gap: 10px;
+  }
+  .reference-pages .contact-form-card {
+    border: 0;
+    padding: 0;
+  }
+  .reference-pages .contact-quick-actions button {
+    padding: 16px 8px;
+    font-size: 11px;
+  }
+  .reference-pages .faq-header-row {
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .reference-pages .faq-header-row > a {
+    flex-shrink: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reference-pages *,
+  .reference-pages *::before,
+  .reference-pages *::after {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* Unified full-width page frame and reference banner composition. */
+.reference-pages .interior-wrap,
+.reference-pages .site-header.container {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  padding-inline: var(--reference-gutter);
+}
+.reference-pages .mockup-hero-wrapper {
+  isolation: isolate;
+  padding-top: 82px;
+}
+.reference-pages .hero-backdrop {
+  position: absolute;
+  inset: 82px 0 0;
+  z-index: -1;
+  overflow: hidden;
+}
+.reference-pages .hero-backdrop img {
+  object-fit: cover;
+  object-position: center 52%;
+}
+.reference-pages:is(.interior-about, .interior-careers) .hero-backdrop img {
+  object-position: center 20%;
+}
+.reference-pages .hero-title-tail {
+  font-size: 0.76em;
+}
+.reference-pages .hero-backdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #03091d38, transparent 65%);
+}
+.reference-pages:is(.interior-about, .interior-blog) .hero-backdrop::after {
+  background: linear-gradient(90deg, #f1f3ffb0, #f1f3ff38 42%, transparent 65%);
+}
+.reference-pages.interior-services .hero-backdrop img {
+  object-fit: contain;
+  object-position: right center;
+}
+.reference-pages .mockup-hero-grid,
+.reference-pages.interior-careers .mockup-hero-grid {
+  display: flex;
+  align-items: center;
+  position: relative;
+  min-height: clamp(440px, 38vw, 610px);
+}
+.reference-pages .mockup-hero-copy {
+  width: 53%;
+  max-width: 760px;
+  padding: 64px 0;
+}
+.reference-pages main .mockup-hero-title {
+  font-size: clamp(40px, 4.2vw, 68px);
+  line-height: 1.08;
+  letter-spacing: -0.055em;
+  margin: 14px 0 22px;
+}
+.reference-pages .mockup-hero-badge {
+  margin-bottom: 0;
+}
+.reference-pages main .mockup-hero-desc {
+  max-width: 430px;
+  margin-bottom: 26px;
+}
+.reference-pages .about-statistics {
+  background: #fff;
+  border-bottom: 1px solid #e9ecf8;
+}
+.reference-pages .hero-stats-row {
+  border: 0;
+  padding: 32px 0;
+  margin: 0;
+}
+.reference-pages .hero-stat-item {
+  text-align: left;
+}
+.reference-pages .about-story-grid {
+  grid-template-columns: 1.2fr 1fr;
+}
+.reference-pages .about-story-copy .section-kicker {
+  font-size: 25px;
+  text-transform: none;
+  letter-spacing: -0.04em;
+  color: #080d3a;
+}
+.reference-pages .about-story-copy h2 {
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.5;
+  max-width: 580px;
+}
+.reference-pages .about-story-copy p {
+  max-width: 640px;
+}
+.reference-pages .about-story-image-wrap {
+  max-height: 390px;
+}
+.reference-pages .about-story-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.reference-pages .about-mv-card {
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  column-gap: 16px;
+  padding-inline: 0;
+}
+.reference-pages .about-mv-icon {
+  grid-row: span 2;
+}
+.reference-pages .about-mv-card h3 {
+  margin: 0 0 8px;
+}
+.reference-pages .about-mv-card p {
+  margin: 0;
+  max-width: 470px;
+}
+.reference-pages .service-mockup-card {
+  grid-template-columns: 1.35fr 1fr;
+  align-items: stretch;
+}
+.reference-pages .service-card-info {
+  align-self: center;
+  padding: 26px;
+}
+.reference-pages .service-card-visual {
+  position: relative;
+  min-height: 230px;
+}
+.reference-pages .service-card-visual img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.reference-pages .contact-layout-grid {
+  grid-template-columns: 1.35fr 1fr;
+}
+.reference-pages .contact-side-column {
+  display: contents;
+}
+.reference-pages .contact-info-card {
+  grid-column: 2;
+  grid-row: 1;
+}
+.reference-pages .contact-map-card {
+  grid-column: 1 / -1;
+  margin-top: 8px;
+  position: relative;
+}
+.reference-pages .contact-map-header {
+  position: absolute;
+  z-index: 1;
+  top: 20px;
+  left: 20px;
+  background: white;
+  border-radius: 8px;
+  padding: 14px 20px;
+}
+.reference-pages .contact-map-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+.reference-pages .contact-map-preview {
+  height: 310px;
+}
+.reference-pages .contact-map-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.reference-pages.interior-contact .mockup-cta-banner {
+  background: #03091d url("/images/reference/contact-hero.webp") right center /
+    cover no-repeat;
+}
+.reference-pages.interior-contact .mockup-cta-image {
+  display: none;
+}
+.reference-pages.interior-contact .mockup-cta-banner,
+.reference-pages.interior-about .about-values-section .mockup-cta-banner {
+  margin-inline: calc(-1 * var(--reference-gutter));
+  padding-inline: var(--reference-gutter);
+  border-radius: 0;
+  margin-bottom: 0 !important;
+}
+.reference-pages.interior-about .about-values-section {
+  padding-bottom: 0;
+}
+.reference-pages.interior-about .about-values-section .mockup-cta-banner {
+  background: #03091d url("/images/reference/about-cta.webp") right center /
+    cover no-repeat;
+}
+.reference-pages.interior-about .about-values-section .mockup-cta-image {
+  visibility: hidden;
+}
+.reference-pages .blog-grid-section {
+  padding-bottom: 30px;
+}
+.reference-pages .blog-featured-image {
+  min-height: 330px;
+}
+.reference-pages .blog-meta-row {
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+@media (min-width: 1600px) {
+  .reference-pages .mockup-hero-copy {
+    max-width: 880px;
+  }
+  .reference-pages .hero-backdrop img {
+    object-position: center 48%;
+  }
+}
+@media (max-width: 1024px) {
+  .reference-pages {
+    --reference-gutter: 28px;
+  }
+  .reference-pages .mockup-hero-grid,
+  .reference-pages.interior-careers .mockup-hero-grid {
+    min-height: 460px;
+  }
+  .reference-pages .mockup-hero-copy {
+    width: 57%;
+    padding-block: 48px;
+  }
+  .reference-pages main .mockup-hero-title {
+    font-size: 44px;
+  }
+  .reference-pages .hero-backdrop img {
+    object-position: 62% center;
+  }
+  .reference-pages .service-card-heading {
+    gap: 12px;
+  }
+  .reference-pages .service-tech-tags {
+    gap: 5px;
+  }
+  .reference-pages .service-card-info {
+    padding: 22px;
+  }
+}
+@media (max-width: 700px) {
+  .reference-pages {
+    --reference-gutter: 20px;
+  }
+  .reference-pages .mockup-hero-wrapper {
+    padding-top: 72px;
+  }
+  .reference-pages .hero-backdrop {
+    top: 72px;
+  }
+  .reference-pages .mockup-hero-grid,
+  .reference-pages.interior-careers .mockup-hero-grid {
+    min-height: 355px;
+  }
+  .reference-pages .mockup-hero-copy {
+    width: 66%;
+    padding-block: 40px;
+  }
+  .reference-pages main .mockup-hero-title {
+    font-size: clamp(27px, 6.5vw, 39px);
+    margin-block: 13px 18px;
+  }
+  .reference-pages main .mockup-hero-desc {
+    font-size: 12px;
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+  .reference-pages .mockup-hero-badge {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+  }
+  .reference-pages .hero-backdrop img {
+    object-position: 57% center;
+  }
+  .reference-pages:is(.interior-about, .interior-blog) .hero-backdrop::after {
+    background: linear-gradient(
+      90deg,
+      #f1f3fff5 5%,
+      #f1f3ffda 36%,
+      #f1f3ff50 64%,
+      transparent 85%
+    );
+  }
+  .reference-pages:is(.interior-careers, .interior-contact)
+    .hero-backdrop::after {
+    background: linear-gradient(90deg, #03091dc0, #03091d50 58%, transparent);
+  }
+  .reference-pages.interior-services .hero-backdrop img {
+    object-fit: cover;
+    object-position: 60% center;
+  }
+  .reference-pages.interior-services .hero-backdrop::after {
+    background: linear-gradient(
+      90deg,
+      #03091dc0 20%,
+      #03091d90 50%,
+      transparent
+    );
+  }
+  .reference-pages .mockup-hero-search {
+    padding: 3px 8px 3px 12px;
+  }
+  .reference-pages .mockup-hero-search input {
+    font-size: 11px;
+    min-width: 0;
+  }
+  .reference-pages .mockup-hero-actions .mockup-btn-primary {
+    padding: 11px 16px;
+    font-size: 11px;
+  }
+  .reference-pages .hero-stats-row {
+    padding-block: 24px;
+    gap: 12px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .reference-pages .hero-stat-item .stat-num {
+    font-size: 23px;
+  }
+  .reference-pages .hero-stat-item .stat-label {
+    font-size: 10px;
+  }
+  .reference-pages .about-story-grid {
+    grid-template-columns: 1fr;
+  }
+  .reference-pages .about-story-image-wrap {
+    max-height: 280px;
+  }
+  .reference-pages .about-mv-grid {
+    gap: 18px;
+  }
+  .reference-pages .about-mv-card {
+    display: block;
+  }
+  .reference-pages .about-mv-card h3 {
+    font-size: 18px;
+  }
+  .reference-pages .about-mv-card p {
+    font-size: 13px;
+  }
+  .reference-pages
+    :is(
+      .about-story-section,
+      .about-team-section,
+      .about-values-section,
+      .careers-why-section
+    ) {
+    padding-block: 36px;
+  }
+  .reference-pages .service-mockup-card {
+    grid-template-columns: 1.45fr 1fr;
+  }
+  .reference-pages .service-card-info {
+    padding: 17px 12px;
+  }
+  .reference-pages .service-card-heading {
+    display: block;
+    margin-bottom: 12px;
+  }
+  .reference-pages .service-card-icon {
+    width: 34px;
+    height: 34px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+  }
+  .reference-pages .service-card-icon svg {
+    width: 19px;
+  }
+  .reference-pages .service-card-heading h3 {
+    font-size: 15px;
+  }
+  .reference-pages .service-card-heading p {
+    font-size: 12px;
+  }
+  .reference-pages .service-card-visual {
+    height: 100%;
+    min-height: 230px;
+    mask-image: linear-gradient(90deg, transparent, black 18%);
+  }
+  .reference-pages .service-tech-tag {
+    padding: 4px 6px;
+    font-size: 9px;
+  }
+  .reference-pages .service-card-link {
+    font-size: 10px;
+  }
+  .reference-pages .mockup-filter-bar {
+    gap: 6px;
+    padding-block: 22px;
+  }
+  .reference-pages .mockup-filter-pill {
+    font-size: 11px;
+    padding: 7px 11px;
+  }
+  .reference-pages .contact-layout-grid {
+    grid-template-columns: 1fr;
+  }
+  .reference-pages .contact-info-card {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .reference-pages .contact-map-preview {
+    height: 260px;
+  }
+  .reference-pages .contact-map-header {
+    top: 12px;
+    left: 12px;
+    padding: 10px;
+  }
+  .reference-pages .blog-newsletter-form input {
+    min-width: 0;
+    width: 100%;
+  }
+  .reference-pages .careers-job-row {
+    padding: 18px;
+  }
+  .reference-pages .careers-job-meta {
+    font-size: 11px;
+  }
+}
+@media (max-width: 360px) {
+  .reference-pages {
+    --reference-gutter: 16px;
+  }
+  .reference-pages .mockup-hero-copy {
+    width: 72%;
+  }
+  .reference-pages main .mockup-hero-title {
+    font-size: 27px;
+  }
+  .reference-pages .hero-stat-item .stat-label {
+    font-size: 9px;
+  }
+}
+.reference-pages .careers-culture-banner {
+  gap: 0;
+}
+.reference-pages .careers-culture-photo {
+  height: 100%;
+}
+.reference-pages .careers-culture-copy h2 {
+  font-weight: 500;
+}
+@media (max-width: 700px) {
+  .reference-pages .careers-benefits-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .reference-pages .careers-benefit-card {
+    display: block;
+    padding: 16px 12px;
+  }
+  .reference-pages .careers-benefit-icon {
+    width: 34px;
+    height: 34px;
+    margin-bottom: 12px;
+  }
+  .reference-pages .careers-benefit-card h3 {
+    font-size: 14px;
+  }
+  .reference-pages .careers-benefit-card p {
+    font-size: 12px;
+    line-height: 1.55;
+  }
+  .reference-pages .careers-culture-section {
+    padding: 15px 0 36px;
+  }
+  .reference-pages .careers-culture-banner {
+    grid-template-columns: 1fr 1fr;
+  }
+  .reference-pages .careers-culture-copy {
+    padding: 20px 14px;
+  }
+  .reference-pages .careers-culture-copy h2 {
+    font-size: 22px;
+    margin: 0;
+  }
+  .reference-pages .careers-culture-photo {
+    aspect-ratio: auto;
+    min-height: 220px;
+  }
+}

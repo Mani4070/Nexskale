@@ -1006,7 +1006,7 @@
 }
 .interior-banner .interior-button {
   height: 48px;
-  background: linear-gradient(90deg, #6366f1, #3b82f6 60%, #0ea5e9);
+  background: linear-gradient(90deg, var(--brand-indigo), var(--brand-blue) 60%, #0ea5e9);
   padding: 0 26px;
   border-radius: 10px;
   box-shadow: 0 4px 22px #6366f173;
@@ -1036,8 +1036,8 @@
   height: 6px;
   width: 6px;
   border-radius: 50%;
-  background: #6366f1;
-  box-shadow: 0 0 12px #6366f1;
+  background: var(--brand-indigo);
+  box-shadow: 0 0 12px var(--brand-indigo);
 }
 .interior-banner-scroll {
   display: inline-flex;
@@ -1102,7 +1102,7 @@
   box-shadow: 0 8px 30px #24244805;
 }
 .career-disciplines article > span {
-  color: #6366f1;
+  color: var(--brand-indigo);
 }
 .career-letter {
   width: calc(100% - 2 * var(--site-gutter));
@@ -1136,7 +1136,7 @@
 }
 .capability-index a span,
 .capability-number {
-  color: #6366f1;
+  color: var(--brand-indigo);
   font-family: "Manrope", sans-serif;
   font-weight: 750;
 }

@@ -18,9 +18,10 @@ export default function SiteMotion({ revision }: { revision: string }) {
       const targets = document.querySelectorAll<HTMLElement>(
         ".hero-content > *, .page-intro > :not(.intro-orbit), .detail-copy, .expertise-panel, .product-showcase, .process-card, .contact-context, .contact-form-panel, .article-layout, .related-section, .detail-cta, .stats > div, .partners .eyebrow, .partner, .section-heading, .service-card, .about-copy > :not(.principles), .principles > div, .office-image, .project-card, .banner-content > div, .blog-card, .footer-grid > div, .footer-bottom",
       );
+      const innerTargets = revision === "home" ? [] : document.querySelectorAll<HTMLElement>(".article-page, .article-body > h2, .article-body > p, .related-articles");
       cleanups.push(
         inView(
-          targets,
+          [...targets, ...innerTargets],
           (element) => {
             if (revealed.current.has(element)) return;
             revealed.current.add(element);

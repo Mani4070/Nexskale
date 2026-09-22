@@ -1,0 +1,637 @@
+﻿/* Inner-page design, scoped so the home page keeps its existing presentation. */
+.interior-site.reference-pages {
+  --reference-gutter: var(--site-gutter);
+  --page-ink: #122338;
+  --page-muted: #5f6e7e;
+}
+.interior-site.reference-pages main {
+  background: #fff;
+}
+.interior-site.reference-pages .interior-wrap {
+  width: 100%;
+  max-width: none;
+  margin-inline: auto;
+  padding-inline: var(--site-gutter);
+}
+.interior-site + .site-footer {
+  margin-top: clamp(40px, 5vw, 80px);
+}
+.interior-site.reference-pages .site-header-wrapper {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+.interior-site.reference-pages
+  .site-header-wrapper.has-light-hero
+  .navigation
+  a,
+.interior-site.reference-pages
+  .site-header-wrapper.has-light-hero
+  .menu-toggle {
+  color: #172b43;
+}
+.interior-site.reference-pages
+  .site-header-wrapper:not(.has-light-hero):not(.is-scrolled)
+  .navigation
+  a,
+.interior-site.reference-pages
+  .site-header-wrapper:not(.has-light-hero):not(.is-scrolled)
+  .menu-toggle {
+  color: #fff;
+}
+.interior-site.reference-pages .site-header-wrapper.is-scrolled,
+.interior-site.reference-pages .site-header-wrapper.menu-is-open {
+  background: #fff;
+  border-color: #e3e8ef;
+  box-shadow: 0 4px 24px #172b430a;
+}
+.interior-site.reference-pages
+  .site-header-wrapper:is(.is-scrolled, .menu-is-open)
+  .navigation
+  a,
+.interior-site.reference-pages
+  .site-header-wrapper:is(.is-scrolled, .menu-is-open)
+  .menu-toggle {
+  color: #172b43;
+}
+.interior-site.reference-pages .navigation a.is-active {
+  color: var(--brand-indigo) !important;
+}
+.interior-site.reference-pages .header-cta {
+  border-radius: 6px;
+  background: var(--brand-blue);
+}
+.interior-site.reference-pages .corporate-split-hero {
+  background: #f3f5f8;
+  padding-top: 100px;
+  padding-bottom: 44px;
+}
+.interior-site.reference-pages .corporate-split-hero .hero-backdrop {
+  inset: 120px var(--site-gutter) 44px 55%;
+  border-radius: 10px;
+  z-index: 0;
+}
+.interior-site.reference-pages .corporate-split-hero .hero-backdrop img {
+  object-fit: cover;
+  object-position: center;
+}
+.interior-site.reference-pages .corporate-split-hero .hero-backdrop::after {
+  display: none;
+}
+.interior-site.reference-pages .corporate-split-hero .mockup-hero-grid {
+  min-height: 460px;
+}
+.interior-site.reference-pages .corporate-split-hero .mockup-hero-copy {
+  width: 49%;
+  padding-block: 56px;
+}
+.interior-site.reference-pages .corporate-split-hero .mockup-hero-title {
+  color: #122338;
+  font-size: clamp(36px, 4.1vw, 58px);
+  line-height: 1.13 !important;
+  letter-spacing: -0.045em;
+}
+.interior-site.reference-pages .corporate-split-hero .mockup-hero-desc {
+  color: #5f6e7e;
+  font-size: 16px;
+  max-width: 440px;
+}
+.interior-site.reference-pages .corporate-split-hero .mockup-hero-badge {
+  color: var(--brand-violet);
+}
+.interior-site.reference-pages .corporate-split-hero .gradient-text {
+  background: none;
+  color: var(--brand-violet);
+  -webkit-text-fill-color: currentColor;
+}
+.interior-site .corporate-kicker {
+  display: block;
+  color: var(--brand-violet);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.interior-site .corporate-hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+.interior-site .corporate-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 22px;
+  border-radius: 6px;
+  background: var(--brand-blue);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+.interior-site .corporate-button:hover {
+  background: var(--brand-indigo);
+  transform: translateY(-2px);
+}
+.interior-site .corporate-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--brand-blue);
+  font-size: 13px;
+  font-weight: 650;
+}
+.interior-site .corporate-text-link svg {
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+.interior-site .corporate-text-link:hover svg {
+  transform: translateX(4px);
+}
+.interior-site .capabilities-section {
+  padding-block: 88px;
+}
+.interior-site .corporate-section-heading {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 70px;
+  align-items: end;
+  margin-bottom: 40px;
+}
+.interior-site.reference-pages .corporate-section-heading h2 {
+  color: #122338;
+  font-weight: 650;
+  line-height: 1.25;
+}
+.interior-site .corporate-section-heading > p {
+  max-width: 410px;
+  color: #5f6e7e;
+}
+.interior-site .capability-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+.interior-site .capability-card {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  background: #fff;
+  border: 1px solid #dfe5ed;
+  border-radius: 8px;
+  transition:
+    border-color 0.25s,
+    box-shadow 0.25s,
+    translate 0.25s;
+}
+.interior-site .capability-card:hover {
+  border-color: #9baaf1;
+  box-shadow: 0 12px 32px #172b430b;
+  translate: 0 -4px;
+}
+.interior-site .capability-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--brand-violet);
+  margin-bottom: 30px;
+}
+.interior-site .capability-top span {
+  font-size: 12px;
+  color: #8390a0;
+}
+.interior-site.reference-pages .capability-card h3 {
+  font-size: 20px;
+  color: #172b43;
+  margin-bottom: 14px;
+  line-height: 1.4;
+}
+.interior-site .capability-card p {
+  color: #5f6e7e;
+}
+.interior-site .capability-card ul,
+.interior-site .service-brief ul {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0;
+}
+.interior-site .capability-card li,
+.interior-site .service-brief li {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #42546b;
+  margin-bottom: 10px;
+}
+.interior-site .capability-card li svg,
+.interior-site .service-brief li svg {
+  flex-shrink: 0;
+  color: var(--brand-violet);
+}
+.interior-site .capability-card .corporate-text-link {
+  margin-top: auto;
+  padding-top: 22px;
+  border-top: 1px solid #e6ebf1;
+}
+.interior-site .delivery-section {
+  border-top: 1px solid #e3e8ef;
+  padding-block: 70px;
+}
+.interior-site .delivery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 36px;
+}
+.interior-site .delivery-number {
+  display: inline-block;
+  color: var(--brand-violet);
+  font-size: 12px;
+  font-weight: 600;
+  border-top: 2px solid var(--brand-violet);
+  padding-top: 15px;
+  margin-bottom: 22px;
+  min-width: 38px;
+}
+.interior-site .delivery-grid h3 {
+  margin-bottom: 12px;
+  color: #172b43;
+}
+.interior-site .delivery-grid p {
+  color: #5f6e7e;
+}
+.interior-site .corporate-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  margin-block: 30px 80px;
+  padding: 52px;
+  background: linear-gradient(120deg, #22104a, #102458);
+  border-radius: 10px;
+}
+.interior-site .corporate-cta h2 {
+  color: white;
+  margin-bottom: 18px;
+}
+.interior-site .corporate-cta p {
+  color: #bbc9d9;
+}
+.interior-site .corporate-cta .corporate-kicker {
+  color: #aabcfb;
+}
+.interior-site .corporate-cta .corporate-button {
+  background: #fff;
+  color: var(--brand-blue);
+  flex-shrink: 0;
+}
+.interior-site .service-detail-hero {
+  background: #f3f5f8;
+  padding: 132px 0 70px;
+}
+.interior-site .service-detail-hero-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 80px;
+  align-items: center;
+  margin-top: 42px;
+}
+.interior-site .service-detail-hero h1 {
+  color: #122338;
+  font-size: clamp(36px, 4.3vw, 60px);
+  line-height: 1.15 !important;
+  font-weight: 650;
+  letter-spacing: -0.045em;
+  margin-bottom: 26px;
+}
+.interior-site .service-detail-hero-grid > div > p {
+  font-size: 17px;
+  margin-bottom: 30px;
+  max-width: 620px;
+  color: #5f6e7e;
+}
+.interior-site .service-brief {
+  padding: 32px;
+  background: white;
+  border: 1px solid #e0e5ec;
+  border-top: 3px solid var(--brand-violet);
+  border-radius: 5px;
+}
+.interior-site.reference-pages .service-brief h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+.interior-site .service-brief-note {
+  display: block;
+  border-top: 1px solid #e3e8ef;
+  padding-top: 16px;
+  font-size: 12px;
+  color: #6c7b8d;
+  line-height: 1.6;
+}
+.interior-site .deliverable-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+.interior-site .technology-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  padding-block: 55px;
+  border-block: 1px solid #e3e8ef;
+}
+.interior-site .technology-section h2 {
+  margin-bottom: 20px;
+}
+.interior-site .corporate-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-content: center;
+}
+.interior-site .corporate-tags span {
+  background: #f3f5f8;
+  border: 1px solid #dfe5ed;
+  padding: 12px 18px;
+  border-radius: 5px;
+  font-size: 13px;
+  color: #42546b;
+}
+.interior-site .service-faq {
+  padding-block: 70px;
+  max-width: 840px;
+}
+.interior-site .service-faq h2 {
+  margin-bottom: 32px;
+}
+.interior-site .service-faq details {
+  border-bottom: 1px solid #dfe5ed;
+  padding-block: 22px;
+}
+.interior-site .service-faq summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #172b43;
+}
+.interior-site .service-faq details p {
+  padding-top: 16px;
+}
+.interior-site .related-services {
+  padding-bottom: 70px;
+}
+.interior-site.reference-pages .related-services h2 {
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+.interior-site .related-services > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 26px;
+}
+.interior-site .related-services a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 14px;
+  color: var(--brand-blue);
+}
+.interior-site .contact-next-steps {
+  padding: 30px;
+  background: #f3f5f8;
+  border: 1px solid #dfe5ed;
+  border-radius: 8px;
+}
+.interior-site .contact-next-steps h3 {
+  margin-bottom: 25px;
+  color: #172b43;
+}
+.interior-site .contact-next-steps ol {
+  margin: 0;
+  padding-left: 22px;
+}
+.interior-site .contact-next-steps li {
+  padding-left: 8px;
+  margin-bottom: 22px;
+  color: var(--brand-blue);
+}
+.interior-site .contact-next-steps li:last-child {
+  margin-bottom: 0;
+}
+.interior-site .contact-next-steps strong {
+  color: #172b43;
+  font-size: 14px;
+}
+.interior-site .contact-next-steps p {
+  margin-top: 6px;
+  font-size: 13px;
+}
+.interior-site.reference-pages.interior-contact .mockup-cta-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.interior-site.reference-pages.interior-contact .mockup-cta-banner {
+  background: #f3f5f8;
+  border: 1px solid #dfe5ed;
+  border-radius: 10px;
+}
+.interior-site.reference-pages.interior-contact .mockup-cta-copy h2 {
+  color: #172b43;
+}
+.interior-site.reference-pages.interior-contact .mockup-cta-copy p {
+  color: #5f6e7e;
+}
+.interior-site.reference-pages :is(input, textarea):focus-visible {
+  outline: 2px solid var(--brand-violet);
+  outline-offset: 3px;
+}
+@media (max-width: 1000px) {
+  .interior-site .capability-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .interior-site .delivery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .interior-site .service-detail-hero-grid {
+    gap: 35px;
+  }
+  .interior-site .corporate-cta {
+    padding: 36px;
+  }
+  .interior-site.reference-pages .navigation.is-open {
+    background: #fff;
+    border-color: #e3e8ef;
+  }
+  .interior-site.reference-pages .site-header-wrapper .navigation.is-open a {
+    color: #172b43;
+  }
+}
+@media (max-width: 700px) {
+  .interior-site.reference-pages .corporate-split-hero {
+    padding-top: 92px;
+    padding-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+  .interior-site.reference-pages .corporate-split-hero > .interior-wrap {
+    order: 0;
+  }
+  .interior-site.reference-pages .corporate-split-hero .hero-backdrop {
+    order: 1;
+    position: relative;
+    inset: auto;
+    height: 280px;
+    margin: 0 var(--site-gutter);
+  }
+  .interior-site.reference-pages.interior-about
+    .corporate-split-hero
+    .hero-backdrop {
+    height: auto;
+    aspect-ratio: 535 / 419;
+  }
+  .interior-site.reference-pages .corporate-split-hero .mockup-hero-copy {
+    width: 100%;
+    padding: 25px 0 32px;
+  }
+  .interior-site.reference-pages .corporate-split-hero .mockup-hero-grid {
+    min-height: 0;
+  }
+  .interior-site.reference-pages .corporate-split-hero .mockup-hero-title {
+    font-size: clamp(34px, 8vw, 46px);
+  }
+  .interior-site .corporate-section-heading,
+  .interior-site .service-detail-hero-grid,
+  .interior-site .technology-section {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .interior-site .capability-grid,
+  .interior-site .deliverable-grid {
+    grid-template-columns: 1fr;
+  }
+  .interior-site .capabilities-section {
+    padding-block: 52px;
+  }
+  .interior-site .capability-card {
+    padding: 26px;
+  }
+  .interior-site .corporate-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px 24px;
+    margin-bottom: 50px;
+  }
+  .interior-site .delivery-grid {
+    gap: 26px 20px;
+  }
+  .interior-site .delivery-section,
+  .interior-site .service-faq {
+    padding-block: 45px;
+  }
+  .interior-site .service-detail-hero {
+    padding: 110px 0 45px;
+  }
+  .interior-site.reference-pages.interior-contact .mockup-cta-banner {
+    grid-template-columns: 1fr;
+  }
+  .interior-site.reference-pages.interior-contact .mockup-cta-image {
+    height: 260px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .interior-site *,
+  .interior-site *::before,
+  .interior-site *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .interior-site .capability-card:hover,
+  .interior-site .corporate-button:hover {
+    transform: none;
+    translate: none;
+  }
+}
+.interior-site.reference-pages.interior-contact .contact-side-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.interior-site.reference-pages.interior-contact .contact-info-card {
+  grid-column: auto;
+  grid-row: auto;
+}
+.interior-site.reference-pages.interior-contact .mockup-cta-image {
+  display: block;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.interior-site.reference-pages.interior-contact .mockup-cta-banner {
+  margin-inline: 0;
+  padding: 32px;
+  gap: 32px;
+}
+.interior-site.reference-pages .contact-service-context {
+  padding: 12px 16px;
+  margin-block: 18px;
+  background: #eef2ff;
+  color: var(--brand-blue);
+  border-radius: 6px;
+}
+.interior-site.reference-pages.interior-contact .mockup-cta-image {
+  min-width: 0;
+  width: 100%;
+}
+@media (max-width: 700px) {
+  .interior-site.reference-pages.interior-contact .mockup-cta-banner {
+    padding: 24px;
+  }
+  .interior-site.reference-pages.interior-contact .mockup-cta-image {
+    aspect-ratio: auto;
+    height: 230px;
+  }
+  .interior-site.reference-pages.interior-contact .mockup-cta-copy {
+    min-width: 0;
+    padding: 0;
+  }
+}
+/* Logo-led accents share one palette across every marketing page. */
+.interior-site.reference-pages .header-cta,
+.interior-site .corporate-button,
+.interior-site.reference-pages .mockup-btn-primary {
+  background: var(--brand-gradient);
+}
+.interior-site .corporate-button:hover,
+.interior-site.reference-pages .mockup-btn-primary:hover {
+  background: var(--brand-gradient-hover);
+}
+.interior-site.reference-pages .corporate-split-hero .gradient-text {
+  background: var(--brand-gradient-text);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.interior-site .corporate-cta .corporate-button {
+  background: white;
+  color: var(--brand-violet);
+}
+.interior-site .corporate-cta .corporate-button:hover {
+  background: var(--brand-surface);
+}
+.interior-site .capability-top > svg {
+  color: var(--brand-violet);
+}
+.interior-site .capability-card:nth-child(3n + 2) .capability-top > svg {
+  color: var(--brand-blue);
+}
+.interior-site .capability-card:nth-child(3n) .capability-top > svg {
+  color: var(--brand-cyan);
+}

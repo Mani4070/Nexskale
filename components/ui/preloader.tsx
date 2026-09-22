@@ -125,9 +125,9 @@ export default function Preloader() {
                 x2="100%"
                 y2="100%"
               >
-                <stop offset="0%" stopColor="#7c3aed" />
-                <stop offset="50%" stopColor="#2563eb" />
-                <stop offset="100%" stopColor="#06b6d4" />
+                <stop offset="0%" stopColor="var(--brand-violet)" />
+                <stop offset="50%" stopColor="var(--brand-blue)" />
+                <stop offset="100%" stopColor="var(--brand-cyan)" />
               </linearGradient>
               <linearGradient
                 id="preloader-grad-2"
@@ -136,9 +136,9 @@ export default function Preloader() {
                 x2="0%"
                 y2="100%"
               >
-                <stop offset="0%" stopColor="#06b6d4" />
-                <stop offset="50%" stopColor="#3b82f6" />
-                <stop offset="100%" stopColor="#7c3aed" />
+                <stop offset="0%" stopColor="var(--brand-cyan)" />
+                <stop offset="50%" stopColor="var(--brand-blue)" />
+                <stop offset="100%" stopColor="var(--brand-violet)" />
               </linearGradient>
             </defs>
 

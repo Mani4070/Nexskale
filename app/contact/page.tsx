@@ -1,28 +1,28 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowUpRight, Plus } from "lucide-react";
 import { getContent } from "@/lib/content";
 import ContentPage from "@/components/layout/content-page";
-import InteriorBanner from "@/components/layout/interior-banner";
+import PageHero from "@/components/layout/page-hero";
+import ContactWorkspace from "@/components/contact/contact-workspace";
+
 export async function generateMetadata(): Promise<Metadata> {
   const c = await getContent();
   return {
-    title: "Contact Us — Start Your Next Digital Project",
+    title: "Contact Us — Let's Build Something Great Together",
     description:
       "Get in touch with NexSkale. Whether you are starting a new web or mobile project, exploring AI automation, or scaling cloud infrastructure, let's talk.",
     alternates: {
       canonical: "/contact",
     },
     openGraph: {
-      title: `Contact Us — Start Your Next Digital Project | ${c.brand.name}`,
+      title: `Contact Us — Let's Build Something Great Together | ${c.brand.name}`,
       description:
-        "A new product, a complex challenge or just an idea worth exploring. Tell us where you want to go, and we will find the next step together.",
+        "Have a project in mind or just want to say hello? We'd love to hear from you.",
       url: "/contact",
       siteName: c.brand.name,
       type: "website",
       images: [
         {
-          url: "/images/pages/contact.webp",
+          url: "/images/reference/team-meeting.webp",
           width: 1200,
           height: 630,
           alt: "Contact NexSkale Team",
@@ -31,14 +31,14 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: `Contact Us — Start Your Next Digital Project | ${c.brand.name}`,
+      title: `Contact Us — Let's Build Something Great Together | ${c.brand.name}`,
       description:
-        "A new product, a complex challenge or just an idea worth exploring. Tell us where you want to go, and we will find the next step together.",
-      images: ["/images/pages/contact.webp"],
+        "Have a project in mind or just want to say hello? We'd love to hear from you.",
+      images: ["/images/reference/team-meeting.webp"],
     },
   };
 }
-import ContactForm from "@/components/contact/contact-form";
+
 export default async function Page({
   searchParams,
 }: {
@@ -47,9 +47,7 @@ export default async function Page({
   const c = await getContent();
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://nexskale.com";
   const { service } = await searchParams;
-  const selected =
-    c.services.find((s) => s.id === service || s.title === service)?.title ??
-    "";
+  const selectedService = typeof service === "string" ? service : "";
 
   const contactJsonLd = {
     "@context": "https://schema.org",
@@ -92,88 +90,27 @@ export default async function Page({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }}
       />
-      <InteriorBanner
-        eyebrow={"Great ideas start with a conversation"}
-        title={"Tell us your vision."}
-        highlight={"Let's make it happen."}
-        description={
-          "A new product, a complex challenge or just an idea worth exploring. Tell us where you want to go, and we will find the next step together."
-        }
-        image={"/images/pages/contact.webp"}
-        imageAlt={
-          "Two sculptural glass and ceramic arches meeting in a warm studio setting"
-        }
-        action={"Start a conversation"}
-        href={"#enquiry"}
-        index={"#enquiry"}
-        topics={["Project enquiries", "Partnerships", "New possibilities"]}
-      />
-      <section className="interior-wrap conversation-workspace" id="enquiry">
-        <aside>
-          <span className="interior-kicker">Choose your conversation</span>
-          <h2>
-            Let's make
+
+      {/* Hero Section matching Mockup Column 6 */}
+      <PageHero
+        split
+        badge="CONTACT US"
+        title={
+          <>
+            Let's build
             <br />
-            the introduction.
-          </h2>
-          <div className="contact-channel">
-            <span>01 / Projects & partnerships</span>
-            <a href={"mailto:" + c.brand.email}>
-              {c.brand.email} <ArrowUpRight size={16} />
-            </a>
-            <p>Prefer email? Send your idea directly.</p>
-          </div>
-          <div className="contact-channel">
-            <span>02 / Join the team</span>
-            <Link href="/careers">
-              Find your next chapter <ArrowUpRight size={16} />
-            </Link>
-            <p>Visit our Careers page for enquiries about working with us.</p>
-          </div>
-          <div className="contact-expectation">
-            <b>A conversation, then a plan.</b>
-            <p>
-              We will review what you share, ask any useful questions and
-              discuss whether we are the right fit for your project.
-            </p>
-          </div>
-        </aside>
-        <div className="enquiry-card">
-          <div className="enquiry-heading">
-            <span className="interior-kicker">Project enquiry</span>
-            <h2>What's on your mind?</h2>
-            <p>Tell us a little about what you want to achieve.</p>
-          </div>
-          <ContactForm key={selected} content={c} selectedService={selected} />
-        </div>
-      </section>
-      <section className="interior-wrap conversation-faq">
-        <h2>Before you say hello.</h2>
-        <div>
-          {[
-            [
-              "Do I need a detailed brief?",
-              "No. A description of your goal, who it is for and what is getting in the way is a useful start.",
-            ],
-            [
-              "Can we discuss an existing product?",
-              "Yes. Tell us what is working, what needs to change and any technical context you already have.",
-            ],
-            [
-              "What should I include in my enquiry?",
-              "Your goals, an approximate timeline and any budget context help us understand the scope. It is fine if you are still exploring.",
-            ],
-          ].map(([q, a]) => (
-            <details key={q}>
-              <summary>
-                {q}
-                <Plus size={18} />
-              </summary>
-              <p>{a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
+            something great
+            <br />
+            <span className="gradient-text">together.</span>
+          </>
+        }
+        description="Have a project in mind or just want to say hello? We'd love to hear from you."
+        imageSrc="/images/reference/team-meeting.webp"
+        imageAlt="A team discussing a project around a meeting table"
+      />
+
+      {/* Contact Workspace with Quick Mode Buttons, Form, Map & FAQs */}
+      <ContactWorkspace content={c} initialService={selectedService} />
     </ContentPage>
   );
 }

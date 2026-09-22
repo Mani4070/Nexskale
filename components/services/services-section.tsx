@@ -169,7 +169,7 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
               >
                 <path
                   d="M38 4C28 12 12 18 6 36M6 36L2 28M6 36L14 34"
-                  stroke="#8b5cf6"
+                  stroke="var(--brand-violet)"
                   strokeWidth="1.75"
                   strokeLinecap="round"
                   strokeLinejoin="round"

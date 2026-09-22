@@ -14,7 +14,7 @@ Open http://localhost:3000. In Windows PowerShell, use `npm.cmd` if script execu
 ```sh
 npm run build
 npm start
-```
+```    
 
 ## Pages and navigation
 

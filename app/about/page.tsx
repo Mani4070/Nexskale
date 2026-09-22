@@ -309,9 +309,14 @@ export default async function Page() {
           </div>
 
           {/* Bottom CTA Banner */}
-          <div className="mockup-cta-banner">
-            <div className="mockup-cta-copy">
-              <h2>Join us in shaping a brighter tomorrow.</h2>
+          <div className="about-careers-banner">
+            <div className="about-careers-copy">
+              <span className="about-careers-kicker">YOUR NEXT CHAPTER</span>
+              <h2>
+                Great people.
+                <br />
+                Brighter possibilities.
+              </h2>
               <p>
                 We are always looking for curious, driven builders to solve
                 meaningful problems with us.
@@ -320,12 +325,12 @@ export default async function Page() {
                 Explore careers <ArrowRight size={16} />
               </Link>
             </div>
-            <div className="mockup-cta-image">
+            <div className="about-careers-image">
               <Image
                 src="/images/reference/about-cta.webp"
                 alt="Professional working at night overlooking city skyline"
-                width={500}
-                height={320}
+                fill
+                sizes="(max-width: 700px) 100vw, 70vw"
               />
             </div>
           </div>

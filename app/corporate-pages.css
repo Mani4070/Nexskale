@@ -635,3 +635,95 @@
 .interior-site .capability-card:nth-child(3n) .capability-top > svg {
   color: var(--brand-cyan);
 }
+
+/* Careers invitation: keep the full photograph inside the page gutters. */
+.interior-site.reference-pages .about-careers-banner {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: 470px;
+  margin-top: clamp(40px, 5vw, 72px);
+  overflow: hidden;
+  border: 1px solid #172536;
+  border-radius: 20px;
+  background: #030c15;
+}
+.about-careers-copy {
+  position: relative;
+  z-index: 1;
+  width: 55%;
+  padding: clamp(32px, 4vw, 64px);
+}
+.about-careers-kicker {
+  display: block;
+  margin-bottom: 24px;
+  color: #81d9f2;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+.interior-site.reference-pages .about-careers-copy h2 {
+  margin: 0 0 20px;
+  color: #fff;
+  font-size: clamp(30px, 3.2vw, 52px);
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+}
+.interior-site.reference-pages .about-careers-copy p {
+  max-width: 410px;
+  margin: 0 0 30px;
+  color: #b9c8d8;
+  font-size: 16px;
+  line-height: 1.75;
+}
+.about-careers-image {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 72%;
+  z-index: -1;
+}
+.interior-site.reference-pages .about-careers-image img {
+  object-fit: contain;
+  object-position: right center;
+}
+.about-careers-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #030c15 0%, transparent 40%);
+}
+@media (max-width: 1000px) and (min-width: 701px) {
+  .about-careers-copy {
+    width: 60%;
+    padding: 32px;
+  }
+  .about-careers-image {
+    width: 82%;
+  }
+}
+@media (max-width: 700px) {
+  .interior-site.reference-pages .about-careers-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+    border-radius: 16px;
+  }
+  .about-careers-copy {
+    width: 100%;
+    padding: 32px 26px 12px;
+  }
+  .about-careers-kicker {
+    margin-bottom: 20px;
+  }
+  .about-careers-image {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+  }
+  .about-careers-image::after {
+    background: linear-gradient(180deg, #030c15, transparent 30%);
+  }
+}

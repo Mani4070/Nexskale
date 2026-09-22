@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Preloader from "@/components/ui/preloader";
 import "./globals.css";
 import "./pages.css";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://nexskale.com";
@@ -135,10 +134,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
         />
       </head>
-      <body>
-        <Preloader />
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

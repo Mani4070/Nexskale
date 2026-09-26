@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getContent } from "@/lib/content";
 import ContentPage from "@/components/layout/content-page";
-import PageHero from "@/components/layout/page-hero";
+
 import ContactWorkspace from "@/components/contact/contact-workspace";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -91,25 +91,6 @@ export default async function Page({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }}
       />
 
-      {/* Hero Section matching Mockup Column 6 */}
-      <PageHero
-        split
-        badge="CONTACT US"
-        title={
-          <>
-            Let's build
-            <br />
-            something great
-            <br />
-            <span className="gradient-text">together.</span>
-          </>
-        }
-        description="Have a project in mind or just want to say hello? We'd love to hear from you."
-        imageSrc="/images/reference/team-meeting.webp"
-        imageAlt="A team discussing a project around a meeting table"
-      />
-
-      {/* Contact Workspace with Quick Mode Buttons, Form, Map & FAQs */}
       <ContactWorkspace content={c} initialService={selectedService} />
     </ContentPage>
   );

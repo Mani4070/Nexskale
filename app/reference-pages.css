@@ -414,21 +414,24 @@
   box-shadow: none;
   border: 0;
 }
-.reference-pages:is(.interior-services, .interior-careers) .mockup-cta-banner {
+.reference-pages.interior-careers .mockup-cta-banner {
   display: block;
   text-align: center;
+  min-height: 300px;
+  padding: 52px 44px;
   background:
-    radial-gradient(ellipse at 85% 0%, #dfe7ff, transparent 60%), #f3f4ff;
-  border: 1px solid #e9ebff;
+    linear-gradient(90deg, #080d2ee8 0%, #111943c9 48%, #11194340 100%),
+    url("/images/about/careers-cta-photo.jpg") center / cover;
+  border: 1px solid #ffffff30;
 }
-.reference-pages:is(.interior-services, .interior-careers) .mockup-cta-copy h2 {
-  color: #101642;
+.reference-pages.interior-careers .mockup-cta-copy h2 {
+  color: white;
 }
-.reference-pages:is(.interior-services, .interior-careers) .mockup-cta-copy p {
-  color: #515c80;
+.reference-pages.interior-careers .mockup-cta-copy p {
+  color: #e4e8f7;
   margin-inline: auto;
 }
-.reference-pages:is(.interior-services, .interior-careers) .mockup-cta-image {
+.reference-pages.interior-careers .mockup-cta-image {
   display: none;
 }
 .reference-pages .blog-featured-card {

@@ -1,64 +1,77 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import {
-  Mail,
-  Phone,
-  MapPin,
   ArrowRight,
-  Send,
-  ChevronDown,
+  BadgeCheck,
+  CalendarDays,
+  ChartNoAxesColumnIncreasing,
+  Check,
   CheckCircle2,
+  Copy,
+  Headset,
+  LockKeyhole,
+  Mail,
+  MapPin,
+  MessageSquare,
+  Plus,
+  Send,
+  UserRound,
+  UsersRound,
 } from "lucide-react";
+import {
+  FaInstagram as Instagram,
+  FaLinkedinIn as Linkedin,
+  FaYoutube as Youtube,
+} from "react-icons/fa";
 import type { Content } from "@/lib/content";
+import styles from "./contact-workspace.module.css";
 
-function LinkedinIcon({ size = 16 }: { size?: number }) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-      <rect width="4" height="12" x="2" y="9" />
-      <circle cx="4" cy="4" r="2" />
-    </svg>
-  );
-}
-
-function XIcon({ size = 14 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-    </svg>
-  );
-}
-
-function InstagramIcon({ size = 16 }: { size?: number }) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-    </svg>
-  );
-}
+const modes = [
+  {
+    id: "project",
+    title: "Start a project",
+    text: "Tell us about your idea and goals",
+    icon: MessageSquare,
+  },
+  {
+    id: "call",
+    title: "Schedule a call",
+    text: "Book time with our team",
+    icon: CalendarDays,
+  },
+  {
+    id: "inquiry",
+    title: "General inquiry",
+    text: "Have a question? We’re here.",
+    icon: Mail,
+  },
+] as const;
+const faqs = [
+  [
+    "How do we get started?",
+    "Tell us about your idea using the form above. We’ll get in touch to understand your goals, discuss your requirements, and agree on the next steps.",
+  ],
+  [
+    "What is your typical project timeline?",
+    "Timelines depend on the scope and complexity of your project. Most MVPs take 4–12 weeks. After our initial conversation, we’ll share a plan with clear milestones.",
+  ],
+  [
+    "Do you work with startups?",
+    "Yes! We help startups bring their first product to life and support growing businesses as they scale.",
+  ],
+  [
+    "Do you provide ongoing support?",
+    "Yes. We offer maintenance, performance improvements, cloud monitoring, and ongoing feature development after launch.",
+  ],
+  [
+    "Can we schedule a direct call?",
+    "Absolutely. Choose Schedule a call above and include your preferred dates and time zone in your message. We’ll follow up to arrange a suitable time.",
+  ],
+];
+const mapsUrl =
+  "https://www.google.com/maps/search/?api=1&query=HITEC+City+Hyderabad+India";
 
 export default function ContactWorkspace({
   content,
@@ -67,477 +80,532 @@ export default function ContactWorkspace({
   content: Content;
   initialService?: string;
 }) {
-  const [activeMode, setActiveMode] = useState<"project" | "call" | "inquiry">(
-    "project",
-  );
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [sending, setSending] = useState(false);
+  const [mode, setMode] = useState<"project" | "call" | "inquiry">("project");
+  const [status, setStatus] = useState<"idle" | "sending" | "success">("idle");
   const [error, setError] = useState("");
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    service: initialService,
-    message: "",
-  });
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setSending(true);
+  const [message, setMessage] = useState("");
+  const [copied, setCopied] = useState("");
+  const [copyNotice, setCopyNotice] = useState("");
+  const [allFaqs, setAllFaqs] = useState(false);
+  async function submit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (status === "sending") return;
+    const data = Object.fromEntries(new FormData(event.currentTarget));
+    setStatus("sending");
     setError("");
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          ...formData,
+          ...data,
           service:
-            activeMode === "call"
+            mode === "call"
               ? "Discovery call"
-              : activeMode === "inquiry"
+              : mode === "inquiry"
                 ? "General inquiry"
-                : formData.service,
+                : data.service,
         }),
       });
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || "Please try again.");
-      setFormSubmitted(true);
+      setStatus("success");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Please try again.");
-    } finally {
-      setSending(false);
+      setStatus("idle");
     }
-  };
-
-  const faqItems = [
+  }
+  async function copy(value: string, label: string) {
+    try {
+      await navigator.clipboard.writeText(value);
+      setCopied(label);
+      setCopyNotice(`${label} copied.`);
+    } catch {
+      setCopyNotice(
+        "Copy is unavailable. Please select and copy the contact detail.",
+      );
+    }
+  }
+  const details = [
     {
-      q: "How do we get started?",
-      a: "Reach out through our contact form or send an email with an overview of your goals. We'll schedule an initial 30-minute discovery call within 24 hours to discuss scope, timeline, and budget.",
+      label: "Email",
+      value: content.brand.email,
+      href: `mailto:${content.brand.email}`,
+      icon: Mail,
     },
     {
-      q: "What is your typical project timeline?",
-      a: "Most MVP builds and core digital products take between 4 to 12 weeks. We work in focused 2-week sprints with transparent progress updates and interactive preview deployments.",
+      label: "Phone",
+      value: "+91 83758 42379",
+      href: "tel:+918375842379",
+      icon: Headset,
     },
     {
-      q: "Do you work with startups?",
-      a: "Yes! We work extensively with early-stage and high-growth venture-backed startups to bring scalable MVPs to market rapidly, as well as established enterprise teams.",
-    },
-    {
-      q: "Do you provide ongoing support?",
-      a: "Yes, we offer ongoing product maintenance, cloud DevOps monitoring, performance tuning, and feature iteration packages after initial launch.",
-    },
-    {
-      q: "Can we schedule a direct call?",
-      a: "Certainly! You can request a calendar link by choosing 'Schedule a call' above, or let us know your preferred dates in your message.",
+      label: "Location",
+      value: "Hyderabad, India",
+      href: mapsUrl,
+      icon: MapPin,
     },
   ];
-
   return (
-    <div>
-      {/* Hero Quick Action Filter Buttons */}
-      <div className="contact-quick-actions">
-        <div className="interior-wrap mockup-hero-actions">
-          <button
-            type="button"
-            aria-pressed={activeMode === "project"}
-            className={`mockup-btn-outline ${activeMode === "project" ? "active" : ""}`}
-            onClick={() => setActiveMode("project")}
-          >
-            <Send size={22} /> Start a project
-          </button>
-          <button
-            type="button"
-            aria-pressed={activeMode === "call"}
-            className={`mockup-btn-outline ${activeMode === "call" ? "active" : ""}`}
-            onClick={() => setActiveMode("call")}
-          >
-            <Phone size={22} /> Schedule a call
-          </button>
-          <button
-            type="button"
-            aria-pressed={activeMode === "inquiry"}
-            className={`mockup-btn-outline ${activeMode === "inquiry" ? "active" : ""}`}
-            onClick={() => setActiveMode("inquiry")}
-          >
-            <Mail size={22} /> General inquiry
-          </button>
-        </div>
-      </div>
-
-      {/* Main 2-Column Contact Section */}
-      <section className="contact-main-section" id="message-form">
-        <div className="interior-wrap">
-          <div className="contact-layout-grid">
-            {/* Left: Message Form */}
-            <div className="contact-form-card">
-              <h2>Send us a message</h2>
-              <p>
-                {activeMode === "project" &&
-                  "Tell us about your product goals, timeline, and what you want to achieve."}
-                {activeMode === "call" &&
-                  "Leave your details and we'll send a direct calendar invite for a discovery call."}
-                {activeMode === "inquiry" &&
-                  "Have a general question or partnership proposal? We'd love to connect."}
-              </p>
-
-              {activeMode === "project" && formData.service && (
-                <p className="contact-service-context">Interested in: <strong>{formData.service}</strong></p>
-              )}
-
-              {formSubmitted ? (
-                <div
-                  style={{
-                    padding: "40px 20px",
-                    textAlign: "center",
-                    background: "var(--brand-surface)",
-                    borderRadius: "16px",
-                    border: "1px solid var(--brand-border)",
-                  }}
-                >
-                  <CheckCircle2
-                    size={48}
-                    color="var(--brand-blue)"
-                    style={{ margin: "0 auto 16px" }}
-                  />
-                  <h3
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: 700,
-                      color: "var(--brand-indigo)",
-                      margin: "0 0 8px",
-                    }}
-                  >
-                    Thank you! We've received your message.
-                  </h3>
-                  <p style={{ color: "var(--brand-indigo)", fontSize: "14px", margin: 0 }}>
-                    A senior member of our team will review your enquiry and
-                    respond within 24 hours.
-                  </p>
-                </div>
-              ) : (
-                <form
-                  onSubmit={handleSubmit}
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "20px",
-                  }}
-                >
-                  <div>
-                    <label
-                      htmlFor="contact-name"
-                      style={{
-                        display: "block",
-                        fontSize: "13px",
-                        fontWeight: 600,
-                        color: "#334155",
-                        marginBottom: "6px",
-                      }}
-                    >
-                      Your name
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Jane Doe"
-                      id="contact-name"
-                      value={formData.name}
-                      onChange={(e) =>
-                        setFormData({ ...formData, name: e.target.value })
-                      }
-                      style={{
-                        width: "100%",
-                        padding: "12px 16px",
-                        border: "1px solid #cbd5e1",
-                        borderRadius: "10px",
-                        fontSize: "14px",
-                        outline: "none",
-                      }}
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="contact-email"
-                      style={{
-                        display: "block",
-                        fontSize: "13px",
-                        fontWeight: 600,
-                        color: "#334155",
-                        marginBottom: "6px",
-                      }}
-                    >
-                      Your email
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      placeholder="jane@company.com"
-                      id="contact-email"
-                      value={formData.email}
-                      onChange={(e) =>
-                        setFormData({ ...formData, email: e.target.value })
-                      }
-                      style={{
-                        width: "100%",
-                        padding: "12px 16px",
-                        border: "1px solid #cbd5e1",
-                        borderRadius: "10px",
-                        fontSize: "14px",
-                        outline: "none",
-                      }}
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="contact-company"
-                      style={{
-                        display: "block",
-                        fontSize: "13px",
-                        fontWeight: 600,
-                        color: "#334155",
-                        marginBottom: "6px",
-                      }}
-                    >
-                      Company (optional)
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="Acme Corp"
-                      id="contact-company"
-                      value={formData.company}
-                      onChange={(e) =>
-                        setFormData({ ...formData, company: e.target.value })
-                      }
-                      style={{
-                        width: "100%",
-                        padding: "12px 16px",
-                        border: "1px solid #cbd5e1",
-                        borderRadius: "10px",
-                        fontSize: "14px",
-                        outline: "none",
-                      }}
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="contact-message"
-                      style={{
-                        display: "block",
-                        fontSize: "13px",
-                        fontWeight: 600,
-                        color: "#334155",
-                        marginBottom: "6px",
-                      }}
-                    >
-                      How can we help?
-                    </label>
-                    <textarea
-                      required
-                      rows={4}
-                      minLength={10}
-                      maxLength={5000}
-                      placeholder="Describe your project, timeline, or questions..."
-                      id="contact-message"
-                      value={formData.message}
-                      onChange={(e) =>
-                        setFormData({ ...formData, message: e.target.value })
-                      }
-                      style={{
-                        width: "100%",
-                        padding: "12px 16px",
-                        border: "1px solid #cbd5e1",
-                        borderRadius: "10px",
-                        fontSize: "14px",
-                        outline: "none",
-                        resize: "vertical",
-                      }}
-                    />
-                  </div>
-
-                  <p role="alert">{error}</p>
-                  <button
-                    type="submit"
-                    disabled={sending}
-                    className="mockup-btn-primary"
-                    style={{ alignSelf: "flex-start" }}
-                  >
-                    {sending ? "Sending…" : "Send message"} <Send size={15} />
-                  </button>
-                </form>
-              )}
+    <div className={styles.page}>
+      <section className={styles.hero} data-reveal>
+        <div className={styles.heroGrid}>
+          <div className={styles.heroCopy}>
+            <span className={styles.eyebrow}>CONTACT NEXSKALE</span>
+            <h1>
+              Your next chapter.
+              <br />
+              <span>Built together.</span>
+            </h1>
+            <p>
+              Partner with a team that turns complex challenges into dependable
+              digital solutions. Tell us where you want to go. We will help you
+              get there.
+            </p>
+            <div className={styles.heroLinks}>
+              <a className={styles.heroCta} href="#message-form">
+                Discuss your project <ArrowRight size={18} />
+              </a>
+              <a
+                className={styles.heroEmail}
+                href={`mailto:${content.brand.email}`}
+              >
+                Email our team <ArrowRight size={16} />
+              </a>
             </div>
-
-            {/* Right: Info Card + Map */}
-            <div className="contact-side-column">
-              <div className="contact-info-card">
-                <h3>Get in touch</h3>
-                <div className="contact-detail-item">
-                  <Mail size={18} className="contact-detail-icon" />
-                  <div>
-                    <span className="contact-detail-label">Email</span>
-                    <a
-                      href={`mailto:${content.brand.email}`}
-                      className="contact-detail-value"
-                    >
-                      {content.brand.email}
-                    </a>
-                  </div>
-                </div>
-
-                <div className="contact-detail-item">
-                  <Phone size={18} className="contact-detail-icon" />
-                  <div>
-                    <span className="contact-detail-label">Phone</span>
-                    <a
-                      href="tel:+919876543210"
-                      className="contact-detail-value"
-                    >
-                      +91 98765 43210
-                    </a>
-                  </div>
-                </div>
-
-                <div className="contact-detail-item">
-                  <MapPin size={18} className="contact-detail-icon" />
-                  <div>
-                    <span className="contact-detail-label">Location</span>
-                    <span className="contact-detail-value">
-                      Hyderabad, India
-                    </span>
-                  </div>
-                </div>
-
-                <div className="contact-social-row">
-                  <span
-                    style={{
-                      fontSize: "12px",
-                      color: "#64748b",
-                      fontWeight: 600,
-                      marginRight: "4px",
-                    }}
-                  >
-                    Follow us
-                  </span>
-                  <a
-                    href={content.brand.social.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="contact-social-btn"
-                    aria-label="LinkedIn"
-                  >
-                    <LinkedinIcon size={16} />
-                  </a>
-                  <a
-                    href={content.brand.social.twitter}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="contact-social-btn"
-                    aria-label="Twitter / X"
-                  >
-                    <XIcon size={14} />
-                  </a>
-                  <a
-                    href={content.brand.social.instagram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="contact-social-btn"
-                    aria-label="Instagram"
-                  >
-                    <InstagramIcon size={16} />
-                  </a>
-                </div>
-              </div>
-
-              <div className="contact-next-steps" data-reveal>
-                <span className="corporate-kicker">WHAT HAPPENS NEXT</span>
-                <h3>A clear start to your project.</h3>
-                <ol>
-                  <li><strong>Tell us your goals</strong><p>Share your idea, challenges and any timing requirements.</p></li>
-                  <li><strong>Meet your technology partner</strong><p>We’ll discuss your needs and explore possible approaches.</p></li>
-                  <li><strong>Agree on a practical plan</strong><p>Get a proposed scope, milestones and next steps.</p></li>
-                </ol>
+          </div>
+          <div className={styles.heroVisual}>
+            <div className={styles.heroPhoto}>
+              <Image
+                src="/images/services/matched-hero.webp"
+                alt="NexSkale team collaborating on a digital project"
+                fill
+                sizes="(max-width: 700px) 100vw, 50vw"
+                preload
+              />
+            </div>
+            <div className={styles.heroCaption}>
+              <span className={styles.captionIcon}>
+                <UsersRound size={23} />
+              </span>
+              <div>
+                <strong>A conversation is the first step.</strong>
+                <span>Our people. Your ambition. A shared direction.</span>
               </div>
             </div>
           </div>
+        </div>
+        <div className={styles.promises}>
+          {[
+            {
+              icon: BadgeCheck,
+              title: "Quick response",
+              text: "We reply within 24 hours",
+            },
+            {
+              icon: UsersRound,
+              title: "Right expertise",
+              text: "Connect with the right team",
+            },
+            {
+              icon: LockKeyhole,
+              title: "Confidential",
+              text: "Your ideas are safe with us",
+            },
+          ].map(({ icon: Icon, title, text }) => (
+            <div key={title}>
+              <span className={styles.roundIcon}>
+                <Icon size={20} />
+              </span>
+              <div>
+                <strong>{title}</strong>
+                <small>{text}</small>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
-
-      {/* Frequently Asked Questions Section */}
-      <section className="contact-faq-section">
-        <div className="interior-wrap">
-          <div className="faq-header-row">
-            <div>
-              <span
-                className="section-kicker"
-                style={{
-                  color: "var(--brand-blue)",
-                  fontWeight: 700,
-                  fontSize: "12px",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.12em",
-                }}
-              >
-                Need Assistance?
-              </span>
-              <h2>Frequently asked questions</h2>
-            </div>
-            <Link
-              href="#message-form"
-              style={{
-                color: "var(--brand-blue)",
-                fontSize: "14px",
-                fontWeight: 650,
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "6px",
+      <section
+        className={styles.actions}
+        aria-label="Choose how to get in touch"
+        data-reveal
+      >
+        <div className={styles.wrap}>
+          {modes.map(({ id, title, text, icon: Icon }) => (
+            <button
+              key={id}
+              type="button"
+              aria-pressed={mode === id}
+              onClick={() => {
+                setMode(id);
+                document.getElementById("message-form")?.scrollIntoView({
+                  behavior: window.matchMedia(
+                    "(prefers-reduced-motion: reduce)",
+                  ).matches
+                    ? "instant"
+                    : "smooth",
+                  block: "start",
+                });
               }}
             >
-              View all <ArrowRight size={15} />
-            </Link>
+              <span className={styles.actionIcon}>
+                <Icon />
+              </span>
+              <span>
+                <strong>{title}</strong>
+                <small>{text}</small>
+              </span>
+              <span className={styles.actionArrow}>
+                <ArrowRight size={19} />
+              </span>
+            </button>
+          ))}
+        </div>
+      </section>
+      <div className={styles.wrap}>
+        <section
+          className={styles.contactGrid}
+          id="message-form"
+          aria-label="Contact NexSkale"
+          data-reveal
+        >
+          <div className={styles.card} data-reveal>
+            <h2>
+              {mode === "call"
+                ? "Let’s schedule a call"
+                : mode === "inquiry"
+                  ? "What’s on your mind?"
+                  : "Send us a message"}
+            </h2>
+            <p>
+              {mode === "call"
+                ? "Share your preferred dates and time zone. We’ll get in touch to arrange a call."
+                : mode === "inquiry"
+                  ? "Have a question or a partnership idea? We’d love to hear from you."
+                  : "Tell us about your project goals, timeline, and what you want to achieve. We’ll get back to you as soon as possible."}
+            </p>
+            {status === "success" ? (
+              <div className={styles.success} role="status">
+                <CheckCircle2 size={48} />
+                <h3>Thanks for reaching out!</h3>
+                <p>
+                  Your message has been received. Our team will get back to you
+                  soon.
+                </p>
+                <button
+                  className={styles.primary}
+                  onClick={() => {
+                    setStatus("idle");
+                    setMessage("");
+                  }}
+                >
+                  Send another message <ArrowRight size={16} />
+                </button>
+              </div>
+            ) : (
+              <form className={styles.form} onSubmit={submit}>
+                <div className={styles.field}>
+                  <span className={styles.fieldIcon}>
+                    <UserRound />
+                  </span>
+                  <label>
+                    Your name
+                    <input
+                      name="name"
+                      required
+                      minLength={2}
+                      maxLength={120}
+                      placeholder="John Doe"
+                      autoComplete="name"
+                    />
+                  </label>
+                </div>
+                <div className={styles.field}>
+                  <span className={styles.fieldIcon}>
+                    <Mail />
+                  </span>
+                  <label>
+                    Your email
+                    <input
+                      name="email"
+                      type="email"
+                      required
+                      maxLength={254}
+                      placeholder="john@company.com"
+                      autoComplete="email"
+                    />
+                  </label>
+                </div>
+                <div className={styles.field}>
+                  <span className={styles.fieldIcon}>
+                    <Mail />
+                  </span>
+                  <label>
+                    Company (optional)
+                    <input
+                      name="company"
+                      maxLength={200}
+                      placeholder="Acme Corp"
+                      autoComplete="organization"
+                    />
+                  </label>
+                </div>
+                <div className={styles.field}>
+                  <span className={styles.fieldIcon}>
+                    <UsersRound />
+                  </span>
+                  <label>
+                    How can we help?
+                    <select name="service" defaultValue={initialService}>
+                      <option value="">Select an option</option>
+                      {initialService &&
+                        !content.services.some(
+                          (s) => s.title === initialService,
+                        ) && <option>{initialService}</option>}
+                      {content.services.map((s) => (
+                        <option key={s.id}>{s.title}</option>
+                      ))}
+                      <option>Something else</option>
+                    </select>
+                  </label>
+                </div>
+                <div className={`${styles.field} ${styles.messageField}`}>
+                  <span className={styles.fieldIcon}>
+                    <MessageSquare />
+                  </span>
+                  <label>
+                    Message
+                    <textarea
+                      name="message"
+                      required
+                      minLength={10}
+                      maxLength={500}
+                      rows={4}
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      placeholder={
+                        mode === "call"
+                          ? "Tell us what you’d like to discuss and your preferred dates and time zone…"
+                          : "Describe your project, timeline or questions…"
+                      }
+                    />
+                    <span className={styles.counter}>{message.length}/500</span>
+                  </label>
+                </div>
+                {error && (
+                  <p className={styles.error} role="alert">
+                    {error}
+                  </p>
+                )}
+                <div className={styles.formBottom}>
+                  <button
+                    className={styles.primary}
+                    disabled={status === "sending"}
+                  >
+                    {status === "sending" ? "Sending…" : "Send message"}
+                    <ArrowRight size={20} />
+                  </button>
+                  <span className={styles.handwritten}>
+                    <span>⤴</span> Let’s talk
+                    <br />
+                    about your next big idea!
+                  </span>
+                </div>
+              </form>
+            )}
           </div>
-
-          <div className="faq-accordion-list">
-            {faqItems.map((item) => (
-              <details key={item.q} className="faq-item">
+          <aside className={styles.side}>
+            <div className={styles.card} data-reveal>
+              <h2>Get in touch</h2>
+              <p className={styles.intro}>
+                Prefer a direct conversation? Reach us through any of these
+                channels.
+              </p>
+              <div className={styles.details}>
+                {details.map(({ label, value, href, icon: Icon }) => (
+                  <div className={styles.detail} key={label}>
+                    <span className={styles.roundIcon}>
+                      <Icon size={20} />
+                    </span>
+                    <div>
+                      <small>{label}</small>
+                      <a
+                        href={href}
+                        target={label === "Location" ? "_blank" : undefined}
+                        rel={
+                          label === "Location"
+                            ? "noopener noreferrer"
+                            : undefined
+                        }
+                      >
+                        {value}
+                      </a>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => copy(value, label)}
+                      aria-label={`Copy ${label.toLowerCase()}`}
+                    >
+                      {copied === label ? (
+                        <Check size={15} />
+                      ) : (
+                        <Copy size={15} />
+                      )}
+                    </button>
+                  </div>
+                ))}
+              </div>
+              <span className={styles.srOnly} role="status">
+                {copyNotice}
+              </span>
+              <div className={styles.socials}>
+                <strong>Follow us</strong>
+                <a
+                  href={content.brand.social.linkedin}
+                  aria-label="LinkedIn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Linkedin size={18} />
+                </a>
+                <a
+                  href={content.brand.social.twitter}
+                  aria-label="X"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  𝕏
+                </a>
+                <a
+                  href={content.brand.social.instagram}
+                  aria-label="Instagram"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Instagram size={18} />
+                </a>
+                <a
+                  href={content.brand.social.youtube}
+                  aria-label="YouTube"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Youtube size={18} />
+                </a>
+              </div>
+            </div>
+            <div className={styles.office} data-reveal>
+              <div className={styles.officeTop}>
+                <Image
+                  src="/images/nexuskale-reception.png"
+                  alt="NexSkale office reception"
+                  fill
+                  sizes="(max-width: 700px) 90vw, 42vw"
+                />
+                <div>
+                  <MapPin size={20} />
+                  <h3>Visit our office</h3>
+                  <p>
+                    NexSkale Tech Hub
+                    <br />
+                    Hitech City, Hyderabad,
+                    <br />
+                    Telangana, India
+                  </p>
+                  <a href={mapsUrl} target="_blank" rel="noopener noreferrer">
+                    Get directions <ArrowRight size={15} />
+                  </a>
+                </div>
+              </div>
+              <div className={styles.liveMap}>
+                <iframe
+                  title="Interactive street map of Hitech City, Hyderabad"
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=78.366%2C17.435%2C78.396%2C17.460&layer=mapnik"
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                />
+                <div className={styles.mapFooter}>
+                  <span>
+                    <MapPin size={15} /> Hitech City, Hyderabad
+                  </span>
+                  <a
+                    href="https://www.openstreetmap.org/#map=15/17.4475/78.3810"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View larger map <ArrowRight size={14} />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </section>
+        <section
+          className={styles.faq}
+          aria-labelledby="faq-heading"
+          data-reveal
+        >
+          <span className={styles.eyebrow}>HELP & INFORMATION</span>
+          <div className={styles.faqHeading}>
+            <h2 id="faq-heading">Frequently asked questions</h2>
+            <button onClick={() => setAllFaqs(!allFaqs)}>
+              {allFaqs ? "Collapse FAQs" : "View all FAQs"}
+              <ArrowRight size={15} />
+            </button>
+          </div>
+          <p>
+            Quick answers to common questions. Can’t find what you’re looking
+            for? Contact us directly.
+          </p>
+          <div className={styles.faqList}>
+            {faqs.map(([question, answer]) => (
+              <details
+                data-reveal
+                key={`${question}-${allFaqs}`}
+                open={allFaqs || undefined}
+              >
                 <summary>
-                  <span>{item.q}</span>
-                  <ChevronDown size={18} />
+                  {question}
+                  <Plus size={17} />
                 </summary>
-                <p>{item.a}</p>
+                <p>{answer}</p>
               </details>
             ))}
           </div>
-
-          {/* Bottom Impact CTA Banner */}
-          <div
-            className="mockup-cta-banner"
-            style={{ marginTop: "60px", marginBottom: "60px" }}
-          >
-            <div className="mockup-cta-copy">
-              <h2>Let's turn your ideas into real impact.</h2>
-              <p>
-                From modern web apps and AI agents to enterprise cloud
-                architectures, we're ready to engineer what's next for your
-                business.
-              </p>
-              <Link href="#message-form" className="mockup-btn-primary">
-                Start a conversation <ArrowRight size={16} />
-              </Link>
-            </div>
-            <div className="mockup-cta-image">
-              <Image
-                src="/images/nexuskale-reception.png"
-                alt="Reception concept featuring the NexSkale brand"
-                width={480}
-                height={300}
-              />
+        </section>
+        <section className={styles.banner} data-reveal>
+          <Image
+            src="/images/reference/team-meeting.webp"
+            alt="Team collaborating on a new project"
+            fill
+            sizes="90vw"
+          />
+          <div className={styles.bannerCopy}>
+            <span className={styles.eyebrow}>LET’S BUILD TOGETHER</span>
+            <h2>Turn your ideas into real impact.</h2>
+            <p>
+              From modern web apps and AI agents to enterprise cloud solutions,
+              <br />
+              we help businesses innovate and grow.
+            </p>
+            <a href="#message-form">
+              Start a conversation <ArrowRight size={16} />
+            </a>
+          </div>
+          <div className={styles.delivered}>
+            <span className={styles.roundIcon}>
+              <ChartNoAxesColumnIncreasing />
+            </span>
+            <div>
+              <strong>50+</strong>
+              <small>Projects Delivered</small>
             </div>
           </div>
-        </div>
-      </section>
+          <span className={styles.plane} aria-hidden="true">
+            <Send size={32} />
+          </span>
+        </section>
+      </div>
     </div>
   );
 }

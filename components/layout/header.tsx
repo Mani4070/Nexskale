@@ -122,7 +122,7 @@ export default function Header({
             })}
           </nav>
           <Link className="button header-cta" href="/contact">
-            Let’s build <ArrowRight size={15} />
+            {pathname === "/services" ? "Let’s Talk" : "Let’s build"} <ArrowRight size={15} />
           </Link>
           <button
             className="menu-toggle"

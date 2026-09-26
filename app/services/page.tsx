@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { getContent } from "@/lib/content";
 import ContentPage from "@/components/layout/content-page";
-import PageHero from "@/components/layout/page-hero";
-import ServicesCatalogue from "@/components/services/services-catalogue";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import ServicesExperience from "@/components/services/services-experience";
+import "./services.css";
 
 export async function generateMetadata(): Promise<Metadata> {
   const c = await getContent();
@@ -90,35 +88,7 @@ export default async function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesJsonLd) }}
       />
 
-      {/* Hero Section matching Mockup Column 3 */}
-      <PageHero
-        split
-        badge="OUR SERVICES"
-        title={
-          <>
-            Technology that
-            <br />
-            <span className="gradient-text">moves business</span>
-            <br />
-            forward.
-          </>
-        }
-        description="From strategy to deployment, we build secure, scalable and future-ready products tailored to your goals."
-        imageSrc="/images/reference/team-meeting.webp"
-        imageAlt="A collaborative technology planning session"
-      >
-        <div className="corporate-hero-actions">
-          <Link href="/contact" className="corporate-button">
-            Discuss your project <ArrowRight size={17} />
-          </Link>
-          <Link href="#capabilities" className="corporate-text-link">
-            Explore our services <ArrowRight size={17} />
-          </Link>
-        </div>
-      </PageHero>
-
-      {/* Interactive Filter Pills & Service Showcase Cards */}
-      <ServicesCatalogue services={c.services} />
+      <ServicesExperience services={c.services} />
     </ContentPage>
   );
 }

@@ -175,7 +175,7 @@ export default function ServicesExperience({ services }: { services: Content["se
 
         <div className="sx-wrap sx-cta-wrap">
           <div className="sx-cta" data-reveal>
-            <Image src="/images/services/matched-cta.webp" alt="Developer working at illuminated monitors in an evening office" fill sizes="(max-width: 900px) 100vw, 1540px" />
+            <Image src="/images/services/matched-cta.webp" alt="Developer working at illuminated monitors in an evening office" fill sizes="(max-width: 900px) 100vw," />
             <div>
               <span className="sx-kicker">LET’S BUILD WHAT’S NEXT</span>
               <h2>Good technology starts<br />with a good conversation.</h2>

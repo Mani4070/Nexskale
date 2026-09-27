@@ -34,7 +34,6 @@
 /* Master container constraint */
 .sx-wrap {
   width: 100%;
-  max-width: 1540px;
   margin-inline: auto;
   padding-inline: clamp(20px, 5.3vw, 80px);
   box-sizing: border-box;

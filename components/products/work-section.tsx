@@ -25,21 +25,30 @@ export default function WorkSection({
     .slice(0, isHome ? 3 : undefined);
 
   return (
-    <section className="section work-section" id="work">
+    <section
+      className={`section work-section${isHome ? " home-work-section" : ""}`}
+      id="work"
+    >
       <div className="container">
-        <div className="section-heading compact">
+        <div className={`section-heading compact${isHome ? " home-work-heading" : ""}`}>
           <div>
             <div className="eyebrow purple">
               {isHome ? "Featured work" : "Our portfolio"}
             </div>
             <h2>
               {isHome
-                ? "Real products. Real possibilities."
+                ? <>Real products.<br /><span>Real possibilities.</span></>
                 : "Explore the products."}
             </h2>
+            {isHome && (
+              <p>
+                Thoughtful digital experiences, built to move businesses
+                forward.
+              </p>
+            )}
           </div>
           <Link className="text-link" href="/services">
-            Explore capabilities <ArrowRight size={15} />
+            <span>Explore capabilities</span> <ArrowRight size={15} />
           </Link>
         </div>
         {showFilters && (

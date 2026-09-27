@@ -63,6 +63,17 @@
   padding: 13px 24px;
   cursor: pointer;
 }
+.reference-pages:is(.interior-about, .interior-blog) .mockup-btn-outline {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(76, 93, 167, 0.22);
+  color: #1c2a52;
+  box-shadow: 0 8px 20px rgba(66, 79, 142, 0.08);
+}
+.reference-pages:is(.interior-about, .interior-blog) .mockup-btn-outline:hover {
+  background: #ffffff;
+  border-color: rgba(76, 93, 167, 0.32);
+  color: #0d183d;
+}
 .reference-pages :is(button, a, input, textarea):focus-visible {
   outline: 3px solid #8065ff;
   outline-offset: 4px;
@@ -253,6 +264,24 @@
   border-radius: 10px;
   box-shadow: none;
 }
+.reference-pages .about-values-intro {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 28px;
+  margin-bottom: 28px;
+}
+.reference-pages .about-values-intro h2 {
+  margin: 0;
+  font-size: clamp(30px, 3vw, 42px);
+  letter-spacing: -0.055em;
+}
+.reference-pages .about-values-intro p {
+  max-width: 420px;
+  margin: 0;
+  color: #5a6988;
+  line-height: 1.6;
+}
 .reference-pages .about-mv-section {
   padding: 40px 0;
   background: #f7f8ff;
@@ -326,6 +355,17 @@
   border-radius: 9px;
   padding: 24px 12px;
   box-shadow: 0 4px 16px #373d8c04;
+}
+.reference-pages .about-team-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 16px;
+}
+.reference-pages .about-team-name {
+  color: #465078;
+  font-size: 14px;
+  font-weight: 600;
 }
 .reference-pages .services-list-container {
   gap: 20px;
@@ -840,6 +880,23 @@
   width: 53%;
   max-width: 760px;
   padding: 64px 0;
+  position: relative;
+  z-index: 2;
+}
+.reference-pages .mockup-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 3;
+}
+.reference-pages .mockup-btn-primary,
+.reference-pages .mockup-btn-outline {
+  position: relative;
+  z-index: 4;
+  visibility: visible;
+  opacity: 1;
 }
 .reference-pages main .mockup-hero-title {
   font-size: clamp(40px, 4.2vw, 68px);
@@ -867,7 +924,9 @@
   text-align: left;
 }
 .reference-pages .about-story-grid {
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.25fr);
+  gap: 32px;
+  align-items: center;
 }
 .reference-pages .about-story-copy .section-kicker {
   font-size: 25px;
@@ -886,11 +945,17 @@
 }
 .reference-pages .about-story-image-wrap {
   max-height: 390px;
+  width: 100%;
+  max-width: 680px;
+  margin-left: auto;
+  justify-self: end;
+  border-radius: 14px;
 }
 .reference-pages .about-story-image-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 .reference-pages .about-mv-card {
   display: grid;

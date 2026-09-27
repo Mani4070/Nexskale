@@ -15,6 +15,7 @@ import {
 import { getContent } from "@/lib/content";
 import ContentPage from "@/components/layout/content-page";
 import PageHero from "@/components/layout/page-hero";
+import AnimatedStat from "@/components/about/animated-stat";
 
 export async function generateMetadata(): Promise<Metadata> {
   const c = await getContent();
@@ -124,45 +125,40 @@ export default async function Page() {
         description="We're more than a development company — we're a technology partner for ambitious businesses."
         imageSrc="/images/nexuskale-reception.png"
         imageAlt="Reception concept featuring the NexSkale purple and blue brand mark"
-      />
+      >
+        <div className="mockup-hero-actions">
+          <Link href="#story" className="mockup-btn-primary">
+            Our story <ArrowRight size={16} />
+          </Link>
+          <Link href="#team" className="mockup-btn-outline">
+            Meet the team
+          </Link>
+        </div>
+      </PageHero>
       <div className="about-statistics">
         <div className="interior-wrap">
           <div className="hero-stats-row">
-            <div className="hero-stat-item">
-              <span className="stat-num">3+</span>
-              <span className="stat-label">Years of Experience</span>
-            </div>
-            <div className="hero-stat-item">
-              <span className="stat-num">250+</span>
-              <span className="stat-label">Projects Delivered</span>
-            </div>
-            <div className="hero-stat-item">
-              <span className="stat-num">120+</span>
-              <span className="stat-label">Happy Clients</span>
-            </div>
-            <div className="hero-stat-item">
-              <span className="stat-num">5+</span>
-              <span className="stat-label">Countries</span>
-            </div>
+            <AnimatedStat value={3} label="Years of Experience" />
+            <AnimatedStat value={250} label="Projects Delivered" />
+            <AnimatedStat value={120} label="Happy Clients" />
+            <AnimatedStat value={5} label="Countries" />
           </div>
         </div>
       </div>
 
       {/* Our Story Section */}
-      <section className="about-story-section">
+      <section className="about-story-section" id="story">
         <div className="interior-wrap">
           <div className="about-story-grid">
             <div className="about-story-copy">
               <span className="section-kicker">Our Story</span>
-              <h2>
-                From a shared passion for technology to a mission to build
-                meaningful digital products.
-              </h2>
+              <h2>From a shared passion to a bigger purpose.</h2>
               <p>
                 NexSkale was founded with a simple belief — technology can solve
                 real problems and create a better tomorrow. What started as a
                 small team of passionate developers has grown into a
-                full-service product development company.
+                full-service product development company helping ambitious teams
+                turn ideas into lasting digital products.
               </p>
               <Link href="#team" className="about-story-link">
                 Our journey <ArrowRight size={17} />
@@ -262,6 +258,7 @@ export default async function Page() {
                 </div>
                 <div className="about-team-info">
                   <span className="about-team-role">{member.role}</span>
+                  <span className="about-team-name">{member.name}</span>
                 </div>
               </div>
             ))}
@@ -272,10 +269,12 @@ export default async function Page() {
       {/* Our Values Section */}
       <section className="about-values-section" id="values">
         <div className="interior-wrap">
-          <div className="section-header-center">
-            <span className="section-kicker">Core Principles</span>
-            <h2>Our Values</h2>
-            <p>The standard we hold ourselves to every single day.</p>
+          <div className="about-values-intro">
+            <div>
+              <span className="section-kicker">Our Values</span>
+              <h2>The principles that guide us.</h2>
+            </div>
+            <p>The values shape how we work, how we collaborate, and how we deliver value to our clients.</p>
           </div>
           <div className="about-values-grid">
             <div className="about-value-card">
@@ -283,35 +282,34 @@ export default async function Page() {
                 <ShieldCheck size={22} />
               </div>
               <h3>Integrity</h3>
-              <p>We do what's right</p>
+              <p>We do what's right.</p>
             </div>
             <div className="about-value-card">
               <div className="about-value-icon">
                 <HeartHandshake size={22} />
               </div>
               <h3>Collaboration</h3>
-              <p>We grow together</p>
+              <p>We grow together.</p>
             </div>
             <div className="about-value-card">
               <div className="about-value-icon">
                 <Sparkles size={22} />
               </div>
               <h3>Excellence</h3>
-              <p>We strive for better</p>
+              <p>We strive for better.</p>
             </div>
             <div className="about-value-card">
               <div className="about-value-icon">
                 <Target size={22} />
               </div>
               <h3>Impact</h3>
-              <p>We build for a purpose</p>
+              <p>We build for a purpose.</p>
             </div>
           </div>
 
-          {/* Bottom CTA Banner */}
           <div className="about-careers-banner">
             <div className="about-careers-copy">
-              <span className="about-careers-kicker">YOUR NEXT CHAPTER</span>
+              <span className="about-careers-kicker">JOIN OUR JOURNEY</span>
               <h2>
                 Great people.
                 <br />

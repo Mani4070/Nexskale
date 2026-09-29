@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import DesktopFontScale from "@/components/desktop-font-scale";
 import "./globals.css";
 import "./pages.css";
+import "./compact-desktop.css";
+import "./hero-sizing.css";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://nexskale.com";
 
 export const metadata: Metadata = {
@@ -134,7 +137,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <DesktopFontScale />
+        {children}
+      </body>
     </html>
   );
 }

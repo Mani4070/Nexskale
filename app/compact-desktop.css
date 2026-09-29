@@ -1,0 +1,66 @@
+/* Tighten laptop spacing while preserving the site's desktop typography.
+   Text size must not shrink with viewport height or jump at this breakpoint. */
+@media (min-width: 1001px) and (max-width: 1439px) {
+  .site-header-wrapper .site-header.container,
+  .site-header-wrapper.is-scrolled .site-header.container,
+  .dark-top .site-header-spacer {
+    height: 68px;
+  }
+
+  .site-header-wrapper .site-header .navigation {
+    gap: clamp(12px, 1.5vw, 24px);
+  }
+
+  .site-header-wrapper .site-header .header-cta {
+    padding: 10px 18px;
+  }
+
+  .home-dark-top .hero {
+    min-height: calc(100dvh - 68px);
+    padding-block: 20px;
+  }
+
+  .home-dark-top .hero-content {
+    padding-block: 12px;
+  }
+
+  .interior-site.reference-pages main .mockup-hero-wrapper {
+    padding-top: 68px;
+  }
+
+  .interior-site.reference-pages main .mockup-hero-grid {
+    min-height: clamp(360px, 64vh, 480px);
+  }
+
+  .interior-site.reference-pages main .mockup-hero-wrapper .mockup-hero-copy {
+    padding-block: clamp(24px, 4vh, 40px);
+  }
+
+  .interior-site.reference-pages main .mockup-hero-title {
+    margin-block: 12px 18px;
+  }
+
+  .interior-site.reference-pages main .mockup-hero-desc {
+    margin-bottom: 20px;
+  }
+
+  .interior-site.reference-pages .mockup-btn-primary,
+  .interior-site.reference-pages .mockup-btn-outline {
+    padding: 11px 20px;
+  }
+
+  .interior-site.reference-pages .corporate-split-hero .hero-backdrop {
+    top: 88px;
+  }
+
+  .interior-site main .service-detail-hero {
+    padding-block: 100px 48px;
+  }
+
+  .interior-site .capabilities-section,
+  .interior-site .delivery-section,
+  .interior-site .service-faq {
+    padding-block: 52px;
+  }
+
+}

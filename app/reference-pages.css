@@ -62,17 +62,17 @@
 }
 
 .reference-pages main h2 {
-  font-size: clamp(25px, 2.7vw, 36px);
+  font-size: clamp(calc(25px * var(--desktop-font-scale, 1)), 2.7vw, calc(36px * var(--desktop-font-scale, 1)));
   letter-spacing: -0.045em;
   font-weight: 700;
 }
 
 .reference-pages main h3 {
-  font-size: 20px;
+  font-size: calc(20px * var(--desktop-font-scale, 1));
 }
 
 .reference-pages main p {
-  font-size: 15px;
+  font-size: calc(15px * var(--desktop-font-scale, 1));
   line-height: 1.65;
 }
 
@@ -134,7 +134,7 @@
 }
 
 .reference-pages main .mockup-hero-title {
-  font-size: clamp(38px, 4.5vw, 64px);
+  font-size: clamp(calc(38px * var(--desktop-font-scale, 1)), 4.5vw, calc(64px * var(--desktop-font-scale, 1)));
   line-height: 1.08;
   letter-spacing: -0.055em;
   margin: 18px 0 24px;
@@ -149,7 +149,7 @@
   padding: 0;
   background: transparent;
   color: var(--brand-violet);
-  font-size: 11px;
+  font-size: calc(11px * var(--desktop-font-scale, 1));
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -207,12 +207,12 @@
 
 .reference-pages .hero-stat-item .stat-num {
   color: #643cff;
-  font-size: 27px;
+  font-size: calc(27px * var(--desktop-font-scale, 1));
 }
 
 .reference-pages .hero-stat-item .stat-label {
   color: #515c80;
-  font-size: 11px;
+  font-size: calc(11px * var(--desktop-font-scale, 1));
 }
 
 .reference-pages .mockup-hero-search {
@@ -242,7 +242,7 @@
   background: white;
   border: 1px solid #e0e5fa;
   color: #25315b;
-  font-size: 12px;
+  font-size: calc(12px * var(--desktop-font-scale, 1));
   padding: 8px 18px;
 }
 
@@ -264,7 +264,7 @@
 }
 
 .reference-pages .about-story-copy h2 {
-  font-size: 26px;
+  font-size: calc(26px * var(--desktop-font-scale, 1));
 }
 
 .reference-pages .about-story-image-wrap {
@@ -282,7 +282,7 @@
 
 .reference-pages .about-values-intro h2 {
   margin: 0;
-  font-size: clamp(30px, 3vw, 42px);
+  font-size: clamp(calc(30px * var(--desktop-font-scale, 1)), 3vw, calc(42px * var(--desktop-font-scale, 1)));
   letter-spacing: -0.055em;
 }
 
@@ -369,7 +369,7 @@
 }
 
 .reference-pages .about-team-name {
-  font-size: 14px;
+  font-size: calc(14px * var(--desktop-font-scale, 1));
   color: #667091;
 }
 
@@ -389,7 +389,7 @@
 
 .reference-pages .about-team-name {
   color: #465078;
-  font-size: 14px;
+  font-size: calc(14px * var(--desktop-font-scale, 1));
   font-weight: 600;
 }
 
@@ -434,12 +434,12 @@
 .reference-pages .service-card-heading h3 {
   margin: 0 0 6px;
   color: #101642;
-  font-size: 21px;
+  font-size: calc(21px * var(--desktop-font-scale, 1));
 }
 
 .reference-pages .service-card-heading p {
   margin: 0;
-  font-size: 14px;
+  font-size: calc(14px * var(--desktop-font-scale, 1));
   line-height: 1.5;
 }
 
@@ -452,12 +452,12 @@
   border: 0;
   border-radius: 20px;
   background: #f0f2fc;
-  font-size: 11px;
+  font-size: calc(11px * var(--desktop-font-scale, 1));
   padding: 5px 10px;
 }
 
 .reference-pages .service-card-link {
-  font-size: 12px;
+  font-size: calc(12px * var(--desktop-font-scale, 1));
   color: #6344ff;
 }
 
@@ -532,7 +532,7 @@
 }
 
 .reference-pages .blog-featured-content h2 {
-  font-size: 30px;
+  font-size: calc(30px * var(--desktop-font-scale, 1));
 }
 
 .reference-pages .blog-featured-image {
@@ -555,7 +555,7 @@
 }
 
 .reference-pages .blog-article-body h3 {
-  font-size: 22px;
+  font-size: calc(22px * var(--desktop-font-scale, 1));
 }
 
 .reference-pages .blog-articles-grid {
@@ -683,7 +683,7 @@
 }
 
 .reference-pages .contact-form-card h2 {
-  font-size: 27px;
+  font-size: calc(27px * var(--desktop-font-scale, 1));
 }
 
 .reference-pages .contact-form-card input,
@@ -724,7 +724,7 @@
 }
 
 .reference-pages .faq-item summary {
-  font-size: 15px;
+  font-size: calc(15px * var(--desktop-font-scale, 1));
   font-weight: 500;
   padding: 18px 22px;
 }
@@ -809,7 +809,7 @@
   }
 
   .reference-pages main .mockup-hero-title {
-    font-size: clamp(36px, 9vw, 52px);
+    font-size: clamp(calc(36px * var(--desktop-font-scale, 1)), 9vw, calc(52px * var(--desktop-font-scale, 1)));
     max-width: 460px;
   }
 
@@ -840,11 +840,11 @@
   }
 
   .reference-pages .hero-stat-item .stat-num {
-    font-size: 24px;
+    font-size: calc(24px * var(--desktop-font-scale, 1));
   }
 
   .reference-pages .hero-stat-item .stat-label {
-    font-size: 10px;
+    font-size: calc(10px * var(--desktop-font-scale, 1));
   }
 
   .reference-pages .about-story-grid,
@@ -880,7 +880,7 @@
   }
 
   .reference-pages .service-card-heading h3 {
-    font-size: 19px;
+    font-size: calc(19px * var(--desktop-font-scale, 1));
   }
 
   .reference-pages .mockup-cta-banner {
@@ -924,7 +924,7 @@
 
   .reference-pages .contact-quick-actions button {
     padding: 16px 8px;
-    font-size: 11px;
+    font-size: calc(11px * var(--desktop-font-scale, 1));
   }
 
   .reference-pages .faq-header-row {
@@ -1042,7 +1042,7 @@
 }
 
 .reference-pages main .mockup-hero-title {
-  font-size: clamp(40px, 4.2vw, 68px);
+  font-size: clamp(calc(40px * var(--desktop-font-scale, 1)), 4.2vw, calc(68px * var(--desktop-font-scale, 1)));
   line-height: 1.08;
   letter-spacing: -0.055em;
   margin: 14px 0 22px;
@@ -1079,14 +1079,14 @@
 }
 
 .reference-pages .about-story-copy .section-kicker {
-  font-size: 25px;
+  font-size: calc(25px * var(--desktop-font-scale, 1));
   text-transform: none;
   letter-spacing: -0.04em;
   color: #080d3a;
 }
 
 .reference-pages .about-story-copy h2 {
-  font-size: 19px;
+  font-size: calc(19px * var(--desktop-font-scale, 1));
   font-weight: 500;
   line-height: 1.5;
   max-width: 580px;
@@ -1268,7 +1268,7 @@
   }
 
   .reference-pages main .mockup-hero-title {
-    font-size: 44px;
+    font-size: calc(44px * var(--desktop-font-scale, 1));
   }
 
   .reference-pages .hero-backdrop img {
@@ -1312,18 +1312,18 @@
   }
 
   .reference-pages main .mockup-hero-title {
-    font-size: clamp(27px, 6.5vw, 39px);
+    font-size: clamp(calc(27px * var(--desktop-font-scale, 1)), 6.5vw, calc(39px * var(--desktop-font-scale, 1)));
     margin-block: 13px 18px;
   }
 
   .reference-pages main .mockup-hero-desc {
-    font-size: 12px;
+    font-size: calc(12px * var(--desktop-font-scale, 1));
     line-height: 1.6;
     margin-bottom: 18px;
   }
 
   .reference-pages .mockup-hero-badge {
-    font-size: 9px;
+    font-size: calc(9px * var(--desktop-font-scale, 1));
     letter-spacing: 0.14em;
   }
 
@@ -1344,13 +1344,13 @@
   }
 
   .reference-pages .mockup-hero-search input {
-    font-size: 11px;
+    font-size: calc(11px * var(--desktop-font-scale, 1));
     min-width: 0;
   }
 
   .reference-pages .mockup-hero-actions .mockup-btn-primary {
     padding: 11px 16px;
-    font-size: 11px;
+    font-size: calc(11px * var(--desktop-font-scale, 1));
   }
 
   .reference-pages .hero-stats-row {
@@ -1360,11 +1360,11 @@
   }
 
   .reference-pages .hero-stat-item .stat-num {
-    font-size: 23px;
+    font-size: calc(23px * var(--desktop-font-scale, 1));
   }
 
   .reference-pages .hero-stat-item .stat-label {
-    font-size: 10px;
+    font-size: calc(10px * var(--desktop-font-scale, 1));
   }
 
   .reference-pages .about-story-grid {
@@ -1384,11 +1384,11 @@
   }
 
   .reference-pages .about-mv-card h3 {
-    font-size: 18px;
+    font-size: calc(18px * var(--desktop-font-scale, 1));
   }
 
   .reference-pages .about-mv-card p {
-    font-size: 13px;
+    font-size: calc(13px * var(--desktop-font-scale, 1));
   }
 
   .reference-pages :is(.about-story-section,
@@ -1423,11 +1423,11 @@
   }
 
   .reference-pages .service-card-heading h3 {
-    font-size: 15px;
+    font-size: calc(15px * var(--desktop-font-scale, 1));
   }
 
   .reference-pages .service-card-heading p {
-    font-size: 12px;
+    font-size: calc(12px * var(--desktop-font-scale, 1));
   }
 
   .reference-pages .service-card-visual {
@@ -1438,11 +1438,11 @@
 
   .reference-pages .service-tech-tag {
     padding: 4px 6px;
-    font-size: 9px;
+    font-size: calc(9px * var(--desktop-font-scale, 1));
   }
 
   .reference-pages .service-card-link {
-    font-size: 10px;
+    font-size: calc(10px * var(--desktop-font-scale, 1));
   }
 
   .reference-pages .mockup-filter-bar {
@@ -1451,7 +1451,7 @@
   }
 
   .reference-pages .mockup-filter-pill {
-    font-size: 11px;
+    font-size: calc(11px * var(--desktop-font-scale, 1));
     padding: 7px 11px;
   }
 
@@ -1484,7 +1484,7 @@
   }
 
   .reference-pages .careers-job-meta {
-    font-size: 11px;
+    font-size: calc(11px * var(--desktop-font-scale, 1));
   }
 }
 
@@ -1498,11 +1498,11 @@
   }
 
   .reference-pages main .mockup-hero-title {
-    font-size: 27px;
+    font-size: calc(27px * var(--desktop-font-scale, 1));
   }
 
   .reference-pages .hero-stat-item .stat-label {
-    font-size: 9px;
+    font-size: calc(9px * var(--desktop-font-scale, 1));
   }
 }
 
@@ -1537,11 +1537,11 @@
   }
 
   .reference-pages .careers-benefit-card h3 {
-    font-size: 14px;
+    font-size: calc(14px * var(--desktop-font-scale, 1));
   }
 
   .reference-pages .careers-benefit-card p {
-    font-size: 12px;
+    font-size: calc(12px * var(--desktop-font-scale, 1));
     line-height: 1.55;
   }
 
@@ -1558,7 +1558,7 @@
   }
 
   .reference-pages .careers-culture-copy h2 {
-    font-size: 22px;
+    font-size: calc(22px * var(--desktop-font-scale, 1));
     margin: 0;
   }
 

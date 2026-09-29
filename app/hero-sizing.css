@@ -1,0 +1,49 @@
+/* All opening banners share the home page's full-viewport minimum.
+   Use a minimum so longer content can still fit on small screens. */
+:root {
+  --site-hero-height: 100vh;
+  --site-hero-height: 100dvh;
+}
+
+.dark-top#home,
+.home-dark-top,
+.interior-site.reference-pages main .mockup-hero-wrapper,
+.interior-site main .service-detail-hero {
+  min-height: var(--site-hero-height);
+}
+
+/* Interior headers overlay the banner, so its padding is included in the height. */
+.interior-site.reference-pages main .mockup-hero-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.interior-site.reference-pages main .mockup-hero-wrapper > .interior-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.interior-site.reference-pages main .mockup-hero-wrapper .mockup-hero-grid {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  align-items: center;
+}
+
+.interior-site main .service-detail-hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Article and legal banners share the home page's in-flow header spacer. */
+.dark-top#home > .page-intro {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.dark-top#home > .page-intro > .page-intro-grid {
+  width: 100%;
+}

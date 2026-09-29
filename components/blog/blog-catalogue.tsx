@@ -191,7 +191,7 @@ export default function BlogCatalogue({ posts }: { posts: Content["posts"] }) {
               style={{
                 color: "var(--brand-blue)",
                 fontWeight: 700,
-                fontSize: "12px",
+                fontSize: "calc(12px * var(--desktop-font-scale, 1))",
                 textTransform: "uppercase",
                 letterSpacing: "0.1em",
               }}
@@ -200,7 +200,7 @@ export default function BlogCatalogue({ posts }: { posts: Content["posts"] }) {
             </span>
             <h2
               style={{
-                fontSize: "28px",
+                fontSize: "calc(28px * var(--desktop-font-scale, 1))",
                 fontWeight: 800,
                 color: "#0f172a",
                 margin: "6px 0 0",

@@ -5,6 +5,7 @@ import { SiGooglecloud, SiMongodb, SiPostgresql, SiVercel } from "react-icons/si
 import { FaAws } from "react-icons/fa";
 import type { Content } from "@/lib/content";
 import PageHero from "@/components/layout/page-hero";
+import StatCounter from "@/components/home/stat-counter";
 
 const artwork: Record<string, { icon: typeof Code2; text: string; link: string }> = {
   web: { icon: Code2, text: "Modern, scalable and high-performance web applications tailored to your business needs.", link: "Web Development" },
@@ -54,7 +55,7 @@ export default function ServicesExperience({ services }: { services: Content["se
             ["3+", "Years of Experience"],
           ].map(([value, label]) => (
             <div key={label} className="hero-stat-item">
-              <span className="stat-num">{value}</span>
+              <span className="stat-num"><StatCounter value={value} /></span>
               <span className="stat-label">{label}</span>
             </div>
           ))}

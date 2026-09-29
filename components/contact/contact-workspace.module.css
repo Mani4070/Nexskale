@@ -21,7 +21,7 @@
 }
 .eyebrow {
   display: block;
-  font-size: 11px;
+  font-size: calc(11px * var(--desktop-font-scale, 1));
   font-weight: 700;
   letter-spacing: 2.5px;
   color: #7443ff;
@@ -34,14 +34,14 @@
 }
 .teamBadge strong {
   display: block;
-  font-size: 13px;
+  font-size: calc(13px * var(--desktop-font-scale, 1));
   margin: 10px 0 5px;
 }
 .teamBadge small,
 .projectBadge small,
 .delivered small {
   display: block;
-  font-size: 11px;
+  font-size: calc(11px * var(--desktop-font-scale, 1));
   color: #788196;
 }
 .avatars {
@@ -63,7 +63,7 @@
   color: #564bff;
 }
 .projectBadge strong {
-  font-size: 27px;
+  font-size: calc(27px * var(--desktop-font-scale, 1));
   letter-spacing: -1px;
 }
 .roundIcon {
@@ -117,14 +117,14 @@
     inset 0 0 9px #ffffff30;
 }
 .actions strong {
-  font-size: 17px;
+  font-size: calc(17px * var(--desktop-font-scale, 1));
   font-weight: 600;
   display: block;
 }
 .actions small {
   display: block;
   margin-top: 7px;
-  font-size: 12px;
+  font-size: calc(12px * var(--desktop-font-scale, 1));
 }
 .actionArrow {
   display: grid;
@@ -151,13 +151,13 @@
   padding: 25px;
 }
 .page .card h2 {
-  font-size: 24px;
+  font-size: calc(24px * var(--desktop-font-scale, 1));
   font-weight: 800;
   letter-spacing: -0.8px;
 }
 .page .card > p {
   color: #697389;
-  font-size: 14px;
+  font-size: calc(14px * var(--desktop-font-scale, 1));
   line-height: 1.55;
   margin-top: 6px;
 }
@@ -194,7 +194,7 @@
   border: 1px solid #e8edf5;
   border-radius: 7px;
   background: #f6f8fc;
-  font-size: 12px;
+  font-size: calc(12px * var(--desktop-font-scale, 1));
   font-weight: 600;
 }
 .field input,
@@ -205,7 +205,7 @@
   border: 0;
   background: transparent;
   color: #18223d;
-  font-size: 13px;
+  font-size: calc(13px * var(--desktop-font-scale, 1));
   font-weight: 400;
   padding: 8px 0;
   border-radius: 3px;
@@ -218,10 +218,11 @@
   border-color: #8064ff;
   box-shadow: 0 0 0 3px #8058ff12;
 }
-.field input:focus,
-.field select:focus,
-.field textarea:focus {
+/* The label supplies the focus ring for the complete field. Override the
+   shared page focus styles so they do not draw a second ring around its input. */
+.page .form .field :is(input, select, textarea):is(:focus, :focus-visible) {
   outline: none;
+  box-shadow: none;
 }
 .field textarea {
   resize: vertical;
@@ -234,7 +235,7 @@
   bottom: 7px;
   font-weight: 400;
   color: #7c869d;
-  font-size: 12px;
+  font-size: calc(12px * var(--desktop-font-scale, 1));
 }
 .formBottom {
   display: flex;
@@ -251,7 +252,7 @@
   border-radius: 20px;
   background: linear-gradient(105deg, #7935ff, #3e4dff 45%, #00b9e9);
   padding: 14px 25px;
-  font-size: 16px;
+  font-size: calc(16px * var(--desktop-font-scale, 1));
   color: white;
   box-shadow: 0 3px 12px #6746f64d;
   white-space: nowrap;
@@ -259,7 +260,7 @@
 .handwritten {
   position: relative;
   font:
-    20px/1.1 "Caveat",
+    calc(20px * var(--desktop-font-scale, 1))/1.1 "Caveat",
     cursive;
   transform: rotate(-9deg);
   color: #4e5874;
@@ -270,7 +271,7 @@
   left: -10px;
   top: -2px;
   font-family: serif;
-  font-size: 50px;
+  font-size: calc(50px * var(--desktop-font-scale, 1));
   color: #455cff;
   transform: rotate(-80deg);
 }
@@ -281,7 +282,7 @@
 }
 .card > .intro {
   margin: 0;
-  font-size: 12px;
+  font-size: calc(12px * var(--desktop-font-scale, 1));
 }
 .details {
   display: grid;
@@ -295,11 +296,11 @@
 }
 .detail small {
   display: block;
-  font-size: 12px;
+  font-size: calc(12px * var(--desktop-font-scale, 1));
   margin-bottom: 3px;
 }
 .detail a {
-  font-size: 14px;
+  font-size: calc(14px * var(--desktop-font-scale, 1));
   font-weight: 600;
   overflow-wrap: anywhere;
 }
@@ -319,7 +320,7 @@
   border-top: 1px solid #ebedf4;
 }
 .socials strong {
-  font-size: 13px;
+  font-size: calc(13px * var(--desktop-font-scale, 1));
   margin-right: 10px;
 }
 .socials a {
@@ -360,11 +361,11 @@
   color: #6348ff;
 }
 .officeTop h3 {
-  font-size: 16px;
+  font-size: calc(16px * var(--desktop-font-scale, 1));
 }
 .page .officeTop p {
   color: #768096;
-  font-size: 13px;
+  font-size: calc(13px * var(--desktop-font-scale, 1));
   line-height: 1.5;
   margin: 6px 0 13px;
 }
@@ -372,7 +373,7 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-size: 12px;
+  font-size: calc(12px * var(--desktop-font-scale, 1));
   color: #4848ff;
   border: 1px solid #9880ff;
   border-radius: 16px;
@@ -407,10 +408,10 @@
 .map strong,
 .map small {
   display: block;
-  font-size: 13px;
+  font-size: calc(13px * var(--desktop-font-scale, 1));
 }
 .map small {
-  font-size: 11px;
+  font-size: calc(11px * var(--desktop-font-scale, 1));
   margin-top: 3px;
   color: #68738a;
 }
@@ -418,7 +419,7 @@
   margin-top: 38px;
 }
 .faq .eyebrow {
-  font-size: 10px;
+  font-size: calc(10px * var(--desktop-font-scale, 1));
   margin-bottom: 5px;
   color: #3465ff;
 }
@@ -429,7 +430,7 @@
   gap: 20px;
 }
 .page .faqHeading h2 {
-  font-size: 31px;
+  font-size: calc(31px * var(--desktop-font-scale, 1));
   font-weight: 800;
   letter-spacing: -1.3px;
 }
@@ -440,12 +441,12 @@
   border: 0;
   background: none;
   color: #285bff;
-  font-size: 13px;
+  font-size: calc(13px * var(--desktop-font-scale, 1));
   white-space: nowrap;
 }
 .page .faq > p {
   color: #697389;
-  font-size: 14px;
+  font-size: calc(14px * var(--desktop-font-scale, 1));
   margin: 6px 0 14px;
 }
 .faqList {
@@ -463,7 +464,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 12px 21px;
-  font-size: 14px;
+  font-size: calc(14px * var(--desktop-font-scale, 1));
   font-weight: 500;
   cursor: pointer;
   list-style: none;
@@ -478,7 +479,7 @@
   padding: 0 21px 16px;
   line-height: 1.6;
   color: #657189;
-  font-size: 14px;
+  font-size: calc(14px * var(--desktop-font-scale, 1));
 }
 .banner {
   margin: 50px clamp(20px, 3vw, 44px) 0;
@@ -523,10 +524,10 @@
 }
 .bannerCopy .eyebrow {
   color: #d3b8ff;
-  font-size: 10px;
+  font-size: calc(10px * var(--desktop-font-scale, 1));
 }
 .page .bannerCopy h2 {
-  font-size: clamp(25px, 2.65vw, 37px);
+  font-size: clamp(calc(25px * var(--desktop-font-scale, 1)), 2.65vw, calc(37px * var(--desktop-font-scale, 1)));
   font-weight: 750;
   letter-spacing: -1.3px;
   background: linear-gradient(100deg, #ffffff 15%, #d8c9ff 58%, #79e8ff);
@@ -538,7 +539,7 @@
 .page .bannerCopy p {
   margin: 12px 0 18px;
   line-height: 1.45;
-  font-size: 15px;
+  font-size: calc(15px * var(--desktop-font-scale, 1));
 }
 .bannerCopy a {
   display: inline-flex;
@@ -550,21 +551,21 @@
   padding: 15px 21px;
   background: var(--brand-gradient);
   color: #fff;
-  font-size: 14px;
+  font-size: calc(14px * var(--desktop-font-scale, 1));
   font-weight: 600;
 }
 .delivered {
   display: none;
 }
 .delivered strong {
-  font-size: 24px;
+  font-size: calc(24px * var(--desktop-font-scale, 1));
 }
 .plane {
   display: none;
 }
 .error {
   color: #be123c;
-  font-size: 13px;
+  font-size: calc(13px * var(--desktop-font-scale, 1));
 }
 .success {
   display: grid;
@@ -607,10 +608,10 @@
     height: 52px;
   }
   .actions strong {
-    font-size: 15px;
+    font-size: calc(15px * var(--desktop-font-scale, 1));
   }
   .actions small {
-    font-size: 10px;
+    font-size: calc(10px * var(--desktop-font-scale, 1));
   }
   .actionArrow {
     width: 35px;
@@ -623,11 +624,11 @@
     gap: 15px;
   }
   .handwritten {
-    font-size: 17px;
+    font-size: calc(17px * var(--desktop-font-scale, 1));
     padding-left: 25px;
   }
   .handwritten > span {
-    font-size: 35px;
+    font-size: calc(35px * var(--desktop-font-scale, 1));
   }
   .page .bannerCopy p {
     max-width: 53%;
@@ -673,7 +674,7 @@
     gap: 9px;
   }
   .detail a {
-    font-size: 12px;
+    font-size: calc(12px * var(--desktop-font-scale, 1));
   }
   .delivered {
     left: auto;
@@ -683,7 +684,7 @@
 }
 @media (max-width: 700px) {
   .projectBadge strong {
-    font-size: 23px;
+    font-size: calc(23px * var(--desktop-font-scale, 1));
   }
   .actions {
     padding: 16px 0;
@@ -698,10 +699,10 @@
     gap: 16px;
   }
   .actions strong {
-    font-size: 16px;
+    font-size: calc(16px * var(--desktop-font-scale, 1));
   }
   .actions small {
-    font-size: 12px;
+    font-size: calc(12px * var(--desktop-font-scale, 1));
     margin-top: 3px;
   }
   .actionIcon {
@@ -720,7 +721,7 @@
     padding: 22px;
   }
   .page .card h2 {
-    font-size: 23px;
+    font-size: calc(23px * var(--desktop-font-scale, 1));
   }
   .fieldIcon {
     width: 37px;
@@ -732,7 +733,7 @@
     gap: 16px;
   }
   .detail a {
-    font-size: 14px;
+    font-size: calc(14px * var(--desktop-font-scale, 1));
   }
   .socials {
     gap: 16px;
@@ -754,20 +755,20 @@
     align-items: flex-start;
   }
   .page .faqHeading h2 {
-    font-size: 26px;
+    font-size: calc(26px * var(--desktop-font-scale, 1));
     letter-spacing: -0.9px;
   }
   .faqHeading button {
-    font-size: 11px;
+    font-size: calc(11px * var(--desktop-font-scale, 1));
     padding-top: 9px;
   }
   .page .faq > p {
-    font-size: 13px;
+    font-size: calc(13px * var(--desktop-font-scale, 1));
     line-height: 1.5;
   }
   .faqList summary {
     padding: 14px;
-    font-size: 13px;
+    font-size: calc(13px * var(--desktop-font-scale, 1));
     gap: 15px;
   }
   .faqList summary svg {
@@ -795,11 +796,11 @@
     padding: 42px 24px;
   }
   .page .bannerCopy h2 {
-    font-size: 27px;
+    font-size: calc(27px * var(--desktop-font-scale, 1));
   }
   .page .bannerCopy p {
     max-width: 100%;
-    font-size: 13px;
+    font-size: calc(13px * var(--desktop-font-scale, 1));
   }
   .page .bannerCopy p br {
     display: none;
@@ -823,7 +824,7 @@
   color: #f1edff;
 }
 .page .officeTop h3 {
-  font-size: 16px;
+  font-size: calc(16px * var(--desktop-font-scale, 1));
 }
 /* Full-width contact layout and a balanced, responsive hero. */
 .hero {
@@ -846,7 +847,7 @@
 }
 .page .heroCopy h1 {
   margin: 0;
-  font-size: clamp(40px, 4.2vw, 72px);
+  font-size: clamp(calc(40px * var(--desktop-font-scale, 1)), 4.2vw, calc(72px * var(--desktop-font-scale, 1)));
   line-height: 1.08;
   font-weight: 800;
   letter-spacing: -0.055em;
@@ -855,7 +856,7 @@
 .page .heroCopy p {
   margin-top: 24px;
   max-width: 430px;
-  font-size: 16px;
+  font-size: calc(16px * var(--desktop-font-scale, 1));
   line-height: 1.65;
   color: #62708a;
 }
@@ -936,11 +937,11 @@
 }
 .promises strong {
   display: block;
-  font-size: 13px;
+  font-size: calc(13px * var(--desktop-font-scale, 1));
 }
 .promises small {
   display: block;
-  font-size: 12px;
+  font-size: calc(12px * var(--desktop-font-scale, 1));
   color: #69758b;
   margin-top: 4px;
 }
@@ -1088,13 +1089,13 @@
     min-height: 430px;
   }
   .page .heroCopy h1 {
-    font-size: clamp(34px, 4.5vw, 45px);
+    font-size: clamp(calc(34px * var(--desktop-font-scale, 1)), 4.5vw, calc(45px * var(--desktop-font-scale, 1)));
   }
   .heroCopy {
     padding-inline: 24px;
   }
   .page .heroCopy p {
-    font-size: 14px;
+    font-size: calc(14px * var(--desktop-font-scale, 1));
   }
   .teamBadge {
     top: 25px;
@@ -1113,7 +1114,7 @@
     padding: 30px 24px 34px;
   }
   .page .heroCopy h1 {
-    font-size: clamp(38px, 8.8vw, 58px);
+    font-size: clamp(calc(38px * var(--desktop-font-scale, 1)), 8.8vw, calc(58px * var(--desktop-font-scale, 1)));
   }
   .page .heroCopy p {
     margin-top: 18px;
@@ -1150,10 +1151,10 @@
     padding-left: 10px;
   }
   .promises strong {
-    font-size: 11px;
+    font-size: calc(11px * var(--desktop-font-scale, 1));
   }
   .promises small {
-    font-size: 10px;
+    font-size: calc(10px * var(--desktop-font-scale, 1));
     line-height: 1.4;
   }
   .promises .roundIcon {
@@ -1201,7 +1202,7 @@
   gap: 12px;
   color: var(--brand-indigo);
   letter-spacing: 2.3px;
-  font-size: 11px;
+  font-size: calc(11px * var(--desktop-font-scale, 1));
   margin-bottom: 25px;
 }
 .heroCopy .eyebrow::before {
@@ -1211,7 +1212,7 @@
   background: var(--brand-gradient);
 }
 .page .heroCopy h1 {
-  font-size: clamp(38px, 3.9vw, 64px);
+  font-size: clamp(calc(38px * var(--desktop-font-scale, 1)), 3.9vw, calc(64px * var(--desktop-font-scale, 1)));
   font-weight: 650;
   line-height: 1.14;
   letter-spacing: -0.045em;
@@ -1226,7 +1227,7 @@
   max-width: 465px;
   margin-top: 24px;
   color: var(--muted);
-  font-size: 16px;
+  font-size: calc(16px * var(--desktop-font-scale, 1));
   line-height: 1.8;
 }
 .heroVisual {
@@ -1263,7 +1264,7 @@
   border: 1px solid transparent;
   padding: 15px 21px;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: calc(14px * var(--desktop-font-scale, 1));
   font-weight: 600;
 }
 .heroEmail {
@@ -1271,7 +1272,7 @@
   align-items: center;
   gap: 12px;
   color: var(--brand-indigo);
-  font-size: 14px;
+  font-size: calc(14px * var(--desktop-font-scale, 1));
   font-weight: 500;
   padding-block: 12px;
 }
@@ -1280,7 +1281,7 @@
   align-items: center;
   gap: 9px;
   margin-top: 29px;
-  font-size: 11px;
+  font-size: calc(11px * var(--desktop-font-scale, 1));
   line-height: 1.6;
   color: var(--muted);
 }
@@ -1312,13 +1313,13 @@
 }
 .heroCaption strong {
   display: block;
-  font-size: 17px;
+  font-size: calc(17px * var(--desktop-font-scale, 1));
   font-weight: 600;
 }
 .heroCaption div > span {
   display: block;
   color: var(--line);
-  font-size: 12px;
+  font-size: calc(12px * var(--desktop-font-scale, 1));
   margin-top: 6px;
 }
 .promises {
@@ -1354,7 +1355,7 @@
   padding: 12px 16px;
   background: #fff;
   border-top: 1px solid var(--line);
-  font-size: 11px;
+  font-size: calc(11px * var(--desktop-font-scale, 1));
   color: var(--muted);
 }
 .mapFooter > span,
@@ -1398,10 +1399,10 @@
     padding: 45px 28px;
   }
   .page .heroCopy h1 {
-    font-size: clamp(34px, 4vw, 46px);
+    font-size: clamp(calc(34px * var(--desktop-font-scale, 1)), 4vw, calc(46px * var(--desktop-font-scale, 1)));
   }
   .page .heroCopy p {
-    font-size: 14px;
+    font-size: calc(14px * var(--desktop-font-scale, 1));
   }
   .heroLinks {
     gap: 16px;
@@ -1409,10 +1410,10 @@
   .heroCta {
     padding: 13px 16px;
     gap: 12px;
-    font-size: 13px;
+    font-size: calc(13px * var(--desktop-font-scale, 1));
   }
   .heroEmail {
-    font-size: 13px;
+    font-size: calc(13px * var(--desktop-font-scale, 1));
   }
   .heroCaption {
     padding: 25px;
@@ -1433,10 +1434,10 @@
     margin-bottom: 20px;
   }
   .page .heroCopy h1 {
-    font-size: clamp(37px, 8.5vw, 55px);
+    font-size: clamp(calc(37px * var(--desktop-font-scale, 1)), 8.5vw, calc(55px * var(--desktop-font-scale, 1)));
   }
   .page .heroCopy p {
-    font-size: 14px;
+    font-size: calc(14px * var(--desktop-font-scale, 1));
     margin-top: 20px;
   }
   .heroLinks {
@@ -1444,7 +1445,7 @@
   }
   .heroNote {
     margin-top: 24px;
-    font-size: 10px;
+    font-size: calc(10px * var(--desktop-font-scale, 1));
   }
   .heroVisual {
     min-height: 340px;
@@ -1453,10 +1454,10 @@
     padding: 23px 20px;
   }
   .heroCaption strong {
-    font-size: 15px;
+    font-size: calc(15px * var(--desktop-font-scale, 1));
   }
   .heroCaption div > span {
-    font-size: 11px;
+    font-size: calc(11px * var(--desktop-font-scale, 1));
   }
   .liveMap iframe {
     min-height: 280px;

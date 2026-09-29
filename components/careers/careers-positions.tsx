@@ -88,7 +88,7 @@ export default function CareersPositions({
             style={{
               color: "var(--brand-blue)",
               fontWeight: 700,
-              fontSize: "12px",
+              fontSize: "calc(12px * var(--desktop-font-scale, 1))",
               textTransform: "uppercase",
               letterSpacing: "0.12em",
             }}
@@ -97,7 +97,7 @@ export default function CareersPositions({
           </span>
           <h2
             style={{
-              fontSize: "32px",
+              fontSize: "calc(32px * var(--desktop-font-scale, 1))",
               fontWeight: 800,
               color: "#0f172a",
               margin: "6px 0 0",

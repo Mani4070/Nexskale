@@ -30,27 +30,27 @@
   font-family: "Manrope", sans-serif;
 }
 .interior-site main h1 {
-  font-size: clamp(42px, 5.1vw, 76px);
+  font-size: clamp(calc(42px * var(--desktop-font-scale, 1)), 5.1vw, calc(76px * var(--desktop-font-scale, 1)));
   line-height: 1.13;
   letter-spacing: -0.055em;
   font-weight: 800;
   margin: 22px 0 26px;
 }
 .interior-site main h2 {
-  font-size: clamp(30px, 3.3vw, 48px);
+  font-size: clamp(calc(30px * var(--desktop-font-scale, 1)), 3.3vw, calc(48px * var(--desktop-font-scale, 1)));
   line-height: 1.2;
   letter-spacing: -0.045em;
   font-weight: 800;
 }
 .interior-site main h3 {
-  font-size: 21px;
+  font-size: calc(21px * var(--desktop-font-scale, 1));
   line-height: 1.4;
   letter-spacing: -0.025em;
 }
 .interior-site main p {
   color: var(--page-muted);
   line-height: 1.8;
-  font-size: 16px;
+  font-size: calc(16px * var(--desktop-font-scale, 1));
 }
 .interior-site main em {
   font-family: "Manrope", sans-serif;
@@ -62,7 +62,7 @@
   display: block;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  font-size: 11px;
+  font-size: calc(11px * var(--desktop-font-scale, 1));
   font-weight: 700;
   line-height: 1.7;
   color: var(--page-purple);
@@ -77,7 +77,7 @@
   padding: 17px 24px;
   border-radius: 10px;
   box-shadow: 0 4px 22px rgba(99, 102, 241, 0.25);
-  font-size: 15px;
+  font-size: calc(15px * var(--desktop-font-scale, 1));
   font-weight: 600;
   transition:
     background 0.2s,
@@ -91,7 +91,7 @@
   display: inline-flex;
   gap: 14px;
   align-items: center;
-  font-size: 14px;
+  font-size: calc(14px * var(--desktop-font-scale, 1));
   font-weight: 650;
   color: var(--page-purple);
   padding-block: 10px;
@@ -113,7 +113,7 @@
   margin-bottom: 44px;
 }
 .studio-heading h1 {
-  font-size: clamp(42px, 4.7vw, 68px) !important;
+  font-size: clamp(calc(42px * var(--desktop-font-scale, 1)), 4.7vw, calc(68px * var(--desktop-font-scale, 1))) !important;
   margin-bottom: 0 !important;
 }
 .studio-heading p {
@@ -137,7 +137,7 @@
   color: #fff;
   background: #252139d9;
   padding: 12px 18px;
-  font-size: 12px;
+  font-size: calc(12px * var(--desktop-font-scale, 1));
   backdrop-filter: blur(10px);
 }
 .studio-manifesto {
@@ -171,7 +171,7 @@
 }
 .belief-columns article > span {
   color: #9585aa;
-  font-size: 13px;
+  font-size: calc(13px * var(--desktop-font-scale, 1));
 }
 .belief-columns h3 {
   margin: 24px 0 14px;
@@ -214,7 +214,7 @@
   background: #fffc;
   backdrop-filter: blur(15px);
   padding: 18px 24px;
-  font-size: 16px;
+  font-size: calc(16px * var(--desktop-font-scale, 1));
   line-height: 1.6;
 }
 .career-craft {
@@ -235,7 +235,7 @@
 }
 .career-disciplines article > span {
   color: #9c8bac;
-  font-size: 12px;
+  font-size: calc(12px * var(--desktop-font-scale, 1));
   padding-top: 6px;
 }
 .career-disciplines article > svg {
@@ -247,7 +247,7 @@
 }
 .career-disciplines p {
   margin: 0;
-  font-size: 14px !important;
+  font-size: calc(14px * var(--desktop-font-scale, 1)) !important;
 }
 .career-letter {
   background: #302342;
@@ -258,7 +258,7 @@
 }
 .career-letter-tag {
   color: #d8c8ef;
-  font-size: 12px;
+  font-size: calc(12px * var(--desktop-font-scale, 1));
   text-transform: uppercase;
   letter-spacing: 0.17em;
 }
@@ -290,7 +290,7 @@
   margin-top: 35px;
 }
 .career-notes b {
-  font-size: 14px;
+  font-size: calc(14px * var(--desktop-font-scale, 1));
   font-weight: 600;
 }
 .capability-hero {
@@ -321,7 +321,7 @@
   gap: 15px 30px;
 }
 .capability-index a {
-  font-size: 13px;
+  font-size: calc(13px * var(--desktop-font-scale, 1));
   display: flex;
   gap: 15px;
   padding: 8px 0;
@@ -344,12 +344,12 @@
   scroll-margin-top: 110px;
 }
 .capability-number {
-  font-size: 28px;
+  font-size: calc(28px * var(--desktop-font-scale, 1));
   color: #b4a5c6;
   font-family: Georgia, serif;
 }
 .capability-row h2 {
-  font-size: clamp(27px, 2.6vw, 36px) !important;
+  font-size: clamp(calc(27px * var(--desktop-font-scale, 1)), 2.6vw, calc(36px * var(--desktop-font-scale, 1))) !important;
   margin: 15px 0 20px;
 }
 .capability-deliverables {
@@ -359,7 +359,7 @@
   align-self: start;
 }
 .capability-deliverables h3 {
-  font-size: 12px !important;
+  font-size: calc(12px * var(--desktop-font-scale, 1)) !important;
   text-transform: uppercase;
   letter-spacing: 0.1em !important;
   margin-bottom: 20px;
@@ -375,7 +375,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 13px;
+  font-size: calc(13px * var(--desktop-font-scale, 1));
   line-height: 1.6;
 }
 .capability-deliverables svg {
@@ -443,7 +443,7 @@
   border-top: 1px solid var(--page-line);
 }
 .contact-channel > span {
-  font-size: 11px;
+  font-size: calc(11px * var(--desktop-font-scale, 1));
   display: block;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -454,11 +454,11 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 17px;
+  font-size: calc(17px * var(--desktop-font-scale, 1));
   overflow-wrap: anywhere;
 }
 .contact-channel p {
-  font-size: 13px !important;
+  font-size: calc(13px * var(--desktop-font-scale, 1)) !important;
   margin-top: 12px;
 }
 .contact-expectation {
@@ -468,10 +468,10 @@
   border-radius: 5px;
 }
 .contact-expectation b {
-  font-size: 15px;
+  font-size: calc(15px * var(--desktop-font-scale, 1));
 }
 .contact-expectation p {
-  font-size: 13px !important;
+  font-size: calc(13px * var(--desktop-font-scale, 1)) !important;
   margin: 10px 0 0;
 }
 .enquiry-card {
@@ -487,11 +487,11 @@
   padding-bottom: 20px;
 }
 .enquiry-heading h2 {
-  font-size: 30px !important;
+  font-size: calc(30px * var(--desktop-font-scale, 1)) !important;
   margin: 12px 0;
 }
 .enquiry-heading p {
-  font-size: 14px !important;
+  font-size: calc(14px * var(--desktop-font-scale, 1)) !important;
   margin: 0;
 }
 .enquiry-card .contact-form {
@@ -503,7 +503,7 @@
   background: #faf9fc;
 }
 .enquiry-card .contact-form .form-note {
-  font-size: 12px !important;
+  font-size: calc(12px * var(--desktop-font-scale, 1)) !important;
 }
 .conversation-faq {
   display: grid;
@@ -512,7 +512,7 @@
   padding-block: 25px 100px;
 }
 .conversation-faq h2 {
-  font-size: 32px !important;
+  font-size: calc(32px * var(--desktop-font-scale, 1)) !important;
 }
 .conversation-faq details {
   border-bottom: 1px solid var(--page-line);
@@ -524,7 +524,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  font-size: 15px;
+  font-size: calc(15px * var(--desktop-font-scale, 1));
   font-weight: 600;
   list-style: none;
 }
@@ -535,7 +535,7 @@
   transform: rotate(45deg);
 }
 .conversation-faq details p {
-  font-size: 14px !important;
+  font-size: calc(14px * var(--desktop-font-scale, 1)) !important;
   margin-top: 15px;
 }
 .journal-masthead {
@@ -549,11 +549,11 @@
   padding-bottom: 22px;
 }
 .journal-topline > span:last-child {
-  font-size: 11px;
+  font-size: calc(11px * var(--desktop-font-scale, 1));
   color: var(--page-muted);
 }
 .journal-masthead h1 {
-  font-size: clamp(55px, 7vw, 100px) !important;
+  font-size: clamp(calc(55px * var(--desktop-font-scale, 1)), 7vw, calc(100px * var(--desktop-font-scale, 1))) !important;
   margin-block: 35px !important;
 }
 .journal-intro {
@@ -583,11 +583,11 @@
   flex-direction: column;
 }
 .journal-cover-copy h2 {
-  font-size: clamp(28px, 3vw, 42px) !important;
+  font-size: clamp(calc(28px * var(--desktop-font-scale, 1)), 3vw, calc(42px * var(--desktop-font-scale, 1))) !important;
   margin: 24px 0;
 }
 .journal-cover-copy p {
-  font-size: 14px !important;
+  font-size: calc(14px * var(--desktop-font-scale, 1)) !important;
 }
 .journal-cover-bottom {
   display: flex;
@@ -595,7 +595,7 @@
   gap: 20px;
   padding-top: 28px;
   margin-top: auto;
-  font-size: 12px;
+  font-size: calc(12px * var(--desktop-font-scale, 1));
 }
 .journal-cover-bottom > span:last-child {
   display: flex;
@@ -622,7 +622,7 @@
 }
 .reading-heading > span {
   color: var(--page-muted);
-  font-size: 12px;
+  font-size: calc(12px * var(--desktop-font-scale, 1));
 }
 .journal-entry {
   display: grid;
@@ -634,20 +634,20 @@
 }
 .journal-entry-number {
   font-family: Georgia, serif;
-  font-size: 32px;
+  font-size: calc(32px * var(--desktop-font-scale, 1));
   color: #afa0c0;
 }
 .journal-entry h3 {
-  font-size: 25px !important;
+  font-size: calc(25px * var(--desktop-font-scale, 1)) !important;
   margin: 12px 0;
 }
 .journal-entry p {
-  font-size: 14px !important;
+  font-size: calc(14px * var(--desktop-font-scale, 1)) !important;
   margin: 0;
   max-width: 660px;
 }
 .journal-entry-date {
-  font-size: 12px;
+  font-size: calc(12px * var(--desktop-font-scale, 1));
   color: var(--page-muted);
 }
 .journal-colophon {
@@ -666,7 +666,7 @@
   border: 1px solid #c8b9db;
   border-radius: 30px;
   padding: 9px 15px;
-  font-size: 12px;
+  font-size: calc(12px * var(--desktop-font-scale, 1));
 }
 .journal-colophon p {
   max-width: 590px;
@@ -794,7 +794,7 @@
   .enquiry-card .contact-form input,
   .enquiry-card .contact-form select,
   .enquiry-card .contact-form textarea {
-    font-size: 16px;
+    font-size: calc(16px * var(--desktop-font-scale, 1));
     min-width: 0;
   }
 
@@ -807,7 +807,7 @@
 }
 @media (max-width: 550px) {
   .interior-site main h1 {
-    font-size: 43px;
+    font-size: calc(43px * var(--desktop-font-scale, 1));
   }
   .studio-hero,
   .career-hero,
@@ -816,12 +816,12 @@
     padding-top: 40px;
   }
   .studio-heading h1 {
-    font-size: 40px !important;
+    font-size: calc(40px * var(--desktop-font-scale, 1)) !important;
   }
   .studio-panorama figcaption {
     left: 12px;
     bottom: 12px;
-    font-size: 10px;
+    font-size: calc(10px * var(--desktop-font-scale, 1));
   }
   .studio-beliefs,
   .studio-invitation {
@@ -846,7 +846,7 @@
     gap: 5px 15px;
   }
   .capability-index a {
-    font-size: 11px;
+    font-size: calc(11px * var(--desktop-font-scale, 1));
     gap: 8px;
   }
   .capability-row {
@@ -874,7 +874,7 @@
     gap: 8px;
   }
   .journal-masthead h1 {
-    font-size: 55px !important;
+    font-size: calc(55px * var(--desktop-font-scale, 1)) !important;
   }
   .journal-cover-art {
     min-height: 260px;
@@ -886,16 +886,16 @@
     gap: 13px;
   }
   .journal-entry h3 {
-    font-size: 21px !important;
+    font-size: calc(21px * var(--desktop-font-scale, 1)) !important;
   }
   .journal-entry-number {
-    font-size: 24px;
+    font-size: calc(24px * var(--desktop-font-scale, 1));
   }
   .journal-cover-bottom {
     flex-wrap: wrap;
   }
   .interior-button {
-    font-size: 12px;
+    font-size: calc(12px * var(--desktop-font-scale, 1));
     padding: 15px 20px;
   }
 }
@@ -979,13 +979,13 @@
 }
 .interior-banner .interior-kicker {
   color: #818cf8;
-  font-size: 12px;
+  font-size: calc(12px * var(--desktop-font-scale, 1));
   letter-spacing: 2.2px;
   margin-bottom: 22px;
 }
 .interior-site .interior-banner h1 {
   color: #fff;
-  font-size: clamp(40px, 4.8vw, 70px);
+  font-size: clamp(calc(40px * var(--desktop-font-scale, 1)), 4.8vw, calc(70px * var(--desktop-font-scale, 1)));
   font-weight: 800;
   line-height: 1.3 !important;
   letter-spacing: -0.03em;
@@ -1000,7 +1000,7 @@
 .interior-site .interior-banner p {
   color: #cbd5e1;
   max-width: 530px;
-  font-size: 16.5px;
+  font-size: calc(16.5px * var(--desktop-font-scale, 1));
   line-height: 1.65;
   margin-block: 24px 32px;
 }
@@ -1026,7 +1026,7 @@
 }
 .interior-banner-topics span {
   color: #cbd5e1;
-  font-size: 13px;
+  font-size: calc(13px * var(--desktop-font-scale, 1));
   display: flex;
   align-items: center;
   gap: 10px;
@@ -1044,7 +1044,7 @@
   align-items: center;
   gap: 12px;
   color: #cbd5e1;
-  font-size: 10px;
+  font-size: calc(10px * var(--desktop-font-scale, 1));
   text-transform: uppercase;
   letter-spacing: 1.5px;
 }
@@ -1245,19 +1245,19 @@
     padding-bottom: 25px;
   }
   .interior-site .interior-banner h1 {
-    font-size: clamp(34px, 9vw, 44px);
+    font-size: clamp(calc(34px * var(--desktop-font-scale, 1)), 9vw, calc(44px * var(--desktop-font-scale, 1)));
   }
   .interior-site .interior-banner p {
-    font-size: 15px;
+    font-size: calc(15px * var(--desktop-font-scale, 1));
   }
   .interior-banner-topics {
     gap: 12px 20px;
   }
   .interior-banner-topics span {
-    font-size: 11px;
+    font-size: calc(11px * var(--desktop-font-scale, 1));
   }
   .interior-banner .interior-kicker {
-    font-size: 10px;
+    font-size: calc(10px * var(--desktop-font-scale, 1));
     letter-spacing: 1.5px;
   }
   .interior-site .studio-manifesto,

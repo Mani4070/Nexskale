@@ -147,7 +147,7 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
             <h2 className="services-main-heading">
               Digital solutions
               <br />
-              for real business growth.
+              for real <span className="services-gradient-text">business growth</span>.
             </h2>
             <p className="services-main-desc">
               From strategy to deployment, we build secure, scalable and

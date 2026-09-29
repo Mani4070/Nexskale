@@ -1877,7 +1877,8 @@ h1 {
   max-width: 560px;
 }
 
-.about-gradient-text {
+.about-gradient-text,
+.services-gradient-text {
   background: linear-gradient(100deg, #6d28d9 0%, #4338ca 45%, var(--brand-blue) 75%, var(--brand-cyan) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

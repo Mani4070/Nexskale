@@ -718,31 +718,6 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
 }
 
-/* Reference Header overrides scoped */
-.interior-services.reference-pages .site-header {
-  height: 76px;
-  padding-inline: clamp(20px, 5.3vw, 80px);
-}
-
-.interior-services.reference-pages .site-header .logo-full {
-  width: 187px;
-  height: auto;
-}
-
-.interior-services.reference-pages .navigation {
-  gap: 26px;
-}
-
-.interior-services.reference-pages .navigation a {
-  font-size: 14.5px;
-}
-
-.interior-services.reference-pages .header-cta {
-  min-height: 42px;
-  padding: 10px 24px;
-  border-radius: 10px;
-  font-size: 13px;
-}
 
 /* Animations */
 @keyframes sx-float {

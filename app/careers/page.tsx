@@ -25,10 +25,10 @@ export async function generateMetadata(): Promise<Metadata> {
       type: "website",
       images: [
         {
-          url: "/images/reference/careers-hero.webp",
-          width: 1200,
-          height: 630,
-          alt: "Careers at NexSkale",
+          url: "/images/careers/growth-banner.webp",
+          width: 1536,
+          height: 1024,
+          alt: "Glass and oak steps leading to an open doorway, representing career growth",
         },
       ],
     },
@@ -37,7 +37,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: `Careers — Build What's Next | ${c.brand.name}`,
       description:
         "Join a team of builders, thinkers and doers who are creating technology for a brighter tomorrow.",
-      images: ["/images/reference/careers-hero.webp"],
+      images: ["/images/careers/growth-banner.webp"],
     },
   };
 }
@@ -83,8 +83,8 @@ export default async function Page() {
           </>
         }
         description="Join a team of builders, thinkers and doers who are creating technology for a brighter tomorrow."
-        imageSrc="/images/reference/careers-hero.webp"
-        imageAlt="Modern tech studio with Great People Build Great Products wall art"
+        imageSrc="/images/careers/growth-banner.webp"
+        imageAlt="Glass and oak steps leading to an open doorway, representing career growth"
       >
         <div className="mockup-hero-actions">
           <Link href="#open-roles" className="mockup-btn-primary">
@@ -147,8 +147,8 @@ export default async function Page() {
           <div className="careers-culture-banner">
             <div className="careers-culture-photo">
               <Image
-                src="/images/reference/team-meeting.webp"
-                alt="NexSkale team members laughing and brainstorming together"
+                src="/images/about/studio-banner.webp"
+                alt="Bright technology studio with an open glass meeting space"
                 width={600}
                 height={450}
               />

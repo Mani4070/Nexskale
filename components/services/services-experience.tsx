@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Box, Cloud, Code2, Cpu, PanelsTopLeft, Pencil, Play, Rocket, Search, Settings, Smartphone, Zap } from "lucide-react";
+import { ArrowRight, Box, Cloud, Code2, Cpu, PanelsTopLeft, Pencil, Rocket, Search, Settings, Smartphone, Zap } from "lucide-react";
 import { SiGooglecloud, SiMongodb, SiPostgresql, SiVercel } from "react-icons/si";
 import { FaAws } from "react-icons/fa";
 import type { Content } from "@/lib/content";
+import PageHero from "@/components/layout/page-hero";
 
 const artwork: Record<string, { icon: typeof Code2; text: string; link: string }> = {
   web: { icon: Code2, text: "Modern, scalable and high-performance web applications tailored to your business needs.", link: "Web Development" },
@@ -23,85 +24,42 @@ const steps = [
 export default function ServicesExperience({ services }: { services: Content["services"] }) {
   return (
     <div className="sx-page">
-      <section className="sx-hero" aria-labelledby="services-title">
-        <div className="sx-wrap sx-hero-inner">
-          <div className="sx-hero-copy">
-            <span className="sx-kicker" data-reveal>BUILD · INNOVATE · SCALE</span>
-            <h1 id="services-title" data-reveal>
-              Technology that<br />
-              <span>moves business</span><br />
-              forward.
-            </h1>
-            <p data-reveal>
-              We build digital products, modern platforms and AI-powered solutions that help businesses grow, adapt and lead in a fast-changing world.
-            </p>
-            <div className="sx-actions" data-reveal>
-              <Link className="sx-button" href="/contact">
-                Discuss your project <ArrowRight size={17} />
-              </Link>
-              <Link className="sx-button sx-button-outline" href="#capabilities">
-                <span className="sx-play"><Play size={13} fill="currentColor" /></span>
-                Explore our services
-              </Link>
-            </div>
-            <div className="sx-stats" data-reveal>
-              {[
-                ["50+", "Projects Delivered"],
-                ["20+", "Happy Clients"],
-                ["3+", "Years of Experience"],
-              ].map(([value, label]) => (
-                <div key={label} className="sx-stat-item">
-                  <strong>{value}</strong>
-                  <span>{label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="sx-hero-visual" data-reveal>
-            <svg className="sx-orbit" viewBox="0 0 800 620" fill="none" aria-hidden="true">
-              <defs>
-                <linearGradient id="orbit-color">
-                  <stop stopColor="#763bff" stopOpacity="0" />
-                  <stop offset=".45" stopColor="#743bff" />
-                  <stop offset="1" stopColor="#4da4ff" stopOpacity=".15" />
-                </linearGradient>
-              </defs>
-              <path d="M465 -30C105 90 18 259 126 326S825 282 713 614" stroke="url(#orbit-color)" strokeWidth="2" />
-              <path className="sx-orbit-trail" d="M465 -30C105 90 18 259 126 326S825 282 713 614" stroke="#8347ff" strokeWidth="3" strokeDasharray="30 1100" />
-            </svg>
-
-            <div className="sx-hero-photo-wrap">
-              <Image
-                src="/images/services/matched-hero.webp"
-                alt="Four technology colleagues collaborating around a laptop in a bright office"
-                fill
-                priority
-                sizes="(max-width: 960px) 100vw, 50vw"
-                className="sx-hero-img"
-              />
-              <div className="sx-photo-glow" aria-hidden="true" />
-            </div>
-
-            <div className="sx-badges">
-              {[
-                [Cpu, "AI Solutions", "ai"],
-                [Smartphone, "Web & Mobile Apps", "mobile"],
-                [Cloud, "Cloud & DevOps", "cloud"],
-              ].map(([Icon, label, id]) => {
-                const BadgeIcon = Icon as typeof Cpu;
-                return (
-                  <Link className="sx-badge" href={`/services/${id}`} key={id as string}>
-                    <span><BadgeIcon size={22} /></span>
-                    {label as string}
-                  </Link>
-                );
-              })}
-            </div>
-
-          </div>
+      <PageHero
+        badge="OUR SERVICES"
+        title={
+          <>
+            Technology that
+            <br />
+            moves business
+            <br />
+            <span className="gradient-text">forward.</span>
+          </>
+        }
+        description="We build digital products, modern platforms and AI-powered solutions that help businesses grow, adapt and lead in a fast-changing world."
+        imageSrc="/images/services/technology-banner.webp"
+        imageAlt="Desktop, tablet and mobile app interfaces alongside cloud and network hardware"
+      >
+        <div className="mockup-hero-actions">
+          <Link className="mockup-btn-primary" href="/contact">
+            Discuss your project <ArrowRight size={16} />
+          </Link>
+          <Link className="mockup-btn-outline" href="#capabilities">
+            Explore our services
+          </Link>
         </div>
-      </section>
+        <div className="hero-stats-row sx-hero-stats">
+          {[
+            ["50+", "Projects Delivered"],
+            ["20+", "Happy Clients"],
+            ["3+", "Years of Experience"],
+          ].map(([value, label]) => (
+            <div key={label} className="hero-stat-item">
+              <span className="stat-num">{value}</span>
+              <span className="stat-label">{label}</span>
+            </div>
+          ))}
+        </div>
+      </PageHero>
 
       <section className="sx-partners-section" aria-label="Technology ecosystem">
         <div className="sx-wrap sx-partners">

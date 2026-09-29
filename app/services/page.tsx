@@ -22,10 +22,10 @@ export async function generateMetadata(): Promise<Metadata> {
       type: "website",
       images: [
         {
-          url: "/images/reference/team-meeting.webp",
-          width: 1200,
-          height: 630,
-          alt: "NexSkale Capabilities & Engineering Spectrum",
+          url: "/images/services/technology-banner.webp",
+          width: 1536,
+          height: 1024,
+          alt: "Desktop, tablet and mobile app interfaces alongside cloud and network hardware",
         },
       ],
     },
@@ -34,7 +34,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: `Our Services — End-to-end Digital Solutions | ${c.brand.name}`,
       description:
         "From strategy to deployment, we build secure, scalable and future-ready products tailored to your goals.",
-      images: ["/images/reference/team-meeting.webp"],
+      images: ["/images/services/technology-banner.webp"],
     },
   };
 }

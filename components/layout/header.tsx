@@ -30,9 +30,7 @@ export default function Header({
     currentPage || "home",
   );
   const pathname = usePathname();
-  const lightInterior =
-    ["/about", "/blog", "/services", "/contact"].includes(pathname) ||
-    pathname.startsWith("/services/");
+  const lightInterior = pathname !== "/";
 
   useEffect(() => {
     const handleScroll = () => {

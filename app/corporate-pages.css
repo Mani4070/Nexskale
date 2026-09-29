@@ -1,4 +1,4 @@
-﻿/* Inner-page design, scoped so the home page keeps its existing presentation. */
+/* Inner-page design, scoped so the home page keeps its existing presentation. */
 .interior-site.reference-pages {
   --reference-gutter: var(--site-gutter);
   --page-ink: #122338;
@@ -22,23 +22,12 @@
   box-shadow: none;
   backdrop-filter: none;
 }
-.interior-site.reference-pages
-  .site-header-wrapper.has-light-hero
-  .navigation
-  a,
-.interior-site.reference-pages
-  .site-header-wrapper.has-light-hero
-  .menu-toggle {
+.interior-site.reference-pages .site-header-wrapper .navigation a,
+.interior-site.reference-pages .site-header-wrapper .menu-toggle {
   color: #172b43;
 }
-.interior-site.reference-pages
-  .site-header-wrapper:not(.has-light-hero):not(.is-scrolled)
-  .navigation
-  a,
-.interior-site.reference-pages
-  .site-header-wrapper:not(.has-light-hero):not(.is-scrolled)
-  .menu-toggle {
-  color: #fff;
+.interior-site.reference-pages .site-header-wrapper .navigation a:hover {
+  color: var(--brand-indigo);
 }
 .interior-site.reference-pages .site-header-wrapper.is-scrolled,
 .interior-site.reference-pages .site-header-wrapper.menu-is-open {
@@ -100,10 +89,14 @@
 .interior-site.reference-pages .corporate-split-hero .mockup-hero-badge {
   color: var(--brand-violet);
 }
+.interior-site.reference-pages .gradient-text,
 .interior-site.reference-pages .corporate-split-hero .gradient-text {
-  background: none;
-  color: var(--brand-violet);
-  -webkit-text-fill-color: currentColor;
+  background: linear-gradient(100deg, #7c3aed 0%, #4f46e5 35%, #2563eb 68%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
 }
 .interior-site .corporate-kicker {
   display: block;
@@ -615,9 +608,11 @@
   background: var(--brand-gradient-hover);
 }
 .interior-site.reference-pages .corporate-split-hero .gradient-text {
-  background: var(--brand-gradient-text);
+  background: linear-gradient(100deg, #7c3aed 0%, #4f46e5 35%, #2563eb 68%, #06b6d4 100%);
+  -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 .interior-site .corporate-cta .corporate-button {
   background: white;

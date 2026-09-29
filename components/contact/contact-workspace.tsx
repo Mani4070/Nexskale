@@ -26,6 +26,7 @@ import {
   FaYoutube as Youtube,
 } from "react-icons/fa";
 import type { Content } from "@/lib/content";
+import PageHero from "@/components/layout/page-hero";
 import styles from "./contact-workspace.module.css";
 
 const modes = [
@@ -148,83 +149,60 @@ export default function ContactWorkspace({
   ];
   return (
     <div className={styles.page}>
-      <section className={styles.hero} data-reveal>
-        <div className={styles.heroGrid}>
-          <div className={styles.heroCopy}>
-            <span className={styles.eyebrow}>CONTACT NEXSKALE</span>
-            <h1>
-              Your next chapter.
-              <br />
-              <span>Built together.</span>
-            </h1>
-            <p>
-              Partner with a team that turns complex challenges into dependable
-              digital solutions. Tell us where you want to go. We will help you
-              get there.
-            </p>
-            <div className={styles.heroLinks}>
-              <a className={styles.heroCta} href="#message-form">
-                Discuss your project <ArrowRight size={18} />
-              </a>
-              <a
-                className={styles.heroEmail}
-                href={`mailto:${content.brand.email}`}
-              >
-                Email our team <ArrowRight size={16} />
-              </a>
+      <PageHero
+        badge="CONTACT NEXSKALE"
+        title={
+          <>
+            Your next chapter.
+            <br />
+            <span>Built <span className="gradient-text">together.</span></span>
+          </>
+        }
+        description="Partner with a team that turns complex challenges into dependable digital solutions. Tell us where you want to go. We will help you get there."
+        imageSrc="/images/contact/communication-banner.webp"
+        imageAlt="Phone with a message symbol, headset and notebook ready for a conversation"
+      >
+        <div className="mockup-hero-actions">
+          <a className="mockup-btn-primary" href="#message-form">
+            Discuss your project <ArrowRight size={16} />
+          </a>
+          <a
+            className="mockup-btn-outline"
+            href={`mailto:${content.brand.email}`}
+          >
+            Email our team
+          </a>
+        </div>
+      </PageHero>
+      <div className={styles.promises}>
+        {[
+          {
+            icon: BadgeCheck,
+            title: "Quick response",
+            text: "We reply within 24 hours",
+          },
+          {
+            icon: UsersRound,
+            title: "Right expertise",
+            text: "Connect with the right team",
+          },
+          {
+            icon: LockKeyhole,
+            title: "Confidential",
+            text: "Your ideas are safe with us",
+          },
+        ].map(({ icon: Icon, title, text }) => (
+          <div key={title}>
+            <span className={styles.roundIcon}>
+              <Icon size={20} />
+            </span>
+            <div>
+              <strong>{title}</strong>
+              <small>{text}</small>
             </div>
           </div>
-          <div className={styles.heroVisual}>
-            <div className={styles.heroPhoto}>
-              <Image
-                src="/images/services/matched-hero.webp"
-                alt="NexSkale team collaborating on a digital project"
-                fill
-                sizes="(max-width: 700px) 100vw, 50vw"
-                preload
-              />
-            </div>
-            <div className={styles.heroCaption}>
-              <span className={styles.captionIcon}>
-                <UsersRound size={23} />
-              </span>
-              <div>
-                <strong>A conversation is the first step.</strong>
-                <span>Our people. Your ambition. A shared direction.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className={styles.promises}>
-          {[
-            {
-              icon: BadgeCheck,
-              title: "Quick response",
-              text: "We reply within 24 hours",
-            },
-            {
-              icon: UsersRound,
-              title: "Right expertise",
-              text: "Connect with the right team",
-            },
-            {
-              icon: LockKeyhole,
-              title: "Confidential",
-              text: "Your ideas are safe with us",
-            },
-          ].map(({ icon: Icon, title, text }) => (
-            <div key={title}>
-              <span className={styles.roundIcon}>
-                <Icon size={20} />
-              </span>
-              <div>
-                <strong>{title}</strong>
-                <small>{text}</small>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+        ))}
+      </div>
       <section
         className={styles.actions}
         aria-label="Choose how to get in touch"
@@ -575,8 +553,8 @@ export default function ContactWorkspace({
         </section>
         <section className={styles.banner} data-reveal>
           <Image
-            src="/images/reference/team-meeting.webp"
-            alt="Team collaborating on a new project"
+            src="/images/services/technology-banner.webp"
+            alt="Connected desktop, tablet and mobile interfaces representing digital product development"
             fill
             sizes="90vw"
           />

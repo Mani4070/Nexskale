@@ -83,12 +83,12 @@ export default function BlogCatalogue({ posts }: { posts: Content["posts"] }) {
           <>
             Ideas, learnings
             <br />
-            and perspectives.
+            and <span className="gradient-text">perspectives.</span>
           </>
         }
         description="Explore our latest thoughts on technology, product development, AI and digital transformation."
-        imageSrc="/images/reference/blog-hero.webp"
-        imageAlt="Modern workspace overlooking the city"
+        imageSrc="/images/blog/insights-banner.webp"
+        imageAlt="Digital journal, idea sketches and a blue glass lightbulb representing technology insights"
       >
         <form
           className="mockup-hero-search"

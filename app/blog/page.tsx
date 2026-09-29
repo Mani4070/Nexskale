@@ -21,10 +21,10 @@ export async function generateMetadata(): Promise<Metadata> {
       type: "website",
       images: [
         {
-          url: "/images/blog/blog-hero.jpg",
-          width: 1200,
-          height: 630,
-          alt: "NexSkale Journal and Perspectives",
+          url: "/images/blog/insights-banner.webp",
+          width: 1536,
+          height: 1024,
+          alt: "Digital journal, idea sketches and a blue glass lightbulb representing technology insights",
         },
       ],
     },
@@ -33,7 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: `Insights & Journal — Ideas, Learnings and Perspectives | ${c.brand.name}`,
       description:
         "Explore our latest thoughts on technology, product development, AI and digital transformation.",
-      images: ["/images/blog/blog-hero.jpg"],
+      images: ["/images/blog/insights-banner.webp"],
     },
   };
 }

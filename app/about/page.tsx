@@ -35,10 +35,10 @@ export async function generateMetadata(): Promise<Metadata> {
       type: "website",
       images: [
         {
-          url: "/images/nexuskale-reception.png",
-          width: 1200,
-          height: 630,
-          alt: "NexSkale modern office reception",
+          url: "/images/about/foundations-banner.webp",
+          width: 1536,
+          height: 1024,
+          alt: "Interlocking glass and metal blocks beside product sketches, representing shared foundations",
         },
       ],
     },
@@ -47,7 +47,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: `About Us — A Team That Builds What Matters | ${c.brand.name}`,
       description:
         "We're more than a development company — we're a technology partner for ambitious businesses.",
-      images: ["/images/nexuskale-reception.png"],
+      images: ["/images/about/foundations-banner.webp"],
     },
   };
 }
@@ -111,7 +111,6 @@ export default async function Page() {
 
       {/* Hero Section matching Mockup Column 2 */}
       <PageHero
-        split
         badge="ABOUT NEXSKALE"
         title={
           <>
@@ -119,12 +118,12 @@ export default async function Page() {
             <br />
             builds what
             <br />
-            matters.
+            <span className="gradient-text">matters.</span>
           </>
         }
         description="We're more than a development company — we're a technology partner for ambitious businesses."
-        imageSrc="/images/nexuskale-reception.png"
-        imageAlt="Reception concept featuring the NexSkale purple and blue brand mark"
+        imageSrc="/images/about/foundations-banner.webp"
+        imageAlt="Interlocking glass and metal blocks beside product sketches, representing shared foundations"
       >
         <div className="mockup-hero-actions">
           <Link href="#story" className="mockup-btn-primary">
@@ -325,8 +324,8 @@ export default async function Page() {
             </div>
             <div className="about-careers-image">
               <Image
-                src="/images/reference/about-cta.webp"
-                alt="Professional working at night overlooking city skyline"
+                src="/images/careers/growth-banner.webp"
+                alt="Glass and oak steps leading to an open doorway, representing career growth"
                 fill
                 sizes="(max-width: 700px) 100vw, 70vw"
               />

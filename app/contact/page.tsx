@@ -22,10 +22,10 @@ export async function generateMetadata(): Promise<Metadata> {
       type: "website",
       images: [
         {
-          url: "/images/reference/team-meeting.webp",
-          width: 1200,
-          height: 630,
-          alt: "Contact NexSkale Team",
+          url: "/images/contact/communication-banner.webp",
+          width: 1536,
+          height: 1024,
+          alt: "Phone, headset and notebook ready for a conversation",
         },
       ],
     },
@@ -34,7 +34,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: `Contact Us — Let's Build Something Great Together | ${c.brand.name}`,
       description:
         "Have a project in mind or just want to say hello? We'd love to hear from you.",
-      images: ["/images/reference/team-meeting.webp"],
+      images: ["/images/contact/communication-banner.webp"],
     },
   };
 }

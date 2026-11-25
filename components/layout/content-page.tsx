@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import type { Content } from "@/lib/content";
+import SiteMotion from "@/components/site-motion";
 import Header from "./header";
 import Footer from "./footer";
 import "@/app/interior-pages.css";
@@ -14,6 +15,7 @@ export default function ContentPage({
 }) {
   return (
     <div className={"interior-site interior-" + currentPage}>
+      <SiteMotion revision={currentPage} />
       <Header
         brandName={content.brand.name}
         navigation={content.navigation}

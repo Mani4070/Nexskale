@@ -4145,11 +4145,32 @@ h1 {
   position: fixed;
   inset: 0 0 auto;
   height: 3px;
-  z-index: 20;
+  z-index: 1100;
   pointer-events: none;
   background: linear-gradient(90deg, #9a50ff, #655fff, #46a3ff);
-  transform: scaleX(0);
   transform-origin: left;
+}
+
+/* Lenis smooth scroll integration */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {

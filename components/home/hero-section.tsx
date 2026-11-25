@@ -1,133 +1,130 @@
 "use client";
 
-import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowRight,
-  ArrowDown,
-  Layers,
-  User,
-  Globe,
-  Star,
-  Play,
-  X,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import type { Content } from "@/lib/content";
-import StatCounter from "@/components/home/stat-counter";
 
 type HeroSectionProps = {
   hero: Content["hero"];
-  stats: Content["stats"];
+  stats?: Content["stats"];
 };
 
-function getStatIcon(label: string, index: number) {
-  const lower = label.toLowerCase();
-  if (lower.includes("satisfaction") || index === 3) {
-    return <Star size={24} strokeWidth={2} />;
-  }
-  if (lower.includes("countr") || index === 2) {
-    return <Globe size={24} strokeWidth={2} />;
-  }
-  if (lower.includes("happy") || lower.includes("client") || index === 1) {
-    return <User size={24} strokeWidth={2} />;
-  }
-  return <Layers size={24} strokeWidth={2} />;
-}
+const SHOWCASE_CARDS = [
+  {
+    src: "/images/services/web-development.jpg",
+    alt: "NexSkale Web Platform Engineering",
+    label: "Web Platforms",
+    href: "/services#web",
+  },
+  {
+    src: "/images/services/mobile-applications.jpg",
+    alt: "NexSkale Mobile App Development",
+    label: "Mobile Apps",
+    href: "/services#mobile",
+  },
+  {
+    src: "/images/services/saas-development.jpg",
+    alt: "NexSkale SaaS Product Dashboard",
+    label: "SaaS Products",
+    href: "/services#saas",
+  },
+  {
+    src: "/images/services/uiux-design.jpg",
+    alt: "NexSkale UI/UX Design Systems",
+    label: "UI/UX Design",
+    href: "/services#design",
+  },
+  {
+    src: "/images/services/ai-automation.jpg",
+    alt: "NexSkale AI and Workflow Automation",
+    label: "AI & Automation",
+    href: "/services#ai",
+  },
+] as const;
 
-export default function HeroSection({ hero, stats }: HeroSectionProps) {
-  const [videoOpen, setVideoOpen] = useState(false);
+const AVATAR_THEMES = [
+  { bg: "#ede9fe", accent: "#6d28d9" },
+  { bg: "#dbeafe", accent: "#2563eb" },
+  { bg: "#e0e7ff", accent: "#4338ca" },
+] as const;
 
+export default function HeroSection({ hero }: HeroSectionProps) {
   return (
-    <>
-      <section className="hero container">
-        {/* Hero Left Content Column */}
-        <div className="hero-content">
-          <div className="eyebrow hero-eyebrow">{hero.eyebrow}</div>
-          <h1 className="hero-title">
-            <span className="hero-title-row">
-              <span>{hero.title}</span>
-              <span className="hero-title-break"> </span>
-              <span>{hero.secondLine}</span>
-            </span>
-            <span className="hero-title-row">
-              <span className="hero-highlight">{hero.highlight}</span>
-            </span>
-          </h1>
-          <p className="hero-description">{hero.description}</p>
-          <div className="hero-actions">
-            <Link className="button hero-btn-primary" href="/contact">
-              Start a project <ArrowRight size={16} />
-            </Link>
-            <button
-              type="button"
-              className="button hero-btn-video"
-              onClick={() => setVideoOpen(true)}
-              aria-label="Watch video"
-            >
-              <span className="video-play-disc" aria-hidden="true">
-                <Play size={10} fill="currentColor" />
+    <section className="hero hero-cobalt">
+      {/* Centered Hero Copy & CTAs */}
+      <div className="hero-content hero-cobalt-content">
+        <div className="hero-status-pill">
+          <span className="hero-status-avatars" aria-hidden="true">
+            {AVATAR_THEMES.map((theme, idx) => (
+              <span
+                key={idx}
+                className="hero-status-avatar"
+                style={{ backgroundColor: theme.bg, color: theme.accent }}
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
+                  <circle cx="12" cy="8.5" r="3.5" />
+                  <path d="M5.5 19.5c0-3.3 2.9-5.5 6.5-5.5s6.5 2.2 6.5 5.5" />
+                </svg>
               </span>
-              <span>Watch video</span>
-            </button>
-          </div>
-        </div>
-
-        {/* Hero Bottom: Stats Row & Scroll Cue */}
-        <div className="hero-bottom">
-          <div className="stats">
-            {stats.map((s, idx) => (
-              <div key={s.label} className="hero-stat-item">
-                <div className="hero-stat-icon" aria-hidden="true">
-                  {getStatIcon(s.label, idx)}
-                </div>
-                <strong className="hero-stat-number">
-                  <StatCounter value={s.value} />
-                </strong>
-                <span className="hero-stat-label">{s.label}</span>
-              </div>
             ))}
-          </div>
+          </span>
+          <span className="hero-status-text">{hero.eyebrow}</span>
+        </div>
 
-          <a href="#about" className="scroll-cue" aria-label="Scroll to explore">
-            <span className="scroll-cue-circle" aria-hidden="true">
-              <ArrowDown size={14} />
+        <h1 className="hero-title hero-cobalt-title">
+          <span className="hero-title-row">
+            {hero.title} {hero.secondLine}
+          </span>
+          <span className="hero-title-row">
+            <span className="hero-highlight">{hero.highlight}</span>
+          </span>
+        </h1>
+
+        <p className="hero-description hero-cobalt-description">
+          {hero.description}
+        </p>
+
+        <div className="hero-actions hero-cobalt-actions">
+          <Link className="hero-pill-btn hero-pill-btn-white" href="/contact">
+            <span>Start a project</span>
+            <span className="hero-pill-btn-circle" aria-hidden="true">
+              <ArrowRight size={15} strokeWidth={2.25} />
             </span>
-            <span className="scroll-cue-text">SCROLL TO EXPLORE</span>
-          </a>
-        </div>
-      </section>
+          </Link>
 
-      {/* Video Modal */}
-      {videoOpen && (
-        <div
-          className="hero-video-modal-backdrop"
-          onClick={() => setVideoOpen(false)}
-          role="dialog"
-          aria-modal="true"
-        >
-          <div
-            className="hero-video-modal-box"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              type="button"
-              className="hero-video-modal-close"
-              onClick={() => setVideoOpen(false)}
-              aria-label="Close video"
-            >
-              <X size={20} />
-            </button>
-            <div className="hero-video-container">
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=1"
-                title="NexSkale Brand Story"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-          </div>
+          <Link className="hero-pill-btn hero-pill-btn-blue" href="#work">
+            <span>See our work</span>
+            <span className="hero-pill-btn-circle" aria-hidden="true">
+              <ArrowRight size={15} strokeWidth={2.25} />
+            </span>
+          </Link>
         </div>
-      )}
-    </>
+      </div>
+
+      {/* Bottom Fanned Showcase Cards */}
+      <div className="hero-showcase-fan" aria-label="Featured capabilities">
+        {SHOWCASE_CARDS.map((card, idx) => (
+          <Link
+            key={card.label}
+            href={card.href}
+            className={`hero-fan-card hero-fan-card-${idx}`}
+            aria-label={card.label}
+          >
+            <span className="hero-fan-card-badge">{card.label}</span>
+            <span className="hero-fan-card-media">
+              <Image
+                src={card.src}
+                alt={card.alt}
+                fill
+                preload={idx >= 1 && idx <= 3}
+                sizes="(max-width: 700px) 34vw, 240px"
+                className="hero-fan-card-img"
+              />
+            </span>
+          </Link>
+        ))}
+      </div>
+    </section>
   );
 }

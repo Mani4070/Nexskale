@@ -28,6 +28,8 @@ export default function Header({
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string>(currentPage || "home");
   const pathname = usePathname();
+  const isHome = pathname === "/";
+  const isCompact = isHome || isScrolled;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -76,10 +78,10 @@ export default function Header({
   return (
     <>
       <header
-        className={`site-header-wrapper ${isScrolled ? "is-scrolled" : ""} ${!isScrolled && pathname === "/" ? "is-hero-visible" : ""}`}
+        className={`site-header-wrapper ${isCompact ? "is-scrolled" : "is-expanded"} ${isHome ? "is-home-static" : ""}`.trim()}
       >
-        <div className="site-header container">
-          <Logo name={brandName} height={40} variant={!isScrolled && pathname === "/" ? "dark" : "light"} />
+        <div className="site-header hero-pill-header">
+          <Logo name={brandName} height={30} variant="dark" />
           <nav
             aria-label="Main navigation"
             className={mobile ? "navigation is-open" : "navigation"}
@@ -99,15 +101,16 @@ export default function Header({
                   }}
                 >
                   <span>{n.label}</span>
-                  {active && (
-                    <span className="nav-active-bar" aria-hidden="true" />
-                  )}
+                  {active && <span className="pill-nav-dot" aria-hidden="true" />}
                 </Link>
               );
             })}
           </nav>
-          <Link className="button header-cta" href="/contact">
-            Let’s build <ArrowRight size={15} />
+          <Link className="hero-pill-cta" href="/contact">
+            <span>Start a project</span>
+            <span className="hero-pill-cta-icon" aria-hidden="true">
+              <ArrowRight size={14} strokeWidth={2.3} />
+            </span>
           </Link>
           <button
             className="menu-toggle"

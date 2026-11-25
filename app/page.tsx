@@ -52,10 +52,12 @@ export default async function Home() {
       <SiteMotion revision="home" />
       <div className="dark-top home-dark-top" id="home">
         <HeroVideo />
+        <div className="hero-video-veil" aria-hidden="true" />
         <Header
           brandName={content.brand.name}
           navigation={content.navigation}
           currentPage="home"
+          hideSpacer
         />
         <div className="hero-wrapper">
           <HeroSection hero={content.hero} stats={content.stats} />

@@ -27,7 +27,7 @@
 .interior-site h1,
 .interior-site h2,
 .interior-site h3 {
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-heading);
 }
 .interior-site main h1 {
   font-size: clamp(42px, 5.1vw, 76px);
@@ -53,7 +53,7 @@
   font-size: 16px;
 }
 .interior-site main em {
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-heading);
   font-style: normal;
   font-weight: 800;
   color: var(--page-purple);
@@ -1137,7 +1137,7 @@
 .capability-index a span,
 .capability-number {
   color: #6366f1;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-heading);
   font-weight: 750;
 }
 .capability-row {
@@ -1197,7 +1197,7 @@
   box-shadow: 0 12px 40px #24244807;
 }
 .journal-entry-number {
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-heading);
   font-weight: 750;
   color: #818cf8;
 }

@@ -7,6 +7,7 @@ import HeroSection from "@/components/home/hero-section";
 import TechStackSection from "@/components/home/tech-stack-section";
 import ServicesSection from "@/components/services/services-section";
 import AboutSection from "@/components/about/about-section";
+import ProcessSection from "@/components/home/process-section";
 import WorkSection from "@/components/products/work-section";
 import ContactBanner from "@/components/contact/contact-banner";
 import BlogSection from "@/components/blog/blog-section";
@@ -67,6 +68,7 @@ export default async function Home() {
       <main>
         <ServicesSection services={content.services} isHome />
         <AboutSection about={content.about} isHome />
+        <ProcessSection />
         <WorkSection projects={content.projects} isHome />
         <ContactBanner />
         <BlogSection posts={content.posts} isHome />
